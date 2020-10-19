@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CandidatureAppelProjet index{% endblock %}
+
+{% block body %}
+    <h1>CandidatureAppelProjet index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Email</th>
+                <th>Numero_tel</th>
+                <th>Fiche_projet</th>
+                <th>Fiche_budjet</th>
+                <th>Recepisse</th>
+                <th>Statut</th>
+                <th>Proce_verbal</th>
+                <th>Url_site</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for candidature_appel_projet in candidature_appel_projets %}
+            <tr>
+                <td>{{ candidature_appel_projet.id }}</td>
+                <td>{{ candidature_appel_projet.nom }}</td>
+                <td>{{ candidature_appel_projet.description }}</td>
+                <td>{{ candidature_appel_projet.email }}</td>
+                <td>{{ candidature_appel_projet.numeroTel }}</td>
+                <td>{{ candidature_appel_projet.ficheProjet }}</td>
+                <td>{{ candidature_appel_projet.ficheBudjet }}</td>
+                <td>{{ candidature_appel_projet.recepisse }}</td>
+                <td>{{ candidature_appel_projet.statut }}</td>
+                <td>{{ candidature_appel_projet.proceVerbal }}</td>
+                <td>{{ candidature_appel_projet.urlSite }}</td>
+                <td>
+                    <a href="{{ path('candidature_appel_projet_show', {'id': candidature_appel_projet.id}) }}">show</a>
+                    <a href="{{ path('candidature_appel_projet_edit', {'id': candidature_appel_projet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('candidature_appel_projet_new') }}">Create new</a>
+{% endblock %}

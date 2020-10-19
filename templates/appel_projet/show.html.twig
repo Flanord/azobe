@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AppelProjet{% endblock %}
+
+{% block body %}
+    <h1>AppelProjet</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appel_projet.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ appel_projet.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appel_projet.description }}</td>
+            </tr>
+            <tr>
+                <th>Start_date</th>
+                <td>{{ appel_projet.startDate ? appel_projet.startDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End_date</th>
+                <td>{{ appel_projet.endDate ? appel_projet.endDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appel_projet_index') }}">back to list</a>
+
+    <a href="{{ path('appel_projet_edit', {'id': appel_projet.id}) }}">edit</a>
+
+    {{ include('appel_projet/_delete_form.html.twig') }}
+{% endblock %}

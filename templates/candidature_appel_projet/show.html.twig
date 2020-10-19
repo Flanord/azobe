@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CandidatureAppelProjet{% endblock %}
+
+{% block body %}
+    <h1>CandidatureAppelProjet</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ candidature_appel_projet.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ candidature_appel_projet.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ candidature_appel_projet.description }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ candidature_appel_projet.email }}</td>
+            </tr>
+            <tr>
+                <th>Numero_tel</th>
+                <td>{{ candidature_appel_projet.numeroTel }}</td>
+            </tr>
+            <tr>
+                <th>Fiche_projet</th>
+                <td>{{ candidature_appel_projet.ficheProjet }}</td>
+            </tr>
+            <tr>
+                <th>Fiche_budjet</th>
+                <td>{{ candidature_appel_projet.ficheBudjet }}</td>
+            </tr>
+            <tr>
+                <th>Recepisse</th>
+                <td>{{ candidature_appel_projet.recepisse }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ candidature_appel_projet.statut }}</td>
+            </tr>
+            <tr>
+                <th>Proce_verbal</th>
+                <td>{{ candidature_appel_projet.proceVerbal }}</td>
+            </tr>
+            <tr>
+                <th>Url_site</th>
+                <td>{{ candidature_appel_projet.urlSite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('candidature_appel_projet_index') }}">back to list</a>
+
+    <a href="{{ path('candidature_appel_projet_edit', {'id': candidature_appel_projet.id}) }}">edit</a>
+
+    {{ include('candidature_appel_projet/_delete_form.html.twig') }}
+{% endblock %}
