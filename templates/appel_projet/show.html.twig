@@ -20,6 +20,10 @@
                 <td>{{ appel_projet.description }}</td>
             </tr>
             <tr>
+                <th>Secteur</th>
+                <td>{{ appel_projet.secteur.nom }}</td>
+            </tr>
+            <tr>
                 <th>Start_date</th>
                 <td>{{ appel_projet.startDate ? appel_projet.startDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>

@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\AppelProjet;
 use App\Entity\CandidatureAppelProjet;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +16,10 @@ class CandidatureAppelProjetType extends AbstractType
         $builder
             ->add('nom')
             ->add('description')
+            ->add('appelprojet', EntityType::class, [
+                'class'=>AppelProjet::class,
+                'choice_label'=>'title'
+            ])
             ->add('email')
             ->add('numero_tel')
             ->add('fiche_projet')

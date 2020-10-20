@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\AppelProjet;
+use App\Entity\Secteur;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,6 +15,10 @@ class AppelProjetType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add ('secteur', EntityType::class, [
+                'class'=>Secteur::class,
+                'choice_label'=>'nom'
+            ])
             ->add('description')
             ->add('start_date')
             ->add('end_date')

@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\CandidatureAppelProjetRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -66,6 +65,14 @@ class CandidatureAppelProjet
      * @ORM\Column(type="string", length=255)
      */
     private $url_site;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="candidatureAppelProjets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $appelprojet;
+
+    
 
     public function getId(): ?int
     {
@@ -191,4 +198,18 @@ class CandidatureAppelProjet
 
         return $this;
     }
+
+    public function getAppelprojet(): ?AppelProjet
+    {
+        return $this->appelprojet;
+    }
+
+    public function setAppelprojet(?AppelProjet $appelprojet): self
+    {
+        $this->appelprojet = $appelprojet;
+
+        return $this;
+    }
+
+   
 }

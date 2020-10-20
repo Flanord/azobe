@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SecteurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,18 @@ class Secteur
      */
     private $nom;
 
+    /**
+     * @ORM\OneToMany(targetEntity=AppelProjet::class, mappedBy="secteur")
+     */
+    private $appelProjets;
+
+    
+
+    public function __construct()
+    {
+        $this->appelProjets = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -38,4 +52,37 @@ class Secteur
 
         return $this;
     }
+
+    /**
+     * @return Collection|AppelProjet[]
+     */
+    public function getAppelProjets(): Collection
+    {
+        return $this->appelProjets;
+    }
+
+    public function addAppelProjet(AppelProjet $appelProjet): self
+    {
+        if (!$this->appelProjets->contains($appelProjet)) {
+            $this->appelProjets[] = $appelProjet;
+            $appelProjet->setSecteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAppelProjet(AppelProjet $appelProjet): self
+    {
+        if ($this->appelProjets->contains($appelProjet)) {
+            $this->appelProjets->removeElement($appelProjet);
+            // set the owning side to null (unless already changed)
+            if ($appelProjet->getSecteur() === $this) {
+                $appelProjet->setSecteur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
 }

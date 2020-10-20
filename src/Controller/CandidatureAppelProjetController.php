@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\AppelProjet;
 use App\Entity\CandidatureAppelProjet;
 use App\Form\CandidatureAppelProjetType;
 use App\Repository\CandidatureAppelProjetRepository;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/candidature/appel/projet")
  */
-class CandidatureAppelProjetController extends AbstractController
+class CandidatureAppelProjetController extends AbstractController 
 {
     /**
      * @Route("/", name="candidature_appel_projet_index", methods={"GET"})
@@ -51,8 +52,13 @@ class CandidatureAppelProjetController extends AbstractController
     /**
      * @Route("/{id}", name="candidature_appel_projet_show", methods={"GET"})
      */
-    public function show(CandidatureAppelProjet $candidatureAppelProjet): Response
+    public function show(CandidatureAppelProjet $candidatureAppelProjet, $id): Response
     {
+        $candidatureAppelProjet = $this -> getDoctrine()
+                    ->getRepository(CandidatureAppelProjet::class)
+                    ->find($id);
+        $appelprojetTitle = $candidatureAppelProjet->getAppelProjet()->getTitle();
+
         return $this->render('candidature_appel_projet/show.html.twig', [
             'candidature_appel_projet' => $candidatureAppelProjet,
         ]);

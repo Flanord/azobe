@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Secteur</th>
                 <th>Start_date</th>
                 <th>End_date</th>
                 <th>actions</th>
@@ -22,6 +23,7 @@
                 <td>{{ appel_projet.id }}</td>
                 <td>{{ appel_projet.title }}</td>
                 <td>{{ appel_projet.description }}</td>
+                <td>{{ appel_projet.secteur.nom }}</td>
                 <td>{{ appel_projet.startDate ? appel_projet.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ appel_projet.endDate ? appel_projet.endDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
