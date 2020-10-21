@@ -1,0 +1,49 @@
+
+.dropright{
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(#fff 0%, #fff 50%, #42a8f9 50%, #42a8f9 100%);
+  font-family: sans-serif;
+}
+.navigation{
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background: #454554;
+  padding: 20px;
+  transition: 0.5s;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.menu{
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  overflow: hidden;
+  display: flex;
+  transition: 0.5s;
+}
+.menu li{
+  opacity: 1;
+  transition: 0.5s;
+}
+.navigation input{
+  opacity: 0;
+}
+.navigation input:checked ~ .menu {
+  width: 400px;
+}
+.navigation input:checked ~ .menu  li{
+  display: block;
+}
+.navigation label{
+  position: absolute;
+  right: 5px;
+}
