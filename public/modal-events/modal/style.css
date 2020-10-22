@@ -1,0 +1,54 @@
+/*---------------------------navbar---------------------------------------------*/
+
+
+.micro1 {
+
+	position: absolute;
+	bottom: 50px;
+	margin-left: 580px;
+	height: 20px;
+
+
+}
+
+.input1 {
+	margin-left: 40px;
+	padding-left: 300px;
+	margin-top: 60px;
+	padding-top: 10px;
+	width: 600px;
+	height: 40px;
+	border-radius: 70px;
+	border: 1px solid silver;
+
+}
+
+.input1:hover {
+
+	box-shadow: 1px 1px 1px 1px silver;
+}
+
+.navbar{
+	background-color: #fafafa;
+	
+}
+
+
+
+
+/*----------------------modal--------------------------------------------------------*/
+
+.bg {
+
+	padding: 0px;
+}
+
+.bg-modal {
+	background: url(./image/macron3.jpg)no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.ze-pad {
+	padding: 30%;
+}

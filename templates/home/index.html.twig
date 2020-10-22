@@ -4,4 +4,8 @@
 
 {% block body %}
 <h1>Page d'acceuil AZOBE CRA</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
 {% endblock %}
