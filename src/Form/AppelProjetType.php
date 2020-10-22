@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\AppelProjet;
 use App\Entity\Secteur;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +20,7 @@ class AppelProjetType extends AbstractType
                 'class'=>Secteur::class,
                 'choice_label'=>'nom'
             ])
-            ->add('description')
+            ->add('description',CKEditorType::class)
             ->add('start_date')
             ->add('end_date')
         ;

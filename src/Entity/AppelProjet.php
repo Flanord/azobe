@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Secteur;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=AppelProjetRepository::class)
@@ -31,11 +32,13 @@ class AppelProjet
     private $description;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $start_date;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $end_date;
@@ -51,16 +54,19 @@ class AppelProjet
      */
     private $secteur;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $active;
+    
 
     /**
      * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="appelProjets")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -101,24 +107,24 @@ class AppelProjet
         return $this->start_date;
     }
 
-    public function setStartDate(\DateTimeInterface $start_date): self
-    {
-        $this->start_date = $start_date;
+    // public function setStartDate(\DateTimeInterface $start_date): self
+    // {
+    //     $this->start_date = $start_date;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getEndDate(): ?\DateTimeInterface
     {
         return $this->end_date;
     }
 
-    public function setEndDate(\DateTimeInterface $end_date): self
-    {
-        $this->end_date = $end_date;
+    // public function setEndDate(\DateTimeInterface $end_date): self
+    // {
+    //     $this->end_date = $end_date;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection|CandidatureAppelProjet[]
@@ -163,17 +169,17 @@ class AppelProjet
         return $this;
     }
 
-    public function getActive(): ?bool
-    {
-        return $this->active;
-    }
+    // public function getActive(): ?bool
+    // {
+    //     return $this->active;
+    // }
 
-    public function setActive(bool $active): self
-    {
-        $this->active = $active;
+    // public function setActive(bool $active): self
+    // {
+    //     $this->active = $active;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getUser(): ?Users
     {
@@ -185,5 +191,10 @@ class AppelProjet
         $this->user = $user;
 
         return $this;
+    }
+
+    public function getSlug(): ?AppelProjet
+    {
+        return $this->slug;
     }
 }

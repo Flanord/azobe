@@ -54,6 +54,17 @@ class HomeController extends AbstractController
      */
     public function fonddocumentaire()
     {
-        return $this->render('cnetrederechercheaction/fonddocumentaire.html.twig');
+        return $this->render('centrederechercheaction/fonddocumentaire.html.twig');
     }
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function admin()
+    {
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController']);
+    }
+
+
 }
