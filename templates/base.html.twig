@@ -1,12 +1,419 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+       <!-- Basic Page Needs =====================================-->
+	    <meta charset="utf-8">
+	    <!-- Mobile Specific Metas ================================-->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Site Title- -->
+        <title>{% block title %}AZOBE.CRA{% endblock %}</title>
+        
+        <!-- CSS ====================================== -->
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="{{ asset('css/uikit.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+	<!-- IcoFonts -->
+	<link rel="stylesheet" href="{{ asset('css/icofonts.css') }}">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{{ asset('css/owlcarousel.min.css') }}">
+	<!-- slick -->
+	<link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+	<!-- AZ -->
+	<link rel="stylesheet" href="{{ asset('css/az-style.css') }}">
+	<!-- navigation -->
+	<link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+	<!-- Style -->
+	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<!-- Style -->
+	<link rel="stylesheet" href="{{ asset('css/colors/color-13.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/colors/color-15.css') }}">
+	<!-- Responsive -->
+	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/cookies.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        <!--SectionDegre-->
+       <section class="top-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 align-self-center md-center-item">
+						<div class="ts-temperature">
+							<i class="icon-weather"></i>
+							<span>25.8
+								<b>c</b>
+							</span>
+							<span>Libreville</span>
+
+						</div>
+
+						<ul class="ts-top-nav">
+							<li>
+								<a href="#">Blog</a>
+							</li>
+							<li>
+								<a href="#">Forums</a>
+							</li>
+							<li>
+								<a href="us-contact.html">Contact</a>
+							</li>
+							<li>
+								<a href="#">FAQ</a>
+							</li>
+						</ul>
+
+					</div>
+					<!-- end col-->
+
+					<div class="col-md-6 text-right align-self-center">
+						<!-- social-->
+						<ul class="top-social">
+							<li>
+								<a href="#">
+									<i class="fa fa-facebook-f"></i>
+								</a>
+							</li>
+							<li> 
+								<a href="#">
+									<i class="fa fa-linkedin"></i> 
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-instagram"></i>  
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-youtube-square"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!--end col -->
+
+
+				</div>
+				<!-- end row -->
+			</div>
+		</section>
+
+         <!--Actualité défillante-->
+        <section class="top-bar v4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 align-self-center">
+						<div class="ts-breaking-news clearfix">
+							<h2 class="breaking-title float-left">Actualités:</h2>
+							<div class="breaking-news-content float-left slick-initialized slick-slider" id="breaking_slider1">
+								<div aria-live="polite" class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" role="listbox" style="opacity: 1; width: 15000px; left: -1819.19px;"><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
+									<p>
+										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide slick-cloned slick-center" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+									<p>
+										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00">
+									<p>
+										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01">
+									<p>
+										<a href="#" tabindex="0">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide slick-current slick-active slick-center" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02">
+									<p>
+										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1">
+									<p>
+										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
+									</p>
+								</div><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1">
+									<p>
+										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
+									</p>
+								</div></div></div>
+								
+								
+							</div>
+						</div>
+					</div>
+					<!-- end col-->
+
+					<div class="col-md-5 align-self-center">
+						<div class="text-right xs-left">
+							<div class="ts-date-item">
+								Lundi, 14 septembre 20</div>
+						</div>
+
+					</div>
+					<!--end col -->
+
+
+				</div>
+				<!-- end row -->
+			</div>
+		</section>
+        <!--Appel à projet-->
+        <section class="header-middle">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4  align-self-center d-flex">
+						<div class="header-logo"> 
+							<a href="{{path('home')}}">
+								<img src="{{asset('images/logo/azologo.png')}}" alt="logo AZOBE" width="150px">
+							</a>
+						</div>
+					</div>
+
+
+					<div class="col-md-8 align-self-center">
+						<div class="banner-img">
+							<a href="#" data-toggle="modal" data-target="#exampleModal">
+								<img class="img-fluid" src="{{asset('images/banner/banner12.jpg')}}" alt="Bannière appel à projet">
+							</a>
+						</div>
+					</div>
+					<!-- col end -->
+				</div>
+				<!-- row  end -->
+			</div>
+			<!-- container end -->
+		</section>
+
+        <!--Menu de navigation-->
+        <header class="navbar-standerd nav-item">
+			<div class="container">
+				<div class="row">
+
+					<!-- logo end-->
+					<div class="col-lg-12">
+						<!--nav top end-->
+						<nav class="navigation ts-main-menu ts-menu-sticky navigation-landscape">
+							<div class="nav-header">
+								<a class="nav-brand mobile-logo visible-xs" href="index-2.html">
+									<img src="{{asset('images/logo/ne1.png')}}" alt="" width="120">
+								</a>
+								<div class="nav-toggle"></div>
+							</div>
+							<!--nav brand end-->
+
+							<div class="nav-menus-wrapper clearfix" style="transition-property: none;"><span class="nav-menus-wrapper-close-button">✕</span>
+								<!--nav right menu start-->
+								<ul class="right-menu align-to-right">
+									<li>
+										<a href="{{path('app_login')}}">
+											<i class="fa fa-user"></i>
+										</a>
+									</li>
+									<li class="header-search">
+										<div class="nav-search">
+											<div class="nav-search-button">
+												<i class="icon icon-search"></i>
+											</div>
+											<form><span class="nav-search-close-button" tabindex="0">✕</span>
+												<span class="nav-search-close-button" tabindex="0">✕</span>
+												<div class="nav-search-inner">
+													<input type="search" name="search" placeholder="Texte de recherche">
+												</div>
+											</form>
+										</div>
+									</li>
+								</ul>
+								<!--nav right menu end-->
+
+								<!-- nav menu start-->
+								<ul class="nav-menu">
+									<li class="active">
+										<a href="{{path('home')}}">Accueil</a>
+									</li>
+									<li class="">
+										<a href="{{path('quisommesnous')}}">Qui sommes-nous</a>
+									</li>
+									<li class="">
+										<a href="{{path('appelaprojet')}}">Appels à Projets</a>
+									</li>
+									
+									<li class="">
+											<a href="#">Centre de Recherche-Action<span class="submenu-indicator"></span></a>
+											<ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
+												<li>
+													<a href="{{path('etude')}}">Etudes</a>
+												</li>
+												<li>
+													<a href="{{path('acteurs')}}">Acteurs</a>												
+												</li>
+												<li>
+													<a href="{{path('fonddocumentaire')}}">Fonds Documentaires</a>
+												</li>
+											</ul>
+									
+								</ul>
+								<!--nav menu end-->
+							</div>
+						<div class="nav-overlay-panel"></div></nav>
+						<!-- nav end-->
+					</div>
+				</div>
+			</div>
+		</header>
+        
+    {% block section %}{% endblock %}
+
+	{% block registration %}
+		
+	{% endblock %}
+
+    {% block footer %} {% endblock %}
+    <!--Section Newsletter-->
+		<section class="ts-newslatter">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="ts-newslatter-content">
+							<h3 class="h4">
+								Enregistrez-vous pour recevoir le bulletin d'informations
+							</h3>
+							<p>
+								Rejoignez notre newsletter et recevez des mises à jour dans votre boîte de réception. Nous
+								ne vous enverrons pas de spam et nous respectons votre vie privée.
+							</p>
+						</div>
+					</div>
+					<!-- col end-->
+
+					<div class="col-lg-6">
+						<div class="newsletter-form">
+							<form action="#" method="post" class="media align-items-end">
+								<div class="email-form-group media-body">
+									<i class="fa fa-paper-plane" aria-hidden="true"></i>
+									<input type="email" name="email" id="newsletter-form-email" class="form-control" placeholder="Entrez votre adresse email" autocomplete="off" required="">
+								</div>
+								<div class="d-flex ts-submit-btn">
+									<button class="btn btn-primary">Souscrire</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--End Section Newsletter-->
+
+		<!--Footer-->
+		<footer class="ts-footer ts-footer-2 bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="footer-menu_in text-center">
+							<ul class="menu_in">
+								<li>
+									<a href="us-contact.html">Contact</a>
+								</li>
+								<li>
+									<a href="#">Données personnelles</a>
+								</li>
+								<li>
+									<a href="#">Mentions légales</a>
+								</li>
+								<li>
+									<a href="#">Politique de confidentialité</a>
+								</li>
+								<li>
+									<a href="#">Termes et Conditions</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<!-- end row-->
+				<div class="row">
+					<div class="col-md-6">
+						<div class="copyright-text">
+							<p>©
+								<a href="#">AZOBE.CRA.COM</a>.Tous droits réservés.
+							</p>
+						</div>
+					</div>
+					<!-- col end-->
+					<div class="col-md-6">
+						<ul class="footer-social-list text-right">
+							<li class="ts-facebook">
+								<a href="#">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</li>
+							<li class="ts-instagram_in">
+								<a href="#">
+									<i class="fa fa-instagram"></i>
+								</a>
+							</li>
+							<li class="ts-twitter">
+								<a href="#">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</li>
+							<li class="ts-youtube">
+								<a href="#">
+									<i class="fa fa-youtube-play"></i>
+								</a>
+							</li>
+							<li class="ts-linkedin">
+								<a href="#">
+									<i class="fa fa-linkedin"></i>
+								</a>
+
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="back-to-top" class="back-to-top" style="">
+					<button class="btn btn-primary" title="Back to Top" style="background:#F94340">
+						<i class="fa fa-angle-up"></i>
+					</button>
+				</div>
+				<!-- Back to top end -->
+			</div>
+		</footer>
+		<!--End Footer-->
+    <!-- javaScript Files
+	=============================================================================-->
+
+	<!-- <script src="https://kit.fontawesome.com/1bbfd94ab9.js"></script> -->
+	<!-- initialize jQuery Library -->
+	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<!-- navigation JS -->
+	<script src="{{ asset('js/navigation.js') }}"></script>
+	<!-- Popper JS -->
+	<script src="{{ asset('js/popper.min.js') }}"></script>
+	<!-- magnific popup JS -->
+	<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+	<!-- Bootstrap jQuery -->
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<!-- Owl Carousel -->
+	<script src="{{ asset('js/owl-carousel.2.3.0.min.js') }}"></script>
+	<!-- slick -->
+	<script src="{{ asset('js/slick.min.js') }}"></script>
+	<!-- Index Js -->
+	<script src="{{ asset('js/index.js') }}"></script>
+	<!-- smooth scroling -->
+	<script src="js/smoothscroll.js') }}"></script>
+	<!-- smooth scroling -->
+	<script src="js/custum.js') }}"></script>
+	<script src="js/main.js') }}"></script>
+    {% block javascripts %}{% endblock %}
     </body>
 </html>
