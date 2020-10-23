@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\AppelProjet;
 use App\Form\AppelProjetType;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/appel/projet")
+ * @Route("admin/appel/projet", name="admin_appel_projet")
  */
 class AppelProjetController extends AbstractController
 {
@@ -20,7 +20,7 @@ class AppelProjetController extends AbstractController
      */
     public function index(AppelProjetRepository $appelProjetRepository): Response
     {
-        return $this->render('appel_projet/index.html.twig', [
+        return $this->render('admin/appel_projet/index.html.twig', [
             'appel_projets' => $appelProjetRepository->findAll(),
         ]);
     }
@@ -39,10 +39,10 @@ class AppelProjetController extends AbstractController
             $entityManager->persist($appelProjet);
             $entityManager->flush();
 
-            return $this->redirectToRoute('appel_projet_index');
+            return $this->redirectToRoute('admin/appel_projet_index');
         }
 
-        return $this->render('appel_projet/new.html.twig', [
+        return $this->render('admin/appel_projet/new.html.twig', [
             'appel_projet' => $appelProjet,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class AppelProjetController extends AbstractController
      */
     public function show(AppelProjet $appelProjet): Response
     {
-        return $this->render('appel_projet/show.html.twig', [
+        return $this->render('admin/appel_projet/show.html.twig', [
             'appel_projet' => $appelProjet,
         ]);
     }
@@ -72,7 +72,7 @@ class AppelProjetController extends AbstractController
             return $this->redirectToRoute('appel_projet_index');
         }
 
-        return $this->render('appel_projet/edit.html.twig', [
+        return $this->render('admin/appel_projet/edit.html.twig', [
             'appel_projet' => $appelProjet,
             'form' => $form->createView(),
         ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Edito;
 use App\Form\EditoType;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/edito")
+ * @Route("admin/edito", name="admin_edito")
  */
 class EditoController extends AbstractController
 {
@@ -20,7 +20,7 @@ class EditoController extends AbstractController
      */
     public function index(EditoRepository $editoRepository): Response
     {
-        return $this->render('edito/index.html.twig', [
+        return $this->render('admin/edito/index.html.twig', [
             'editos' => $editoRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class EditoController extends AbstractController
             return $this->redirectToRoute('edito_index');
         }
 
-        return $this->render('edito/new.html.twig', [
+        return $this->render('admin/edito/new.html.twig', [
             'edito' => $edito,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class EditoController extends AbstractController
      */
     public function show(Edito $edito): Response
     {
-        return $this->render('edito/show.html.twig', [
+        return $this->render('admin/edito/show.html.twig', [
             'edito' => $edito,
         ]);
     }
@@ -72,7 +72,7 @@ class EditoController extends AbstractController
             return $this->redirectToRoute('edito_index');
         }
 
-        return $this->render('edito/edit.html.twig', [
+        return $this->render('admin/edito/edit.html.twig', [
             'edito' => $edito,
             'form' => $form->createView(),
         ]);
