@@ -1,5 +1,5 @@
 fm_elfinder:
-    assets_path: /asset
+    assets_path: /assets
     instances:
         default:
             locale: fr
