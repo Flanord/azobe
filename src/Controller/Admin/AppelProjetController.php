@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/appel/projet", name="admin_appel_projet")
+ * @Route("/appel/projet", name="appel_projet")
  */
 class AppelProjetController extends AbstractController
 {

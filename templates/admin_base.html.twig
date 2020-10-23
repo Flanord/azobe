@@ -1,51 +1,4 @@
-{# <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Azobe-Administration{% endblock %}</title>
-
-        <link rel="stylesheet" href="{{asset('admin-css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/dropright.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-
-
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
- #}
-
-
-{# <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Azobe-Administration{% endblock %}</title>
-
-        <link rel="stylesheet" href="{{asset('admin-css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/dropright.css')}}">
-        <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-
-
-        {% block body %}{% endblock %}
-
-
-
-
-        {% block javascripts %}{% endblock %}
-    </body>
-</html> #}
-
-
-<!doctype html>
+<!Doctype html>
 <html lang="fr">
 
 <head>
@@ -53,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Language" content="en">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  {% block meta %}{% endblock %}
    <title>{% block title %}Azobe-Administration{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
   <meta name="description" content="ArchitectUI HTML Bootstrap 4 Dashboard Template">
@@ -66,6 +20,7 @@
   <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
   <link href="{{asset('admin-css/main.cba69814a806ecc7945a.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
+  {% block stylesheets %}{% endblock %}
 </head>
 
 <body>
