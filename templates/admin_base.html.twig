@@ -20,12 +20,282 @@
   <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
   <link href="{{asset('admin-css/main.cba69814a806ecc7945a.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('admin-css/master.css')}}">
-  {% block stylesheets %}{% endblock %}
+
+  {% block stylesheets %}
+  <style type="text/css">
+    
+    div.header-btn-lg::before {
+    position: absolute;
+    left: -10px!important;
+    top: 50%;
+    background: #000!important;
+    width: 1px;
+    height: 30px;
+    margin-top: -15px;
+    content: '';
+}
+
+body {
+  overflow-x: hidden;
+}
+  </style>
+  {% endblock %}
 </head>
 
 <body>
   
-   {% block body %}{% endblock %}
+   {% block body %}
+    <div class="app-header header-shadow">
+  <a href="index.php">
+    <div class="app-header__logo">
+      <div class="logo-src" style="background: url(assets/images/logo-inverse.png)" title="Accueil"></div>
+    </div>
+  </a>
+
+  <div class="app-header__mobile-menu">
+    <div>
+      <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div class="app-header__menu">
+    <span>
+      <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+        <span class="btn-icon-wrapper">
+          <i class="fa fa-ellipsis-v fa-w-6"></i>
+        </span>
+      </button>
+    </span>
+  </div>
+
+
+  <div class="app-header__content">
+    <div class="app-header-left">
+      <div class="row justify-content-centers" style="margin-left:300px;">
+        <div class="d-inline-block dropdown action-boutons">
+          <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-primary btn-pill" style="font-size:1.1em;">
+            <span class="btn-icon-wrapper opacity-7">
+              <i class="pe-7s-note2 mr-2"></i>
+            </span>
+            Consulter
+          </button>
+          <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+            <ul class="nav flex-column liens-consult">
+              <li class="nav-item">
+                <a href="edito.php" class="nav-link">
+                  <i class="nav-link-icon pe-7s-news-paper font-weight-bold"></i>
+                  <span>
+                    Editos
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="membres.php" class="nav-link">
+                  <i class="nav-link-icon lnr-users font-weight-bold"></i>
+                  <span>
+                    Membres
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="structures.php" class="nav-link">
+                  <i class="nav-link-icon lnr-apartment font-weight-bold"></i>
+                  <span>
+                    Structures
+                  </span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="evenements.php" class="nav-link">
+                  <i class="nav-link-icon pe-7s-date font-weight-bold"></i>
+                  <span>
+                    Evènements
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="projets.php" class="nav-link">
+                  <i class="nav-link-icon pe-7s-note2 font-weight-bold"></i>
+                  <span>
+                    Projets
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="articles.php" class="nav-link">
+                  <i class="nav-link-icon pe-7s-file font-weight-bold"></i>
+                  <span>
+                    Articles
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="bibliotheque.php" class="nav-link">
+                  <i class="nav-link-icon pe-7s-notebook font-weight-bold"></i>
+                  <span>
+                    Bibliothèque
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="statistiques.php" class="nav-link">
+                  <i class="nav-link-icon lnr-pie-chart font-weight-bold"></i>
+                  <span>
+                    Statistiques
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+
+        <div class="d-inline-block dropdown action-boutons">
+          <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-secondary btn-pill" style="font-size:1.1em;">
+            <span class="btn-icon-wrapper opacity-7">
+              <i class="pe-7s-back-2 mr-2"></i>
+            </span>
+            Publier
+          </button>
+          <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+            <ul class="nav flex-column liens-publier">
+              <li class="nav-item">
+                  <a href="#" class="nav-link" data-toggle="modal" data-target="#editorial">
+                   <i class="nav-link-icon pe-7s-news-paper font-weight-bold"></i>
+                    <span>
+                      Edito
+                    </span>
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#article">
+                  <i class="nav-link-icon pe-7s-file font-weight-bold"></i>
+                  <span>
+                    Article
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#appel-projet">
+                  <i class="nav-link-icon pe-7s-speaker font-weight-bold"></i>
+                  <span>
+                    Appel à projet
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" data-toggle="modal" data-target="#evenement">
+                  <i class="nav-link-icon pe-7s-date font-weight-bold"></i>
+                  <span>
+                    Evènement
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" data-toggle="modal" data-target="#ressource" class="nav-link">
+                  <i class="nav-link-icon lnr-book font-weight-bold"></i>
+                  <span>
+                    Ressource
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="app-header-right">
+      <div class="header-btn-lg pr-0">
+        <div class="widget-content p-0">
+          <div class="widget-content-wrapper">
+            <div class="widget-content-left">
+              <div class="btn-group">
+                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                  <img width="42" class="rounded-circle" src="assets/images/a.jpeg" alt="">
+                  <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                </a>
+                <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(59px, 44px, 0px);">
+                  <div class="dropdown-menu-header bg-primary">
+                    <div class="dropdown-menu-header-inner bg-primary">
+                      <div class="menu-header-content text-left">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img width="42" class="rounded-circle" src="assets/images/a.jpeg" alt="">
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading text-dark">Antonin
+                              </div>
+                            </div>
+                            <div class="widget-content-right mr-2">
+                              <button class="btn-pill btn-shadow btn-shine btn btn-focus bg-secondary text-dark">Déconnexion
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="scroll-area-xs" style="height: 100px;">
+                    <div class="scrollbar-container ps">
+                      <ul class="nav flex-column">
+
+
+                        <!--<li class="nav-item-header nav-item">
+                          <a href="http://" style="text-decoration: none; color:black">
+                            <p style="display: inline">
+                              <i class="fas fa-bell text-info" style="font-size: 1.5em;"></i> &nbsp;
+                              Notifications &nbsp;
+                            </p>
+                            <div class="ml-auto badge badge-pill bg-warning text-dark" style="display:inline;">8
+                            </div>
+                          </a>
+                        </li>-->
+                        <li class="nav-item-header nav-item" style="margin-top: 5px;">
+                          <a class="text-dark" href="admin.php" style="text-decoration: none;">
+                            <i class="fas fa-chess-pawn" style="font-size: 1.7em;"></i> &nbsp;
+                            Gestion d'admins
+                          </a>
+                        </li>
+                        <li class="nav-item-header nav-item" style="margin-top: 15px;">
+                          <a class="text-dark" href="parametres.php" style="text-decoration: none;">
+                            <i class="fas fa-user-cog" style="font-size: 1.5em;"></i> &nbsp;
+                            Paramètres de Profil
+                          </a>
+                        </li>
+
+                      </ul>
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+                  </div>
+                  <ul class="nav flex-column">
+                    <li class="nav-item-divider mb-0 nav-item"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="widget-content-left  ml-3 header-user-info">
+              <div class="widget-heading">
+                Admin
+              </div>
+              <div class="widget-subheading">
+                Manager
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+   
+   {% endblock %}
   <script type="text/javascript" src="{{asset('admin-scripts/main.cba69814a806ecc7945a.js')}}"></script>
    {% block javascripts %}{% endblock %}
 </body>

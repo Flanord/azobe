@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class SecteurController extends AbstractController
 {
+
     /**
      * @Route("/", name="secteur_index", methods={"GET"})
      */

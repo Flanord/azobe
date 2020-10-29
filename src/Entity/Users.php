@@ -53,6 +53,11 @@ class Users implements UserInterface
         $this->appelProjets = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->email;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,5 +177,10 @@ class Users implements UserInterface
         }
 
         return $this;
+    }
+
+    public function getIsVerified(): ?bool
+    {
+        return $this->isVerified;
     }
 }

@@ -3,18 +3,128 @@
 {% block title %}AppelProjet index{% endblock %}
 
 {% block body %}
-    <h1>AppelProjet index</h1>
+ 
+    <div class="card-body">
+    <h1>Liste des appels à projet</h1>
+        <div class="row" style="margin-bottom: 1rem;">
+            <!--Triage par thématique-->
+            <div class="col-2">
+                      <label class="font-weight-bold">Filtrer par : </label>
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-sm btn-light">
+                        <span class="btn-icon-wrapper opacity-7">
+                        </span>
+                        Thématique
+                      </button>
+                      <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right" style="width: 5%; margin-left: 6.6rem; border-radius: 0;">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a href="utilisateurs.php" class="nav-link text-dark">
+                              <span>
+                                Tout
+                              </span>
+                            </a>
+                          </li>
 
-    <table class="table">
+                          <li class="nav-item">
+                            <a href="utilisateurs.php" class="nav-link text-dark">
+                              <span>
+                               Artisanat
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a href="evenements.php" class="nav-link text-dark">
+                              <span>
+                                Développement Durable
+                              </span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="projets.php" class="nav-link text-dark">
+                              <span>
+                               Numérique
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+        <!--Triage par Date de publication-->
+                <div class="col-2">
+                      <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-sm btn-light">
+                        <span class="btn-icon-wrapper opacity-7">
+                        </span>
+                        Date de publication
+                      </button>
+                      <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right" style="width: 5%; margin-left: 15.5rem; border-radius: 0;">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a href="utilisateurs.php" class="nav-link text-dark">
+                              <span>
+                                3 Jours
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a href="utilisateurs.php" class="nav-link text-dark">
+                              <span>
+                                7 Jours
+                              </span>
+                            </a>
+                          </li>
+
+                          <li class="nav-item">
+                            <a href="evenements.php" class="nav-link text-dark">
+                              <span>
+                                28 Jours
+                              </span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="projets.php" class="nav-link text-dark">
+                              <span>
+                                12 Mois
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                     </div>
+                        <div id="example_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                             <div class="col-sm-12 col-md-6">
+                                 <div class="dataTables_length" id="example_length">
+                                 <label>Afficher <select name="example_length" aria-controls="example" class="custom-select custom-select-sm form-control form-control-sm">
+                                 <option value="5">5</option><option value="10">10</option><option value="25">25</option></select> éléments par page</label>
+                                 </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                 <div id="example_filter" class="dataTables_filter">
+                                 <label>Rechercher:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example">
+                                 </label></div></div></div>
+                                 <div class="row">
+                                 <div class="col-sm-12">
+                                 <table  id="example" >
+                                 <!--Début du tableau-->
+
+                
+
+        </div>
+        <table class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info" style="width: 100%;">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Secteur</th>
-                <th>Start_date</th>
-                <th>End_date</th>
-                <th>actions</th>
+                <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 52.2px;" aria-sort="ascending" aria-label="ID du projet: activate to sort column descending">Id</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 145.2px;" aria-label="Nom du projet: activate to sort column ascending">Nom du projet</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 629.2px;" aria-label="Description: activate to sort column ascending">Description</th>
+                {# <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 43.2px;" aria-label="Statut: activate to sort column ascending">Statut</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 28.2px;" aria-label="Voir: activate to sort column ascending">Voir</th> #}
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Date de début</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Date de fin</th>
+                {# <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Slug</th> #}
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,9 +133,9 @@
                 <td>{{ appel_projet.id }}</td>
                 <td>{{ appel_projet.title }}</td>
                 <td>{{ appel_projet.description }}</td>
-                <td>{{ appel_projet.secteur.nom }}</td>
                 <td>{{ appel_projet.startDate ? appel_projet.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ appel_projet.endDate ? appel_projet.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ appel_projet.slug }}</td> #}
                 <td>
                     <a href="{{ path('appel_projet_show', {'id': appel_projet.id}) }}">show</a>
                     <a href="{{ path('appel_projet_edit', {'id': appel_projet.id}) }}">edit</a>
@@ -33,11 +143,20 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <!--Pagination-->
+    <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example_info" role="status" aria-live="polite">Afficher 1 à 5 et 21 éléments par page</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example_previous"><a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">Précédent</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item next" id="example_next"><a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">Suivant</a></li></ul></div></div></div>
+    </div>
+    
 
-    <a href="{{ path('appel_projet_new') }}">Create new</a>
+    <a class="btn btn-lg btn-primary btn-primary btn btn-pill" style="font-size:1.1em;" href="{{ path('appel_projet_new') }}">Create new</a>
+  </div>
+
+   
+
 {% endblock %}
+

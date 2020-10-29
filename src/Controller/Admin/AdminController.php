@@ -23,12 +23,4 @@ class AdminController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("/appel/projet", name="appel_projet")
-     */
-    public function projet()
-    {
-        return $this->render('admin/appel_projet/index.html.twig');
-    }
-
 }

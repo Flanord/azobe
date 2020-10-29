@@ -193,8 +193,29 @@ class AppelProjet
         return $this;
     }
 
+    public function setStartDate(\DateTimeInterface $start_date): self
+    {
+        $this->start_date = $start_date;
+
+        return $this;
+    }
+
+    public function setEndDate(\DateTimeInterface $end_date): self
+    {
+        $this->end_date = $end_date;
+
+        return $this;
+    }
+
     public function getSlug(): ?AppelProjet
     {
         return $this->slug;
+    }
+
+    public function setSlug(AppelProjet $slug): void
+    {
+        $this->slug = $slug;
+
+       
     }
 }

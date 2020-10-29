@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
 {% block title %}New AppelProjet{% endblock %}
 
 {% block body %}
     <h1>Create new AppelProjet</h1>
 
-    {{ include('appel_projet/_form.html.twig') }}
+    {{ include('admin/appel_projet/_form.html.twig') }}
 
     <a href="{{ path('appel_projet_index') }}">back to list</a>
 {% endblock %}

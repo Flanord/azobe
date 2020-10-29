@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AppelProjet;
-use App\Form\AppelProjetType;
+use App\Form\AppelProjet1Type;
 use App\Repository\AppelProjetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/appel/projet", name="appel_projet")
+ * @Route("admin/appel/projet")
  */
 class AppelProjetController extends AbstractController
 {
@@ -31,7 +31,7 @@ class AppelProjetController extends AbstractController
     public function new(Request $request): Response
     {
         $appelProjet = new AppelProjet();
-        $form = $this->createForm(AppelProjetType::class, $appelProjet);
+        $form = $this->createForm(AppelProjet1Type::class, $appelProjet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -39,7 +39,7 @@ class AppelProjetController extends AbstractController
             $entityManager->persist($appelProjet);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin/appel_projet_index');
+            return $this->redirectToRoute('appel_projet_index');
         }
 
         return $this->render('admin/appel_projet/new.html.twig', [
@@ -53,7 +53,7 @@ class AppelProjetController extends AbstractController
      */
     public function show(AppelProjet $appelProjet): Response
     {
-        return $this->render('admin/appel_projet/show.html.twig', [
+        return $this->render('appel_projet/show.html.twig', [
             'appel_projet' => $appelProjet,
         ]);
     }
@@ -63,7 +63,7 @@ class AppelProjetController extends AbstractController
      */
     public function edit(Request $request, AppelProjet $appelProjet): Response
     {
-        $form = $this->createForm(AppelProjetType::class, $appelProjet);
+        $form = $this->createForm(AppelProjet1Type::class, $appelProjet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -72,7 +72,7 @@ class AppelProjetController extends AbstractController
             return $this->redirectToRoute('appel_projet_index');
         }
 
-        return $this->render('admin/appel_projet/edit.html.twig', [
+        return $this->render('appel_projet/edit.html.twig', [
             'appel_projet' => $appelProjet,
             'form' => $form->createView(),
         ]);
