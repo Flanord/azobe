@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Repository\AppelProjetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,9 +28,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/appelaprojet", name="appelaprojet")
      */
-    public function appelaprojet()
+    public function appelaprojet(AppelProjetRepository $appelProjetRepository)
     {
-        return $this->render('appelaprojet/appelaprojet.html.twig');
+        return $this->render('appelaprojet/appelaprojet.html.twig', [
+            'appelProjets'=> $appelProjetRepository->findBy(['id' => 'DESC'])
+        ]);
     }
 
     /**

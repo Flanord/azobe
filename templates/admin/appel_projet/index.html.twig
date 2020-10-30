@@ -116,29 +116,26 @@
         <table class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info" style="width: 100%;">
         <thead>
             <tr>
-                <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 52.2px;" aria-sort="ascending" aria-label="ID du projet: activate to sort column descending">Id</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 145.2px;" aria-label="Nom du projet: activate to sort column ascending">Nom du projet</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 629.2px;" aria-label="Description: activate to sort column ascending">Description</th>
-                {# <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 43.2px;" aria-label="Statut: activate to sort column ascending">Statut</th>
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 28.2px;" aria-label="Voir: activate to sort column ascending">Voir</th> #}
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Date de début</th>
                 <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Date de fin</th>
-                {# <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Slug</th> #}
-                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">actions</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Voir</th>
+                <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 73.2px;" aria-label="Supprimer: activate to sort column ascending">Supprimer</th>
             </tr>
         </thead>
         <tbody>
         {% for appel_projet in appel_projets %}
             <tr>
-                <td>{{ appel_projet.id }}</td>
                 <td>{{ appel_projet.title }}</td>
                 <td>{{ appel_projet.description }}</td>
                 <td>{{ appel_projet.startDate ? appel_projet.startDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ appel_projet.endDate ? appel_projet.endDate|date('Y-m-d H:i:s') : '' }}</td>
-                {# <td>{{ appel_projet.slug }}</td> #}
                 <td>
-                    <a href="{{ path('appel_projet_show', {'id': appel_projet.id}) }}">show</a>
-                    <a href="{{ path('appel_projet_edit', {'id': appel_projet.id}) }}">edit</a>
+                    <a href="{{ path('appel_projet_show', {'id': appel_projet.id}) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                </td>
+                <td>
+                    <a href="{{ path('appel_projet_show', {'id': appel_projet.id}) }}" class="btn btn-primary"><i class="fa fa-trash-alt text-danger"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -149,7 +146,7 @@
         </tbody>
     </table>
     <!--Pagination-->
-    <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example_info" role="status" aria-live="polite">Afficher 1 à 5 et 21 éléments par page</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example_previous"><a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">Précédent</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item next" id="example_next"><a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">Suivant</a></li></ul></div></div></div>
+    <div class="row"><div class="col-sm-12 col-md-5"><dibtn btn-lg btn-primaryv class="dataTables_info" id="example_info" role="status" aria-live="polite">Afficher 1 à 5 et 21 éléments par page</dibtn></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example_previous"><a href="#" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link">Précédent</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item next" id="example_next"><a href="#" aria-controls="example" data-dt-idx="6" tabindex="0" class="page-link">Suivant</a></li></ul></div></div></div>
     </div>
     
 

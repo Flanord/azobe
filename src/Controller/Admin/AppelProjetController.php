@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AppelProjet;
-use App\Form\AppelProjet1Type;
+use App\Form\AppelProjetType;
 use App\Repository\AppelProjetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class AppelProjetController extends AbstractController
     public function new(Request $request): Response
     {
         $appelProjet = new AppelProjet();
-        $form = $this->createForm(AppelProjet1Type::class, $appelProjet);
+        $form = $this->createForm(AppelProjetType::class, $appelProjet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +53,7 @@ class AppelProjetController extends AbstractController
      */
     public function show(AppelProjet $appelProjet): Response
     {
-        return $this->render('appel_projet/show.html.twig', [
+        return $this->render('admin/appel_projet/show.html.twig', [
             'appel_projet' => $appelProjet,
         ]);
     }
@@ -63,7 +63,7 @@ class AppelProjetController extends AbstractController
      */
     public function edit(Request $request, AppelProjet $appelProjet): Response
     {
-        $form = $this->createForm(AppelProjet1Type::class, $appelProjet);
+        $form = $this->createForm(AppelProjetType::class, $appelProjet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

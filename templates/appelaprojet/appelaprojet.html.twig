@@ -2,8 +2,140 @@
 
 {% block title %}Appel à Projet{% endblock %}
 
-{% block body %}
-    {# {% for message in app.flashes('success') %}
-        <div class="alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %} #}
+{% block section %}{#Section de bienvenue#}
+    <section class="single-post-wrapper post-layout-6">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="mb-25" id="single-big-img" style="background-image: url(images/appel_projet/appel19.png); background-size: contain;"></div>
+					</div>
+				</div>
+				<div class="row ">
+					<div class="col-lg-9 ">
+						<div class="ts-grid-box content-wrapper single-post">
+							
+							<div class="post-content-area ">
+								<h3 id="ts-title" class=" text-center">Bienvenue sur votre Espace Appel à projet!</h3>
+								<div class="entry-content">
+									
+								<p>Cette espace de recherche a été créé dans le but de recenser tous les appels à projets, concours ou encore d'autres dispositifs qui concernent le térritoire Gabonais mais aussi les projets internationaux.</p>
+								<p>L’idée est <span style="background: #fff9b5;padding: 5px 6px;"> d’aider exceptionnellement les acteurs de la société civile</span> à trouver des financements et des nouveaux partenaires pour développer leurs projets.</p>
+								<p>Merci et bnne visite !</p>
+
+								<div class="links text-center">
+									<a href="all_projets.html" class="btn btn-danger" title="Consulter des Appels à Projets"><i class="fa fa-eye mx-2"></i>Consulter des Appels à Projets</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+
+					<div class="col-lg-3">
+						<div class="widgets widgets-item single-post">
+							<h3 class="widget-title">
+								Restez connecté
+							</h3>
+							<ul class="sociaux">
+								<a href="https://www.votre_url.com" class="fa fa-facebook "></a>
+								<a href="https://www.votre_url.com" class="fa fa-linkedin"></a>
+								<a href="https://www.votre_url.com" class="fa fa-instagram"></a>
+							</ul>
+							
+							<img class="img-fluid float-right" src="images/actu/homme-devis.png" alt="">
+						</div>
+						</div>
+						<!-- widgets end-->
+					</div>
+				<!-- row end-->
+			</div>
+			<!-- container-->
+		</section>{#End section de bienvenue#}
+
+        <section class="post-layout">{#Section Sélection des projets #}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ts-grid-box clearfix ts-category-title">
+							<h3 class="ts-title float-left">UNE SELECTION RIGOUREUSE DES PROJETS</h3>
+						</div>
+						<div class="ts-grid-box content-wrapper single-post">
+							<div class="row">
+								<div class="col-lg-6"> 
+									<div class="item post-content-box" id="single-post">
+										<p>Les projets sont sélectionnés pour la qualité et la rigueur de leurs actions.On propose des aides à travers des appels à projets dédiés à des thématiques précises. Les demandes
+										de subventions, instruites à partir d’un dossier, sont examinées par un comité de professionnels spécialistes du domaine concerné. La Fondation de France soutient en priorité des opérateurs de petite taille qui n’ont pas les moyens de collecter eux-mêmes les fonds nécessaires à la conduite de leurs projets.</p>
+									</div>
+								</div>
+
+								<div class="col-lg-6 ">
+									<div class="item post-content-box">
+										<div class="ts-post-thumb">
+											<a href="#">
+												<img class="img-fluid" src="{{asset('images/processus_appel_projet.jpg')}}" alt="Le circuit de financement d'un projet">
+											</a>
+										</div>
+										<div class="post-content">
+											<h3 class="post-title">
+												<a href="#">Le circuit de financement d'un projet</a>
+											</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- container end-->
+		</section>{# End section sélection des projets#}
+        
+        <section class="block-wrapper mt-15 section-bg">{# Section Dernier appel à projet #}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ts-grid-box clearfix ts-category-title">
+							<h3 class="ts-title float-left"> LES DERNIERS PROJETS PROPOSÉS</h3>
+						</div>
+                    {% for appelProjet in appelProjets %}
+						<div class="row">
+							<div class="col-md-4">
+								<div class="ts-grid-box ts-grid-content mb-30">
+									<div class="ts-post-thumb">
+										<a href="concours_two.html">
+											<img class="img-fluid" src="{{ asset('uploads/images/ImageAppelProjet/' ~ appelProjet.images[0].name) }}" alt="{{appelProjet.title}}">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="#">Concours d'Art Oratoire</a>
+										</h3>
+										<div class="type"><em>Type d'offre :&nbsp;</em><span>Appel à candidatures</span></div>
+										<strong class="date">Expire le 31/10/2020</strong>
+										<p class="pt-2">
+											<em>Vous êtes étudiant à l'UPJV ? Vous avez un projet ? Vous cherchez un financement ?
+											L'Appel à projets 2020 de la Fondation de l'Université de Picardie Jules Verne est lancé du 06 juillet et jusqu'au 31 octobre 2020.Les critères d'éligibilit...</em>	
+										</p>
+										
+										<div class="text-right">
+											<a href="concours_two.html" class="btn btn-danger" title="Prix Jeunesse pour l’égalité 2021 : « Quand on veut, on peut ? » "><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+										</div>
+									</div>
+								</div>
+								<!-- ts grid box-->
+							</div>
+						</div>
+                        {% endfor %}
+						<div class="links text-center pt-5">
+							<a href="all_projets.html" class="btn btn-primary col-md-4" title="Voir tous les appels à projet"><i class="fa fa-eye mx-2"></i>VOIR TOUS LES APPELS A PROJETS</a>
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>{# End Section Dernier appel à projet #}
+       
+        
 {% endblock %}
+
+{% block body %}{% endblock %}

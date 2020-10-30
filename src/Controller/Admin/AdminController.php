@@ -14,7 +14,7 @@ use App\Entity\AppelProjet;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin", name="home")
      */
     public function index()
     {

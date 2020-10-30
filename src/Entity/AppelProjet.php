@@ -68,9 +68,15 @@ class AppelProjet
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="appelProjet", orphanRemoval=true)
+     */
+    private $images;
+
     public function __construct()
     {
         $this->candidatureAppelProjets = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -212,10 +218,34 @@ class AppelProjet
         return $this->slug;
     }
 
-    public function setSlug(AppelProjet $slug): void
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
     {
-        $this->slug = $slug;
-
-       
+        return $this->images;
     }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setAppelProjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getAppelProjet() === $this) {
+                $image->setAppelProjet(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
