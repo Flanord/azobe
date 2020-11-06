@@ -27,10 +27,6 @@
                 <th>End_date</th>
                 <td>{{ appel_projet.endDate ? appel_projet.endDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
-            {# <tr>
-                <th>Slug</th>
-                <td>{{ appel_projet.slug }}</td>
-            </tr> #}
         </tbody>
     </table>
 
@@ -38,5 +34,5 @@
 
     <a href="{{ path('appel_projet_edit', {'id': appel_projet.id}) }}">edit</a>
 
-    {{ include('appel_projet/_delete_form.html.twig') }}
+    {{ include('admin/appel_projet/_delete_form.html.twig') }}
 {% endblock %}

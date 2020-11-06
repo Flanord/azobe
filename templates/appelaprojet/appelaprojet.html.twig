@@ -91,45 +91,50 @@
         
         <section class="block-wrapper mt-15 section-bg">{# Section Dernier appel à projet #}
 			<div class="container">
-				<div class="row">
+				
 					<div class="col-lg-12">
 						<div class="ts-grid-box clearfix ts-category-title">
 							<h3 class="ts-title float-left"> LES DERNIERS PROJETS PROPOSÉS</h3>
 						</div>
-                    {% for appelProjet in appelProjets %}
-						<div class="row">
-							<div class="col-md-4">
-								<div class="ts-grid-box ts-grid-content mb-30">
-									<div class="ts-post-thumb">
-										<a href="concours_two.html">
-											<img class="img-fluid" src="{{ asset('uploads/images/ImageAppelProjet/' ~ appelProjet.images[0].name) }}" alt="{{appelProjet.title}}">
-										</a>
-									</div>
-									<div class="post-content">
-										<h3 class="post-title md">
-											<a href="#">Concours d'Art Oratoire</a>
-										</h3>
-										<div class="type"><em>Type d'offre :&nbsp;</em><span>Appel à candidatures</span></div>
-										<strong class="date">Expire le 31/10/2020</strong>
-										<p class="pt-2">
-											<em>Vous êtes étudiant à l'UPJV ? Vous avez un projet ? Vous cherchez un financement ?
-											L'Appel à projets 2020 de la Fondation de l'Université de Picardie Jules Verne est lancé du 06 juillet et jusqu'au 31 octobre 2020.Les critères d'éligibilit...</em>	
-										</p>
-										
-										<div class="text-right">
-											<a href="concours_two.html" class="btn btn-danger" title="Prix Jeunesse pour l’égalité 2021 : « Quand on veut, on peut ? » "><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+							<div class="row">
+								{% for appel_projet in appel_projets %} {# Début Boucle pour les appels à projet #}
+							
+									{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+								
+									<div class="col-md-4">
+										<div class="ts-grid-box ts-grid-content mb-30">
+											<div class="ts-post-thumb">
+												<a href="concours_two.html">
+													<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image liée à l'appel à projet">
+												</a>
+											</div>
+											<div class="post-content">
+												<h3 class="post-title md">
+													<a href="#">{{appel_projet.title}}</a>
+												</h3>
+												<div class="type"><em>Type d'offre :&nbsp;</em><span>Appel à candidatures</span></div>
+												<strong class="date">Expire le 31/10/2020</strong>
+												<p class="pt-2">
+													<em>{{appel_projet.description}}</em>	
+												</p>
+												
+												<div class="text-right">
+													<a href="concours_two.html" class="btn btn-danger" title="Prix Jeunesse pour l’égalité 2021 : « Quand on veut, on peut ? » "><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+												</div>
+											</div>
 										</div>
+										<!-- ts grid box-->
 									</div>
-								</div>
-								<!-- ts grid box-->
+								
+									{% endfor %}{# Fin boucle pour image #}
+								{% endfor %}{# Fin boucle pour appel_projet #}
+								
+									
 							</div>
-						</div>
-                        {% endfor %}
-						<div class="links text-center pt-5">
-							<a href="all_projets.html" class="btn btn-primary col-md-4" title="Voir tous les appels à projet"><i class="fa fa-eye mx-2"></i>VOIR TOUS LES APPELS A PROJETS</a>
+							
 						</div>
 					</div>
-				</div>
+				
 				<!-- row end-->
 			</div>
 			<!-- container end-->

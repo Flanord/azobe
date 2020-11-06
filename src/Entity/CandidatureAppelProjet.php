@@ -67,12 +67,11 @@ class CandidatureAppelProjet
     private $url_site;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="candidatureAppelProjets")
+     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="candidatureAppelProjet")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $appelprojet;
+    private $appelProjet;
 
-    
 
     public function getId(): ?int
     {
@@ -199,17 +198,19 @@ class CandidatureAppelProjet
         return $this;
     }
 
-    public function getAppelprojet(): ?AppelProjet
+    public function getAppelProjet(): ?AppelProjet
     {
-        return $this->appelprojet;
+        return $this->appelProjet;
     }
 
-    public function setAppelprojet(?AppelProjet $appelprojet): self
+    public function setAppelProjet(?AppelProjet $appelProjet): self
     {
-        $this->appelprojet = $appelprojet;
+        $this->appelProjet = $appelProjet;
 
         return $this;
     }
+
+   
 
    
 }

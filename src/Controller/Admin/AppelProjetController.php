@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AppelProjet;
+use App\Entity\Images;
 use App\Form\AppelProjetType;
 use App\Repository\AppelProjetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,6 +36,23 @@ class AppelProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //On récupère les images transmises
+            $images = $form->get('images')->getData();
+            //On boucle sur les images.
+            foreach($images as $image){
+                //On génère un nouveau nom de fichier.
+                $fichier = md5(uniqid()).'.'.$image->guessExtension();
+
+                //On copier le fichier dans le dossier upload
+                $image->move( 
+                    $this->getParameter('images_directory'), $fichier
+                );
+
+                //On stocke l'image dans la base de données (son nom)
+                $img = new Images();
+                $img -> setName($fichier);
+                $appelProjet->addImage($img);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($appelProjet);
             $entityManager->flush();
@@ -69,10 +87,28 @@ class AppelProjetController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            //On récupère les images transmises
+            $images = $form->get('images')->getData();
+            //On boucle sur les images.
+            foreach($images as $image){
+                //On génère un nouveau nom de fichier.
+                $fichier = md5(uniqid()).'.'.$image->guessExtension();
+
+                //On copier le fichier dans le dossier upload
+                $image->move( 
+                    $this->getParameter('images_directory'), $fichier
+                );
+
+                //On stocke l'image dans la base de données (son nom)
+                $img = new Images();
+                $img -> setName($fichier);
+                $appelProjet->addImage($img);
+            }
+
             return $this->redirectToRoute('appel_projet_index');
         }
 
-        return $this->render('appel_projet/edit.html.twig', [
+        return $this->render('admin/appel_projet/edit.html.twig', [
             'appel_projet' => $appelProjet,
             'form' => $form->createView(),
         ]);

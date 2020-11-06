@@ -43,10 +43,7 @@ class AppelProjet
      */
     private $end_date;
 
-    /**
-     * @ORM\OneToMany(targetEntity=CandidatureAppelProjet::class, mappedBy="appelprojet")
-     */
-    private $candidatureAppelProjets;
+    
 
     /**
      * @ORM\ManyToOne(targetEntity=secteur::class, inversedBy="appelProjets")
@@ -69,14 +66,21 @@ class AppelProjet
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="appelProjet", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="appelProjet",
+     *  orphanRemoval=true, cascade={"persist"})
      */
     private $images;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CandidatureAppelProjet::class, mappedBy="appelProjet")
+     */
+    private $candidatureAppelProjet;
 
     public function __construct()
     {
         $this->candidatureAppelProjets = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->candidatureAppelProjet = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,36 +136,7 @@ class AppelProjet
     //     return $this;
     // }
 
-    /**
-     * @return Collection|CandidatureAppelProjet[]
-     */
-    public function getCandidatureAppelProjets(): Collection
-    {
-        return $this->candidatureAppelProjets;
-    }
-
-    public function addCandidatureAppelProjet(CandidatureAppelProjet $candidatureAppelProjet): self
-    {
-        if (!$this->candidatureAppelProjets->contains($candidatureAppelProjet)) {
-            $this->candidatureAppelProjets[] = $candidatureAppelProjet;
-            $candidatureAppelProjet->setAppelprojet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCandidatureAppelProjet(CandidatureAppelProjet $candidatureAppelProjet): self
-    {
-        if ($this->candidatureAppelProjets->contains($candidatureAppelProjet)) {
-            $this->candidatureAppelProjets->removeElement($candidatureAppelProjet);
-            // set the owning side to null (unless already changed)
-            if ($candidatureAppelProjet->getAppelprojet() === $this) {
-                $candidatureAppelProjet->setAppelprojet(null);
-            }
-        }
-
-        return $this;
-    }
+   
 
     public function getSecteur(): ?secteur
     {
@@ -242,6 +217,36 @@ class AppelProjet
             // set the owning side to null (unless already changed)
             if ($image->getAppelProjet() === $this) {
                 $image->setAppelProjet(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CandidatureAppelProjet[]
+     */
+    public function getCandidatureAppelProjet(): Collection
+    {
+        return $this->candidatureAppelProjet;
+    }
+
+    public function addCandidatureAppelProjet(CandidatureAppelProjet $candidatureAppelProjet): self
+    {
+        if (!$this->candidatureAppelProjet->contains($candidatureAppelProjet)) {
+            $this->candidatureAppelProjet[] = $candidatureAppelProjet;
+            $candidatureAppelProjet->setAppelProjet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidatureAppelProjet(CandidatureAppelProjet $candidatureAppelProjet): self
+    {
+        if ($this->candidatureAppelProjet->removeElement($candidatureAppelProjet)) {
+            // set the owning side to null (unless already changed)
+            if ($candidatureAppelProjet->getAppelProjet() === $this) {
+                $candidatureAppelProjet->setAppelProjet(null);
             }
         }
 

@@ -23,7 +23,7 @@ class Images
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="images")
+     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="images", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $appelProjet;

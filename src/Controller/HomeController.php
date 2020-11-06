@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Controller;
+
+use App\Entity\Images;
 use App\Repository\AppelProjetRepository;
+use App\Repository\ImagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
@@ -28,11 +32,11 @@ class HomeController extends AbstractController
     /**
      * @Route("/appelaprojet", name="appelaprojet")
      */
-    public function appelaprojet(AppelProjetRepository $appelProjetRepository)
+    public function afficheAppelProjet(AppelProjetRepository $appelProjetRepository): Response
     {
         return $this->render('appelaprojet/appelaprojet.html.twig', [
-            'appelProjets'=> $appelProjetRepository->findBy(['id' => 'DESC'])
-        ]);
+            'appel_projets' => $appelProjetRepository->findAll(),
+            ]);
     }
 
     /**
