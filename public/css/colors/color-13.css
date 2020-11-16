@@ -10,12 +10,17 @@
     background: linear-gradient(to right, #FFCF3C 0%, #f94340 100%);
  }
  
- .breaking-title{
-    color: #d72924 !important;
+ .text-font{
+    color: #ff433d !important;
+    font-weight: 800;
+    font-family: "Abelbold", sans-serif;
+    font-size: 11px;
  }
  
+
+ 
  /* primary background color*/
- .logo,
+ /* .logo, */
  .nav-menu > li.active > a,
  .nav-menu > li > a:hover,
  /* .right-menu li .nav-search .nav-search-button, */

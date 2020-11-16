@@ -6,4 +6,627 @@
     {% for message in app.flashes('success') %}
         <div class="alert alert-success" role="alert">{{ message }}</div>
     {% endfor %}
+    
+{% endblock %}
+{% block section %}
+        {# A La une #}
+<section class="block-wrapper mt-15">
+		<section class="block-wrapper mt-15">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-md-12">
+						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
+							<div class="item"
+								style="background-image:url(asset{{("images/azobe_logo.png")}}); background-position: cover;">
+								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
+								{# Zone où j'insère la boucle twig #}
+								<div class="overlay-post-content">
+									<div class="post-content">
+										<h2 class="post-title lg">
+											<a href="#">Azobe, lance une première enquête sur les artisans résidants au
+												Gabon</a>
+										</h2>
+										<ul class="post-meta-info">
+											<li class="author" id="author">
+												<a href="#">
+													<img src="images/avater/author.jpg" alt=""> Rick Moungou
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												10 décembre 2020
+											</li>
+											<li class="active">
+												<i class="icon-fire"></i>
+												40
+											</li>
+										</ul>
+									</div>
+								</div><!--End OverLay-->
+								{# Find de la boucle twig #}
+								<!--/ Featured post end -->
+							</div>
+						</div>
+						<!-- Featured owl carousel end-->
+					</div>
+					<!-- Zone Edito-->
+					<div class="col-lg-4">
+						<div class="ts-grid-box ts-grid-content">
+							<a class="post-cat" href="#" id="post-cat">Edito du mois</a>
+							<div class="ts-post-thumb">
+								<a href="#">
+									<img class="img-fluid" src="images/publications/edito/edito4.jpg" alt="">
+								</a>
+							</div>
+							<div class="post-content">
+								<h3 class="post-title">
+									<a href="#">Artisanat un domaine très exercé, mais peut connu !</a>
+								</h3>
+								<span class="post-date-info">
+									<i class="fa fa-clock-o"></i>
+									12 Décembre 2020
+								</span>
+							</div>
+						</div>
+						<!-- ts single post item end-->
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+        {# Bienvenue #}
+        <section class="block-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-4">
+						<div class="posts-ad">
+							<a href="index.html#">
+								<img src="{{asset('images/Perroquet_Bienvenue.jpg')}}" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- col end -->
+
+					<div class="col-lg-9">
+						<div class="ts-grid-box content-wrapper single-post">
+							<div class="post-content-area">
+								<div class="entry-header">
+									<h3 class="post-title lg text-center" style="color: #004e7c;">Bienvennue sur la
+										plateforme AZOBE</h3>
+								</div>
+								<div class="entry-content">
+									<p>
+										Azobe est un Centre de Ressources qui vise à accompagner et renforcer la société
+										civile gabonaise sur trois axes prioritaires : numérique, Artisanat et
+										Développement Durable.
+										<br> Les missions principales sont : le financement de projets (appel à projets)
+										et la conduite d'enquêtes
+										de terrain en rapport avec les Acteurs de la société civile du Gabon.
+									</p>
+									<p>L’idée est d’aider les porteurs de projets, associations et structures de
+										l’économie sociale
+										et solidaire à trouver des financements et des nouveaux partenaires pour
+										développer leurs initiatives.
+									</p>
+									<blockquote><em>Ensemble , on est grand!</em><cite> AZOBE</cite></blockquote>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+        {# Section dernier Appel Projet #}
+        <section class="block-wrapper mb-20">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 category-post-style1">
+						<div class="ts-heading clearfix">
+							<h3 class="ts-title text-uppercase">Les derniers Appel à projets</h3>
+						</div>
+						<!-- ts title end-->
+						{% for appel_projet in appel_projets|slice(0, 2) %} {# Début Boucle pour les appels à projet #}
+							
+							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+						<div class="row mb-10">
+							<div class="col-lg-7">
+								<div class="ts-post-thumb">
+									<a href="#">
+										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="">
+									</a>
+								</div>
+							</div>
+							<!-- end col-->
+							<div class="col-lg-5 align-self-center">
+								<div class="post-content links">
+									<h3 class="post-title md">
+										<a href="#">{{appel_projet.title}}</a>
+									</h3>
+									<ul class="post-meta-info">
+										<li>
+											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+												le 15 décembre 2018</strong>
+										</li>
+
+									</ul>
+									<p>
+										{{appel_projet.description}}
+									</p>
+									<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+								</div>
+							</div>
+							<!-- col end-->
+						</div>
+						<!-- row end-->
+						    {% endfor %}
+						{% endfor %}
+					</div>
+					<!-- col end-->
+
+
+					<div class="col-lg-3">
+						<div class="left-sidebar bg-blue">
+							<div class="widgets post-list-item single-post">
+								<!-- Nav tabs -->
+								<h3 class="text-uppercase text-center blue-color h6" style="font-weight:700;"><i class="fa fa-calendar px-2"></i>Nos évènements</h3>
+								<hr>
+
+								<!-- Tab panes -->
+								<div class="tab-content pt-3">
+									<div role="tabpanel" class="tab-pane active post-tab-list" id="home">
+										<div class="post-content media">
+											<img class="d-flex sidebar-img pt-2" src="images/publications/actualites/actu6.jpg" alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
+														EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal">Lancement de
+														la formation(Chambre des métiers de l'Artisanat)</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+										<div class="post-content media ">
+											<img class="d-flex sidebar-img" src="images/events/even2.jpg" alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal2"> EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal2">Webinaire:
+														les enjeux de la cartographie digitale au Gabon</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+										<div class="post-content media">
+											<img class="d-flex sidebar-img" src="images/events/even13.jpg" alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
+														EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal">Festival coup
+														de Théatre</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+										<div class="post-content media">
+											<img class="d-flex sidebar-img" src="images/events/even5.jpg" alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
+														EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal">Tremplin
+														jeunes talents Musicaux</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+										<div class="post-content media">
+											<img class="d-flex sidebar-img" src="images/events/even8.jpg" alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
+														EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal">Les Sambas
+														Professionnels</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+									</div>
+									<!--ts-grid-box end -->
+								</div>
+								<!-- tab content end-->
+							</div>
+							<!--widgets end-->
+						</div>
+						<!-- left sidebar end-->
+					</div>
+					<!-- col end-->
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+        {# Appel à l'action #}
+        <section class="block-wrapper" style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 call_action">
+						<div class="cta text-light">
+							<div class="row">
+								<div class="col-sm-8 text-white">
+									<h3 class="h3 mt-3">Vous êtes un acteur de la société civile ?</h3>
+									<p class="text-white">Rejoignez-nous dès maintenant en inscrivant votre
+										Organisation: Associations, Ong, Coopératives, Fondations...</p>
+								</div>
+								<div class="col-sm-4 pt-1 links">
+									<a href="call_action.html" target="_blank" class="items-center justify-center btn btn-primary">
+										<span class="mb-4 font-bold text-capitalize span_size blue-color">Inscrivez
+											votre Organisation</span> <br>
+										<small class="font-light span blue-color">sur AZOBE</small>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+        {# La une des actifs #}
+        <section class="block-wrapper mt-15 xs-mb-30">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="ts-heading clearfix">
+							<h3 class="ts-title float-left text-uppercase">
+								La une des actifs
+							</h3>
+							<div class="float-right">
+								<a href="#" class="view-all-link text-danger">Voir tous les actifs</a>
+							</div>
+						</div>
+						<div class="row post-col-list-item">
+							<div class="col-lg-6 mb-30">
+								<div class="ts-grid-box ts-grid-content">
+									<div class="ts-post-thumb">
+										<a href="index-8.html#">
+											<img class="img-fluid" src="images/actifs/actif1.jpg" alt="acteurs de la sociétés civiles actifs">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="index-8.html#">ONG ACTE</a>
+										</h3>
+										<ul class="post-meta-info">
+											<li class="author">
+												<a href="category-1.html#">
+													<img src="images/avater/author.jpg" alt=""> Fleur Pendie
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												Jun 21, 2019
+											</li>
+											<li>
+												<a href="category-1.html#">
+													<i class="fa fa-comments"></i>
+													5 commentaires
+												</a>
+											</li>
+										</ul>
+										<p>Ce projet est le fruit d’un collectif de jeunes qui ont choisi de s’engager
+											pour
+											changer les choses. Il a pour objectif la création d’une application dédiée
+											aux
+											jeunes filles.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 mb-30">
+								<div class="ts-grid-box ts-grid-content">
+									<div class="ts-post-thumb">
+										<a href="index-8.html#">
+											<img class="img-fluid" src="images/actifs/actif2.jpg" alt="">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="index-8.html#">ONG OGOOUE LABS</a>
+										</h3>
+										<ul class="post-meta-info">
+											<li class="author">
+												<a href="category-1.html#">
+													<img src="images/avater/author2.jpg" alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												Jun 21, 2019
+											</li>
+											<li>
+												<a href="category-1.html#">
+													<i class="fa fa-comments"></i>
+													5 commentaires
+												</a>
+											</li>
+										</ul>
+										<p>Ce projet est le fruit d’un collectif de jeunes qui ont choisi de s’engager
+											pour
+											changer les choses. Il a pour objectif la création d’une application dédiée
+											aux
+											jeunes filles.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 mb-30">
+								<div class="ts-grid-box ts-grid-content">
+									<div class="ts-post-thumb">
+										<a href="index-8.html#">
+											<img class="img-fluid" src="images/actifs/actif3.jpg" alt="">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="index-8.html#">ASSOCIATION NGUDU</a>
+										</h3>
+										<ul class="post-meta-info">
+											<li class="author">
+												<a href="category-1.html#">
+													<img src="images/avater/author.jpg" alt=""> Cassandra Elat
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												Jun 21, 2019
+											</li>
+											<li>
+												<a href="category-1.html#">
+													<i class="fa fa-comments"></i>
+													5 commentaires
+												</a>
+											</li>
+										</ul>
+										<p>Ce projet est le fruit d’un collectif de jeunes qui ont choisi de s’engager
+											pour
+											changer les choses. Il a pour objectif la création d’une application dédiée
+											aux
+											jeunes filles.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 mb-30">
+								<div class="ts-grid-box ts-grid-content">
+									<div class="ts-post-thumb">
+										<a href="index-8.html#">
+											<img class="img-fluid" src="images/actifs/actif4.jpg" alt="">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="index-8.html#">Association We-need</a>
+										</h3>
+										<ul class="post-meta-info">
+											<li class="author">
+												<a href="category-1.html#">
+													<img src="images/avater/author2.jpg" alt=""> jean-Mathy Ndong
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												Jun 21, 2019
+											</li>
+											<li>
+												<a href="category-1.html#">
+													<i class="fa fa-comments"></i>
+													5 commentaires
+												</a>
+											</li>
+										</ul>
+										<p>Ce projet est le fruit d’un collectif de jeunes qui ont choisi de s’engager
+											pour
+											changer les choses. Il a pour objectif la création d’une application dédiée
+											aux
+											jeunes filles.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3">
+						<!-- <h3 class="widget-title">Devenez membre!</h3>
+						<div class="ts-grid-box ts-grid-content">
+							<div class="ts-post-thumb">
+								<a href="#">
+									<img class="img-fluid" src="images/banner/cal_1.png" alt="">
+								</a>
+							</div>
+						</div> -->
+						<!-- ts-grid-box end-->
+
+						<div class="ts-grid-box widgets category-widget">
+							<h2 class="widget-title">Rubriques</h2>
+							<ul class="category-list">
+								<li>
+									<a href="#">Concours
+										<span class="ts-blue-bg">10</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">Appel d'offres
+										<span class="ts-yellow-bg">10</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">Numérique
+										<span class="ts-orange-bg">10</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">Appel à projets
+										<span class="ts-blue-bg">20</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">Artisanat
+										<span class="ts-yellow-bg ">10</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">Art
+										<span class="ts-orange-bg">10</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!-- ts-grid-box end-->
+
+						<div class="widgets ts-grid-box  widgets-populer-post">
+							<h3 class="widget-title">Publications populaires</h3>
+							<div class="ts-overlay">
+								<div class="item">
+									<div class="ts-post-thumb">
+										<a class="post-cat" id="post-cat" href="#">Actualités</a>
+										<a href="#">
+											<img class="img-fluid" src="images/publications/actualites/actu6.jpg" alt="">
+										</a>
+									</div>
+									<div class="post-content">
+										<h3 class="post-title">
+											<a href="index-8.html#">Lancement de la formation(Chambre des métiers de
+												l'Artisanat)</a>
+										</h3>
+										<span class="post-date-info">
+											<i class="fa fa-clock-o"></i>
+											12 octobre 2020
+										</span>
+									</div>
+								</div>
+							</div>
+							<hr>
+							<!-- ts-overlay-style  end-->
+
+							<div class="post-content media">
+								<img class="d-flex sidebar-img" src="images/publications/populaires/publication2.jpg" alt="">
+								<div class="media-body align-self-center">
+									<h4 class="post-title">
+										<a href="">l’approvisionnement en eau et l’assainissement en milieu rural au
+											Gabon</a>
+									</h4>
+								</div>
+							</div>
+							<hr>
+							<!-- post content end-->
+
+							<div class="post-content media">
+								<img class="d-flex sidebar-img" src="images/publications/populaires/publication3.jpg" alt="">
+								<div class="media-body align-self-center">
+									<h4 class="post-title">
+										<a href="">Introduction au Design Thinking - MasterClass by SING GA</a>
+									</h4>
+								</div>
+							</div>
+							<hr>
+							<!-- post content end-->
+
+							<div class="post-content media">
+								<img class="d-flex sidebar-img" src="images/publications/populaires/publication4.jpg" alt="">
+								<div class="media-body align-self-center">
+									<h4 class="post-title">
+										<a href="">DigieWomen School: Les femmes dans le digital pour un impact
+											maximal</a>
+									</h4>
+								</div>
+							</div>
+							<!-- post content end-->
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+        {# Azobe en chiffre #}
+        <section class="block-wrapper mt-15 xs-mb-30" id="block-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ts-grid-box clearfix ts-category-title">
+							<h3 class="ts-title float-left">AZOBE EN CHIFFRES</h3>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 col-md-3 col-lg-3">
+								<div class="counter">
+									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">4</h3>
+									<p class="count-text ">Acteurs repertoriés</p>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-3 col-lg-3">
+								<div class="counter">
+									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">4</h3>
+									<p class="count-text ">Actions concrétisées</p>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-3 col-lg-3">
+								<div class="counter">
+									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">2</h3>
+									<p class="count-text ">Événements organisés</p>
+								</div>
+							</div>
+							<div class="col-sm-3 col-md-3 col-lg-3">
+								<div class="counter">
+									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">2</h3>
+									<p class="count-text ">Appel à projets</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
+
+        {# Section nos partenaire #}
+        <section class="block-wrapper" style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ts-grid-box clearfix ts-category-title">
+							<h3 class="ts-title float-left">NOS PARTENAIRES</h3>
+						</div>
+						<div class="row">
+							<!-- col end-->
+							<div class="col-md-12">
+								<div class="ts-grid-box ts-grid-content">
+									<div class="ts-post">
+										<img class="img-fluid" src="images/partenaires/part8.png" alt="">
+									</div>
+								</div>
+								<!-- ts grid box-->
+							</div>
+							<!-- col end-->
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+	</div>{# Fin du container #}	
+</section>{# Fin de la Grande Section #}
 {% endblock %}

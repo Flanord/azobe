@@ -3,22 +3,35 @@
 namespace App\Controller;
 
 use App\Entity\Images;
+use App\Repository\AlaUneRepository;
 use App\Repository\AppelProjetRepository;
 use App\Repository\ImagesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
+
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * Les appels à projets qui sont à la page index.
      */
-    public function index()
+    public function index(AppelProjetRepository $appelProjetRepository):Response
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+            'appel_projets' => $appelProjetRepository->findAll(),
+            ]);
+    }
+
+    /**
+     * @Route("/alaune", name="alaune")
+     */
+    public function alaune(AlaUneRepository $alaUneRepository):Response
+    {
+        return $this->render('home/index.html.twig', [
+            'alaUnes' => $alaUneRepository->findAll(),
+            ]);
     }
 
     /**
@@ -30,6 +43,7 @@ class HomeController extends AbstractController
     }
 
     /**
+     * Les appels à projets de la page appelaprojet.html.twig
      * @Route("/appelaprojet", name="appelaprojet")
      */
     public function afficheAppelProjet(AppelProjetRepository $appelProjetRepository): Response
@@ -71,5 +85,5 @@ class HomeController extends AbstractController
         return $this->render('admin/index.html.twig');
     }
 
-
+     
 }

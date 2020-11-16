@@ -35,11 +35,11 @@
 /* Typography
 ================================================== */
 body {
-  color: #4e4e4e;
+  color: #100F10;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 24px;
   font-family: "Abel", sans-serif;
 }
@@ -145,8 +145,12 @@ a {
   transition: all ease 500ms;
 }
 
+.inscription_terms a{
+  text-decoration: #004e7c underline;
+}
+
 a:hover {
-  color: #d72924;
+    color:  #004e7c;
 }
 
 .btn {
@@ -265,6 +269,30 @@ a:hover {
 
 .btn.btn-primary {
   background: #FECF3C;
+} 
+
+.links .btn.btn-primary {
+  background: #FECF3C;
+  border-radius: 25px 0;
+}
+
+.links .btn.btn-primary:hover {
+  background: #FECF3C;
+  box-shadow: 0 6px 6px 0  rgba(0,70,110, 0.4), 0 9px 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.links .btn.btn-primary:hover {
+  border-radius: 0 25px;
+  color: white;
+}
+
+.links .btn.btn-danger{
+  background: #DC3545;
+  border-radius: 25px 0;
+}
+.links .btn.btn-danger:hover{
+  background: #DC3545;
+  box-shadow: 0 6px 6px 0  rgba(0,78,124, 0.4), 0 9px 8px 0 rgba(0, 0, 0, 0.05);
 }
 
 .btn:hover {
@@ -418,7 +446,7 @@ section, .section {
 }
 
 .blue-color {
-  color: #007dff;
+  color: #004e7c;
 }
 
 .blue-dark-color {
@@ -447,7 +475,7 @@ section, .section {
 }
 
 .ts-blue-bg {
-  background: #007dff;
+  background: #004e7c;
 }
 
 .ts-blue-dark-bg {
@@ -455,7 +483,7 @@ section, .section {
 }
 
 .ts-blue-light-bg {
-  background: #007dff;
+  background: #004e7c;
 }
 
 .ts-pink-bg {
@@ -463,11 +491,17 @@ section, .section {
 }
 
 .ts-yellow-bg {
-  background: #ffaf31;
+  background: #FFCF3C;
 }
 
 .ts-orange-bg {
-  background: #ff6e0d;
+  background: #f0A13A;
+}
+
+.ts-gradien-bg {
+  background: -moz-linear-gradient(left, #FFCF3C 0%, #f94340 100%);
+  background: -webkit-linear-gradient(left, #FFCF3C 0%, #f94340 100%);
+  background: linear-gradient(to right, #FFCF3C 0%, #f94340 100%);
 }
 
 .ts-purple-bg {
@@ -617,7 +651,7 @@ section, .section {
 }
 
 .post-title a {
-  color: #100F10;
+  color: #004e7c;
 }
 
 .post-title a:hover {
@@ -721,6 +755,13 @@ section, .section {
   padding-left: 40px;
 }
 
+#post-cat{
+  background: #FFCF3C;
+  color: white;
+  background: -moz-linear-gradient(left, #FFCF3C 0%, #f94340 100%);
+  background: -webkit-linear-gradient(left, #FFCF3C 0%, #f94340 100%);
+  background: linear-gradient(to right, #FFCF3C 0%, #f94340 100%);
+}
 /* .post-meta-info li {
   font-size: 13px;
   display: inline-block;
@@ -812,7 +853,7 @@ blockquote cite:after {
   top: 0;
   width: 40px;
   height: 2px;
-  background: #d72924;
+  background: #004e7c;
   content: '';
   bottom: 0;
   margin: auto;
@@ -1163,6 +1204,11 @@ blockquote cite:after {
   background: #004e7c;
 }
 
+
+.bg-blue {
+  background:#004e7c;
+}
+
 .top-bar.bg-blue-dark .ts-date {
   color: #fff;
 }
@@ -1172,7 +1218,7 @@ blockquote cite:after {
 }
 
 .top-bar.v4 {
-  background: #100F10;
+  background: #004e7c;
 }
 
 .top-bar.v4 .ts-breaking-news {
@@ -1315,7 +1361,7 @@ blockquote cite:after {
   font-size: 13px;
   text-transform: uppercase;
   color: #d72924;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 0;
   line-height: 26px;
   padding-right: 10px;
@@ -1396,7 +1442,7 @@ blockquote cite:after {
 .nav-header {
   padding: 0;
   margin: 0;
-  width: 0;
+  /* width: 0; */
 }
 
 .navigation {
@@ -2081,6 +2127,7 @@ blockquote cite:after {
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.08);
       }*/
 }
+
 .ts-grid-box_in {
   position: relative;
   margin-bottom: 10px;
@@ -2214,6 +2261,8 @@ blockquote cite:after {
 .post-list-item {
   position: relative;
   background: #fff;
+  top: 50px;
+  margin-top: 40px;
 }
 
 .post-list-item .nav-tabs {
@@ -2293,7 +2342,7 @@ blockquote cite:after {
 } */
 .post-tab-list {
   margin-bottom: -21px;
-  padding: 15px;
+  padding: 0 0 15px;
 }
 
 .post-tab-list .post-content.media {
@@ -2468,6 +2517,8 @@ img.sidebar-img-actu {
   text-align: center;
   color: #fff;
   z-index: 1;
+  color: #fff;
+  border-radius: 25px 0;
 }
 
 .ts-video-btn:hover {
@@ -2759,7 +2810,7 @@ img.sidebar-img-actu {
 
 .widgets ul li a {
   font-size: 14px;
-  color: #232323;
+  color: #004e7c;
 }
 
 .widgets ul li a:hover {
@@ -3522,7 +3573,11 @@ img.sidebar-img-actu {
 }
 
 .ts-footer.ts-footer-2 {
-  background: transparent;
+  background: #101727;
+}
+
+.ts-footer-2 .border-top {
+  border-color: #313845;
 }
 
 .ts-footer.ts-footer-2 .copyright-text p {
@@ -3531,7 +3586,7 @@ img.sidebar-img-actu {
 
 .ts-footer.ts-footer-2 .copyright-text p a {
   /* color: #6cba40; */
-  color: #F94340;
+  color: #ffffff;
 }
 
 .ts-footer.ts-footer-3 {
@@ -3687,9 +3742,18 @@ img.sidebar-img-actu {
 
 .single-post.content-wrapper,
 .comments-form.ts-grid-box {
-  padding: 30px 80px 38px;
+  /* padding: 30px 80px 38px; */
+  padding: 2px 80px 28px;
 } 
 
+
+.faq_text {
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  max-width: 43.75em;
+} 
 /* Single-post générale */
 
 .single-post .post-meta-info {
@@ -4232,7 +4296,10 @@ comments-form
 /* .ts-form .form-group {
   margin-bottom: 26px;
 } */
+.form-group .inscription_terms {
+  font-size: 19px;
 
+}
 .ts-form .form-group .form-control {
   height: 45px;
   width: 100%;
@@ -4383,7 +4450,7 @@ comments-form
 }
 
 .post-layout-2 .breadcrumb {
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 
 /*--------------------post-layout-4 ------------*/
@@ -5522,10 +5589,13 @@ comments-form
 }
 
 .blue-dark-heighlight {
-  background: #005689;
+  background: #004e7c;
   color: #fff;
 }
 
+.style_appel ul li{
+  color: #fff;
+}
 
 .blue-dark-_index {
   background: #100F10;
@@ -5537,7 +5607,7 @@ comments-form
   footer 4 
   ------------------------*/
 .ts-footer-4 {
-  background: #100F10;
+  background: #1a2130;
   padding: 40px 0;
 }
 
@@ -6010,6 +6080,14 @@ navbar-standerd
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.08);
 }
 
+
+.header{
+  border-bottom: 0.5px solid #ddd;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+
 .navbar-standerd .navigation {
   height: 80px;
 }
@@ -6068,6 +6146,7 @@ navbar-standerd
   height: 60px;
   line-height: 19px;
   position: relative;
+  z-index: 80;
 }
 
 .navbar-standerd.nav-item .nav-menu > li > a:before {
@@ -6482,24 +6561,21 @@ navbar-standerd
   height: 130px;
   content: '';
   z-index: 1;
+
 }
 .featured-slider-item {
   position: relative;
-  height: 400px;
+  height: 200px;
 }
 
 .featured-slider-item::before {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
   content: '';
-  background: rgb(249,67,64);
-  background-image: -webkit-linear-gradient(0, white 0%,  90deg);
-  background-image: -o-linear-gradient(0, white 0%, rgba(255,207,60,1) 18%);
-  background-image: linear-gradient(0, white 0%,  rgba(255,207,60,1) 73%);
+  background: #004e7c;
 }
+
 .hero-content {
   position: relative;
   padding: 20px;
@@ -6525,7 +6601,7 @@ navbar-standerd
 }
 
 .featured-bottom-post {
-  margin-top: -260px;
+  margin-top: -160px;
   position: relative;
   z-index: 1;
 }
@@ -7276,13 +7352,14 @@ featured tab personal blog
       }
       
       /* Add a hover effect if you want */
-      .fa:hover {
+      /* .fa:hover {
         opacity: 0.7;
-      }
+      } */
       
-      a:hover {
-        color:  #fff;
-      }
+      /* a:hover {
+        color:  #004e7c;
+        text-decoration: #004e7c  underline;;
+      } */
 
       .link_down:hover {
         color:  #0000FF;
@@ -7367,5 +7444,23 @@ featured tab personal blog
         padding: 0 30px;
         margin: auto;
     }
+
+
+/* FORMULAIRE INSCRIPTION */
+
+#ts-grid-box {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 32px;
+  /* background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 0px #004e7c; */
+  border-radius: 25px 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cbcbcb;
+  -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,.08);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.08);
+}
 
 

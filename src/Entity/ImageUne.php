@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ImagesRepository;
+use App\Repository\ImageUneRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ImagesRepository::class)
+ * @ORM\Entity(repositoryClass=ImageUneRepository::class)
  */
-class Images
+class ImageUne
 {
     /**
      * @ORM\Id
@@ -23,12 +23,10 @@ class Images
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=AppelProjet::class, inversedBy="images", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity=AlaUne::class, inversedBy="images_une", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $appelProjet;
-
-    
+    private $alaUne;
 
     public function getId(): ?int
     {
@@ -47,17 +45,15 @@ class Images
         return $this;
     }
 
-    public function getAppelProjet(): ?AppelProjet
+    public function getAlaUne(): ?AlaUne
     {
-        return $this->appelProjet;
+        return $this->alaUne;
     }
 
-    public function setAppelProjet(?AppelProjet $appelProjet): self
+    public function setAlaUne(?AlaUne $alaUne): self
     {
-        $this->appelProjet = $appelProjet;
+        $this->alaUne = $alaUne;
 
         return $this;
     }
-
-   
 }

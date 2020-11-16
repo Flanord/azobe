@@ -1,0 +1,11 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}New AlaUne{% endblock %}
+
+{% block body %}
+    <h1>Create new AlaUne</h1>
+
+    {{ include('admin/ala_une/_form.html.twig') }}
+
+    <a href="{{ path('ala_une_index') }}">back to list</a>
+{% endblock %}

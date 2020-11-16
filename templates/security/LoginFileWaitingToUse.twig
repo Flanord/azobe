@@ -38,4 +38,77 @@
     </button>
     <p><a  href="{{path('app_forgot_password_request')}}">Mot de passe oublié</a></p>   
 </form>
+{#Formulaire pour s'inspirer #}
+    <section class="block-wrapper section-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 mx-auto">
+						<div class="ts-grid-box">
+							<div class="reg-page">
+								<h3 class="log-sign-title mb-25 text-danger text-center">Inscrivez vous s'il vous plait 
+									<i class="fa fa-edit text-danger" aria-hidden="true"></i></h3>
+									{# Pour insérer le formulaire twig#}
+										{# Code en attente #}
+
+											{{ form_start(registrationForm) }}
+										<div class="form-row">
+												<div class="col form-group">
+													{{form_row(registrationForm.prenom)}}
+												</div>
+
+												<div class="col form-group">
+													{{form_row(registrationForm.nom_famille,{
+													label:'Nom de famille'})}}
+												</div>
+										</div>
+										<div class="form-group">
+											{{ form_row(registrationForm.email,{
+												label:'Adresse électronique'
+											}) }}
+										</div>
+
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												{{form_row(registrationForm.ville)}}
+											</div>
+											<div class="form-group col-md-6">
+											{{form_row(registrationForm.pays)}}
+											</div>
+										</div>
+										
+										<div class="form-group">
+											{{ form_row(registrationForm.plainPassword, {
+												label: 'Mot de passe'
+											})}}
+										</div>
+
+										<div class="form-group">
+											{{ form_row(registrationForm.confirm_password, {
+												label: 'Confirme mot de passe'
+											}) }}
+										</div>
+
+										<div class="form-group">
+											{{ form_row(registrationForm.agreeTerms,{
+												label:'Acceptez les conditions.'
+											}) }}
+										</div>
+										
+
+											<button type="submit" class="btn btn-primary">Register</button>
+											{{ form_end(registrationForm) }}
+									{#Fin insérer le formulaire twig #}
+									<div class="border-top card-body text-center">Avez-vous déjà un compte? 
+									   <a href="{{ path('app_login') }}">Se connecter</a>
+									</div>
+							</div> <!-- card.// -->
+
+						</div><!-- grid box end -->
+					</div>
+					<!-- col end-->
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
 {% endblock %}

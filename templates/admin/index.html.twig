@@ -325,7 +325,7 @@ body {
 
                       <!-- le nom de l'utilisateur s'affiche a la place de Antonin -->
 
-                      <h1 class="bienvenue-message">Bonjour  Antonin, <br> Que souhaites-tu faire aujourd'hui?</h1>
+                      <h1 class="bienvenue-message">Bonjour  à toi, <br> Que souhaites-tu faire aujourd'hui?</h1>
 
                       <!-- boutons d'interactions -->
                       <div class="row appelAction justify-content-center mb-5">
@@ -350,22 +350,22 @@ body {
                                   </span>
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              {# <li class="nav-item">
                                 <a href="membres.php" class="nav-link">
                                   <i class="nav-link-icon lnr-users font-weight-bold"></i>
                                   <span>
                                     Membres
                                   </span>
                                 </a>
-                              </li>
-                              <li class="nav-item">
+                              </li> #}
+                              {# <li class="nav-item">
                                 <a href="structures.php" class="nav-link">
                                   <i class="nav-link-icon lnr-apartment font-weight-bold"></i>
                                   <span>
                                     Structures
                                   </span>
                                 </a>
-                              </li>
+                              </li> #}
 
                               <li class="nav-item">
                                 <a href="evenements.php" class="nav-link">
@@ -384,29 +384,29 @@ body {
                                 </a>
                               </li>
                               <li class="nav-item">
-                                <a href="articles.php" class="nav-link">
+                                <a href="{{ path('ala_une_index') }}" class="nav-link">
                                   <i class="nav-link-icon pe-7s-file font-weight-bold"></i>
                                   <span>
                                     Articles
                                   </span>
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              {# <li class="nav-item">
                                 <a href="bibliotheque.php" class="nav-link">
                                   <i class="nav-link-icon pe-7s-notebook font-weight-bold"></i>
                                   <span>
                                     Bibliothèque
                                   </span>
                                 </a>
-                              </li>
-                              <li class="nav-item">
+                              </li> #}
+                              {# <li class="nav-item">
                                 <a href="statistiques.php" class="nav-link">
                                   <i class="nav-link-icon lnr-pie-chart font-weight-bold"></i>
                                   <span>
                                     Statistiques
                                   </span>
                                 </a>
-                              </li>
+                              </li> #}
                             </ul>
                           </div>
                         </div>
@@ -441,7 +441,7 @@ body {
                               </a>
                             </li>
                             <li class="nav-item">
-                              <a href="#" class="nav-link" data-toggle="modal" data-target="#appel-projet">
+                              <a href="{{ path('appel_projet_new') }}" class="nav-link">
                                 <i class="nav-link-icon pe-7s-speaker font-weight-bold"></i>
                                 <span>
                                   Appel à projet
@@ -456,14 +456,14 @@ body {
                                 </span>
                               </a>
                             </li>
-                            <li class="nav-item">
+                            {# <li class="nav-item">
                               <a href="#" data-toggle="modal" data-target="#ressource" class="nav-link">
                                 <i class="nav-link-icon lnr-book font-weight-bold"></i>
                                 <span>
                                   Ressource
                                 </span>
                               </a>
-                            </li>
+                            </li> #}
                           </ul>
                           </div>
                         </div>
@@ -692,7 +692,7 @@ body {
         <div class="modal-content">
           <div class="modal-header bg-primary">
             <h5 class="modal-title" id="exampleModalLabel" style="font-size: 30px; font-weight:bold;
-        ">PUBLIER UN PROJET</h5>
+             ">PUBLIER UN PROJET</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
