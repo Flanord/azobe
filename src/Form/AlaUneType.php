@@ -6,6 +6,7 @@ use App\Entity\AlaUne;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AlaUneType extends AbstractType
 {
@@ -15,7 +16,7 @@ class AlaUneType extends AbstractType
             ->add('title')
             ->add('auteur')
             ->add('createdAt')
-            ->add('images', FileType::class, [
+            ->add('images_une', FileType::class, [
                 'label'=>false, 
                 'multiple'=>true,
                 'mapped'=>false,

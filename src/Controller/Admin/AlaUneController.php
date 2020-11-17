@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AlaUne;
-use App\Entity\Images;
+use App\Entity\ImageUne;
 use App\Form\AlaUneType;
 use App\Repository\AlaUneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,21 +37,21 @@ class AlaUneController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
              //On récupère les images transmises
-             $images = $form->get('images')->getData();
+             $images_unes = $form->get('images_une')->getData();
              //On boucle sur les images.
-             foreach($images as $image){
+             foreach($images_unes as $image_une){
                  //On génère un nouveau nom de fichier.
-                 $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                 $fichier = md5(uniqid()).'.'.$image_une->guessExtension();
  
                  //On copier le fichier dans le dossier upload
-                 $image->move( 
+                 $image_une->move( 
                      $this->getParameter('images_directory'), $fichier
                  );
  
                  //On stocke l'image dans la base de données (son nom)
-                 $img = new Images();
+                 $img = new ImageUne;
                  $img -> setName($fichier);
-                 $alaUne->addImage($img);
+                 $alaUne->addImagesUne($img);
              }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($alaUne);
@@ -86,23 +86,23 @@ class AlaUneController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
-             //On récupère les images transmises
-             $images = $form->get('images')->getData();
-             //On boucle sur les images.
-             foreach($images as $image){
-                 //On génère un nouveau nom de fichier.
-                 $fichier = md5(uniqid()).'.'.$image->guessExtension();
- 
-                 //On copier le fichier dans le dossier upload
-                 $image->move( 
-                     $this->getParameter('images_directory'), $fichier
-                 );
- 
-                 //On stocke l'image dans la base de données (son nom)
-                 $img = new Images();
-                 $img -> setName($fichier);
-                 $alaUne->addImage($img);
-             }
+              //On récupère les images transmises
+              $ImagesUne = $form->get('ImagesUne')->getData();
+              //On boucle sur les images.
+              foreach($ImagesUne as $ImageUne){
+                  //On génère un nouveau nom de fichier.
+                  $fichier = md5(uniqid()).'.'.$ImageUne->guessExtension();
+  
+                  //On copier le fichier dans le dossier upload
+                  $ImageUne->move( 
+                      $this->getParameter('images_directory'), $fichier
+                  );
+  
+                  //On stocke l'image dans la base de données (son nom)
+                  $img = new ImageUne;
+                  $img -> setName($fichier);
+                  $alaUne->addImagesUne($img);
+              }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('ala_une_index');

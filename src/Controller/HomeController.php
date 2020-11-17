@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Images;
+
 use App\Repository\AlaUneRepository;
 use App\Repository\AppelProjetRepository;
-use App\Repository\ImagesRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +30,7 @@ class HomeController extends AbstractController
     public function alaune(AlaUneRepository $alaUneRepository):Response
     {
         return $this->render('home/index.html.twig', [
-            'alaUnes' => $alaUneRepository->findAll(),
+            'ala_unes' => $alaUneRepository->findAll(),
             ]);
     }
 

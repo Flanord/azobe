@@ -35,6 +35,7 @@
 	<!-- Style -->
 	<link rel="stylesheet" href="{{ asset('css/colors/color-13.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/colors/color-15.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/colors/color-16.css') }}">
 	<!-- Responsive -->
 	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/cookies.css') }}">
@@ -114,37 +115,45 @@
 				<div class="row">
 					<div class="col-md-7 align-self-center">
 						<div class="ts-breaking-news clearfix">
-							<h2 class="breaking-title float-left">Actualités:</h2>
+							<h2 class="breaking-title float-left" style="margin-top:0px;">Actualités:</h2>{# Un petit margin pour ajuster l'actualité avec le text défilant #}
 							<div class="breaking-news-content float-left slick-initialized slick-slider" id="breaking_slider1">
 								<div aria-live="polite" class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" role="listbox" style="opacity: 1; width: 15000px; left: -1819.19px;"><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
 									<p>
 										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide slick-cloned slick-center" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+								</div>
+								<div class="breaking-post-content slick-slide slick-cloned slick-center" data-slick-index="-1" aria-hidden="true" tabindex="-1">
 									<p>
 										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00">
+								</div>
+								<div class="breaking-post-content slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00">
 									<p>
 										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01">
+								</div>
+								<div class="breaking-post-content slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01">
 									<p>
 										<a href="#" tabindex="0">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide slick-current slick-active slick-center" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02">
+								</div>
+								<div class="breaking-post-content slick-slide slick-current slick-active slick-center" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02">
 									<p>
 										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1">
+								</div>
+								<div class="breaking-post-content slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1">
 									<p>
 										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
 									</p>
-								</div><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1">
+								</div>
+								<div class="breaking-post-content slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1">
 									<p>
 										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
 									</p>
-								</div></div></div>
+								</div>
+								</div>
+								</div>
 								
 								
 							</div>
@@ -166,18 +175,35 @@
 				<!-- end row -->
 			</div>
 		</section>
+
         <!--Appel à projet-->
-       <section class="header-middle">
+       <section class="header-middle" id="header" role="banner">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-8 align-self-center">
-							<div class="banner-img">
-								<a href="#" data-toggle="modal" data-target="#exampleModal">
-								<img class="img-fluid" src="{{asset('images/Centre_De_Recherche_Action_Logo.png')}}" alt="Centre de Ressource pour la Société Civile, AZOBE">
-								</a>
+						<div class="col-lg-12">
+							<div class="core">
+								<style>
+									.logo-and-txt-inline{
+									 display: flex;
+									}
+									.espace{
+										margin-left:45px;
+									}
+								</style>
+								<div class="logo-and-txt-inline">
+										<div class="logo_header">
+											<a href="">
+												<img src="{{asset('images/azologo.png')}}" style="width:300px; height:300px;">
+											</a>
+										</div>
+									<div class="group-title espace">
+										<strong class="title  text-uppercase"><a href="" title="Accueil">Centre de Ressources <br> pour la société
+												civile</a>
+										</strong>
+									</div>
+								</div>
 							</div>
 						</div>
-						<!-- col end -->
 					</div>
 					<!-- row  end -->
 				</div>
@@ -490,11 +516,11 @@
 						</ul>
 					</div>
 				</div>
-				<div id="back-to-top" class="back-to-top" style="">
-					<button class="btn btn-primary" title="Back to Top" style="background:#F94340">
+				<div id="back-to-top" class="back-to-top">
+					<button class="btn btn-primary" title="Back to Top">
 						<i class="fa fa-angle-up"></i>
 					</button>
-				</div>
+				</div><!-- Back to top end -->
 				<!-- Back to top end -->
 			</div>
 		</footer>
@@ -503,10 +529,9 @@
 	<!--Section Newsletter-->
 	
 	
-	<!-- javaScript Files
-	=============================================================================-->
-
-	<!-- <script src="https://kit.fontawesome.com/1bbfd94ab9.js"></script> -->
+	
+    {% block javascripts %}
+	<!-- javaScript Files-->
 	<!-- initialize jQuery Library -->
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
 	<!-- navigation JS -->
@@ -517,17 +542,23 @@
 	<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 	<!-- Bootstrap jQuery -->
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	
+	
+	<!--Bootstrap jquery-->
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<!-- Owl Carousel -->
-	<script src="{{ asset('js/owl-carousel.2.3.0.min.js') }}"></script>
+	<script src="{{asset('js/owl-carousel.2.3.0.min.js')}}"></script>
 	<!-- slick -->
-	<script src="{{ asset('js/slick.min.js') }}"></script>
+	<script src="{{asset('js/slick.min.js')}}"></script>
 	<!-- Index Js -->
-	<script src="{{ asset('js/index.js') }}"></script>
+	<script src="{{asset('js/index.js')}}"></script>
+
 	<!-- smooth scroling -->
-	<script src="js/smoothscroll.js') }}"></script>
+	<script src="{{asset('js/smoothscroll.js')}}"></script> 
 	<!-- smooth scroling -->
-	<script src="js/custum.js') }}"></script>
-	<script src="js/main.js') }}"></script>
-    {% block javascripts %}{% endblock %}
+	<script src="{{asset('js/custum.js')}}"></script>
+
+	<script src="{{asset('js/main.js')}}"></script>
+	{% endblock %}
     </body>
 </html>

@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\AlaUneRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -35,9 +34,9 @@ class AlaUne
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=ImageUne::class, mappedBy="alaUne", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ImageUne::class, mappedBy="alaUne", orphanRemoval=true, cascade={"persist"})
      */
-    private $images_une;
+    public $images_une;
 
    
 

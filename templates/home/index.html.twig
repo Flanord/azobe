@@ -16,10 +16,12 @@
 				<div class="row">
 					<div class="col-lg-8 col-md-12">
 						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
-							<div class="item"
-								style="background-image:url(asset{{("images/azobe_logo.png")}}); background-position: cover;">
-								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
-								{# Zone où j'insère la boucle twig #}
+							{# Zone où j'insère la boucle twig #}
+							{% if ala_une is defined %}
+								{% for ala_une in ala_unes %}
+									{% for image_une in ala_une.images_une %}
+										<div class="item" style="background-image:url("/uploads/" ~ image_une.name); background-position: cover;">
+												<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
 								<div class="overlay-post-content">
 									<div class="post-content">
 										<h2 class="post-title lg">
@@ -45,7 +47,11 @@
 								</div><!--End OverLay-->
 								{# Find de la boucle twig #}
 								<!--/ Featured post end -->
-							</div>
+							</div>	
+							{% endfor %}
+						{% endfor %} 
+					{% endif %}
+
 						</div>
 						<!-- Featured owl carousel end-->
 					</div>
