@@ -9,19 +9,19 @@
     
 {% endblock %}
 {% block section %}
-        {# A La une #}
-<section class="block-wrapper mt-15">
-		<section class="block-wrapper mt-15">
+	   {# A La Une #}
+	   <section class="block-wrapper mt-15">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-12">
 						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
-							{# Zone où j'insère la boucle twig #}
-							{% if ala_une is defined %}
-								{% for ala_une in ala_unes %}
-									{% for image_une in ala_une.images_une %}
-										<div class="item" style="background-image:url("/uploads/" ~ image_une.name); background-position: cover;">
-												<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
+
+						{# Zone où j'insert la boucle twig #}
+						{% if ala_une is defined %}
+							{% for ala_une in ala_unes %}
+								{% for image_une in ala_une.images_une %}
+							<div class="item" style="background-image:url({{asset("/uploads/" ~ image_une.name)}}; background-position: cover;">
+								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
 								<div class="overlay-post-content">
 									<div class="post-content">
 										<h2 class="post-title lg">
@@ -31,7 +31,7 @@
 										<ul class="post-meta-info">
 											<li class="author" id="author">
 												<a href="#">
-													<img src="images/avater/author.jpg" alt=""> Rick Moungou
+													<img src="{{asset('images/author.jpg')}}" alt=""> Rick Moungou
 												</a>
 											</li>
 											<li>
@@ -44,24 +44,23 @@
 											</li>
 										</ul>
 									</div>
-								</div><!--End OverLay-->
-								{# Find de la boucle twig #}
+								</div>
 								<!--/ Featured post end -->
-							</div>	
-							{% endfor %}
+							</div>
+								{% endfor %}
 						{% endfor %} 
-					{% endif %}
-
+						{% endif %}
+							<!-- Item 1 end -->
 						</div>
 						<!-- Featured owl carousel end-->
 					</div>
-					<!-- Zone Edito-->
+				
 					<div class="col-lg-4">
 						<div class="ts-grid-box ts-grid-content">
 							<a class="post-cat" href="#" id="post-cat">Edito du mois</a>
 							<div class="ts-post-thumb">
 								<a href="#">
-									<img class="img-fluid" src="images/publications/edito/edito4.jpg" alt="">
+									<img class="img-fluid" src="images/edito4.jpg" alt="">
 								</a>
 							</div>
 							<div class="post-content">
@@ -81,8 +80,8 @@
 			</div>
 			<!-- container end-->
 		</section>
-        {# Bienvenue #}
-        <section class="block-wrapper">
+	   {# Le peroquet d'Azobe vous dit Bienvenue #}
+	   <section class="block-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-md-4">
@@ -125,50 +124,92 @@
 			</div>
 			<!-- container end-->
 		</section>
-        {# Section dernier Appel Projet #}
-        <section class="block-wrapper mb-20">
+	   {# Les derniers Appels à projets et Evènement#}
+	   <section class="block-wrapper mb-20">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 category-post-style1">
 						<div class="ts-heading clearfix">
 							<h3 class="ts-title text-uppercase">Les derniers Appel à projets</h3>
 						</div>
-						<!-- ts title end-->
-						{% for appel_projet in appel_projets|slice(0, 2) %} {# Début Boucle pour les appels à projet #}
-							
+						
+						{% for appel_projet in appel_projets|slice(0,1) %} {# Début Boucle pour les appels à projet #}
 							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
-						<div class="row mb-10">
-							<div class="col-lg-7">
-								<div class="ts-post-thumb">
-									<a href="#">
-										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="">
-									</a>
+									<!--row start-->
+								<div class="row mb-10">
+									<div class="col-lg-7">
+										<div class="ts-post-thumb">
+											<a href="#">
+												<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
+											</a>
+										</div>
+									</div>
+									<!-- end col-->
+									<div class="col-lg-5 align-self-center">
+										<div class="post-content links">
+											<h3 class="post-title md">
+												<a href="#">{{appel_projet.title}}</a>
+											</h3>
+											<ul class="post-meta-info">
+												<li>
+													<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+														le 15 décembre 2018</strong>
+												</li>
+											</ul>
+											<p>
+													{{appel_projet.description}}
+											</p>
+											<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+										</div>
+									</div>
+									<!-- col end-->
 								</div>
-							</div>
-							<!-- end col-->
+						<!-- row end-->
+							{% endfor %}
+					    {% endfor %}
+						<!--row start-->
+						{% for appel_projet in appel_projets|slice(1,2) %} {# Début Boucle pour les appels à projet #}
+							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+										<div class="row mb-10">
 							<div class="col-lg-5 align-self-center">
 								<div class="post-content links">
 									<h3 class="post-title md">
-										<a href="#">{{appel_projet.title}}</a>
+										<a href="">Appel à projets Azobé</a>
 									</h3>
 									<ul class="post-meta-info">
 										<li>
 											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
-												le 15 décembre 2018</strong>
+												le 28 février 2020</strong>
 										</li>
 
 									</ul>
 									<p>
-										{{appel_projet.description}}
+										La délégation L’Union européenne et L’Ambassade de France lancent l’appel à
+										projets Azobé.
+										Cet appel permet le financement de projets portés par les acteurs non
+										gouvernementaux gabonais dans les domaines du développement durable,
+										du numérique et de l’artisanat.
+
 									</p>
+
 									<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
 								</div>
 							</div>
 							<!-- col end-->
+							<div class="col-lg-7">
+								<div class="ts-post-thumb">
+									<a href="#">
+										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
+									</a>
+								</div>
+							</div>
+							<!-- end col-->
 						</div>
+						 {% endfor %}
+					  {% endfor %}
+						
+						
 						<!-- row end-->
-						    {% endfor %}
-						{% endfor %}
 					</div>
 					<!-- col end-->
 
@@ -184,34 +225,33 @@
 								<div class="tab-content pt-3">
 									<div role="tabpanel" class="tab-pane active post-tab-list" id="home">
 										<div class="post-content media">
-											<img class="d-flex sidebar-img pt-2" src="images/publications/actualites/actu6.jpg" alt="">
+											<img class="d-flex sidebar-img pt-2" src="{{asset('images/ev17.jpg')}}" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
 														EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
-													<a href="#" data-toggle="modal" data-target="#myModal">Lancement de
-														la formation(Chambre des métiers de l'Artisanat)</a>
+													<a href="#" data-toggle="modal" data-target="#myModal">Formation Chambre des métiers</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
 										<div class="post-content media ">
-											<img class="d-flex sidebar-img" src="images/events/even2.jpg" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even2.jpg')}}" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal2"> EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
 													<a href="#" data-toggle="modal" data-target="#myModal2">Webinaire:
-														les enjeux de la cartographie digitale au Gabon</a>
+													La cartographie digitale au Gabon</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="images/events/even13.jpg" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even13.jpg')}}" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
@@ -225,7 +265,7 @@
 										</div>
 										<!--post-content end-->
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="images/events/even5.jpg" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even5.jpg')}}" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
@@ -239,7 +279,7 @@
 										</div>
 										<!--post-content end-->
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="images/events/even8.jpg" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even8.jpg')}}" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
@@ -267,8 +307,9 @@
 			</div>
 			<!-- container end-->
 		</section>
-        {# Appel à l'action #}
-        <section class="block-wrapper" style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
+
+	   {# Appel à l'action #}
+	   <section class="block-wrapper" style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 call_action">
@@ -294,8 +335,8 @@
 			</div>
 			<!-- container end-->
 		</section>
-        {# La une des actifs #}
-        <section class="block-wrapper mt-15 xs-mb-30">
+	   {# La une des Actifs #}
+	   <section class="block-wrapper mt-15 xs-mb-30">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9">
@@ -312,7 +353,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="images/actifs/actif1.jpg" alt="acteurs de la sociétés civiles actifs">
+											<img class="img-fluid" src="{{asset('images/actif1.jpg')}}" alt="acteurs de la sociétés civiles actifs">
 										</a>
 									</div>
 									<div class="post-content">
@@ -322,7 +363,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="images/avater/author.jpg" alt=""> Fleur Pendie
+													<img src="{{asset('images/author.jpg')}}" alt=""> Fleur Pendie
 												</a>
 											</li>
 											<li>
@@ -348,7 +389,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="images/actifs/actif2.jpg" alt="">
+											<img class="img-fluid" src="{{asset('images/actif2.jpg')}}" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -358,7 +399,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="images/avater/author2.jpg" alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
+													<img src="{{asset('images/author2.jpg')}}" alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
 												</a>
 											</li>
 											<li>
@@ -384,7 +425,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="images/actifs/actif3.jpg" alt="">
+											<img class="img-fluid" src="{{asset('images/actif3.jpg')}}" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -394,7 +435,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="images/avater/author.jpg" alt=""> Cassandra Elat
+													<img src="{{asset('images/author.jpg')}}" alt=""> Cassandra Elat
 												</a>
 											</li>
 											<li>
@@ -421,7 +462,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="images/actifs/actif4.jpg" alt="">
+											<img class="img-fluid" src="{{asset('images/actif4.jpg')}}" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -431,7 +472,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="images/avater/author2.jpg" alt=""> jean-Mathy Ndong
+													<img src="{{asset('images/author2.jp')}}" alt=""> jean-Mathy Ndong
 												</a>
 											</li>
 											<li>
@@ -457,16 +498,6 @@
 					</div>
 
 					<div class="col-lg-3">
-						<!-- <h3 class="widget-title">Devenez membre!</h3>
-						<div class="ts-grid-box ts-grid-content">
-							<div class="ts-post-thumb">
-								<a href="#">
-									<img class="img-fluid" src="images/banner/cal_1.png" alt="">
-								</a>
-							</div>
-						</div> -->
-						<!-- ts-grid-box end-->
-
 						<div class="ts-grid-box widgets category-widget">
 							<h2 class="widget-title">Rubriques</h2>
 							<ul class="category-list">
@@ -511,7 +542,7 @@
 									<div class="ts-post-thumb">
 										<a class="post-cat" id="post-cat" href="#">Actualités</a>
 										<a href="#">
-											<img class="img-fluid" src="images/publications/actualites/actu6.jpg" alt="">
+											<img class="img-fluid" src="{{asset('images/actu6.jpg')}}" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -530,7 +561,7 @@
 							<!-- ts-overlay-style  end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="images/publications/populaires/publication2.jpg" alt="">
+								<img class="d-flex sidebar-img" src="{{asset('images/publication2.jpg')}}" alt="">
 								<div class="media-body align-self-center">
 									<h4 class="post-title">
 										<a href="">l’approvisionnement en eau et l’assainissement en milieu rural au
@@ -542,7 +573,7 @@
 							<!-- post content end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="images/publications/populaires/publication3.jpg" alt="">
+								<img class="d-flex sidebar-img" src="{{asset('images/publication3.jpg')}}" alt="">
 								<div class="media-body align-self-center">
 									<h4 class="post-title">
 										<a href="">Introduction au Design Thinking - MasterClass by SING GA</a>
@@ -553,7 +584,7 @@
 							<!-- post content end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="images/publications/populaires/publication4.jpg" alt="">
+								<img class="d-flex sidebar-img" src="{{asset('images/publication4.jpg')}}" alt="">
 								<div class="media-body align-self-center">
 									<h4 class="post-title">
 										<a href="">DigieWomen School: Les femmes dans le digital pour un impact
@@ -569,8 +600,8 @@
 			</div>
 			<!-- container end-->
 		</section>
-        {# Azobe en chiffre #}
-        <section class="block-wrapper mt-15 xs-mb-30" id="block-wrapper">
+	   {# Azobe en chiffre #}
+	   <section class="block-wrapper mt-15 xs-mb-30" id="block-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -609,9 +640,8 @@
 			</div>
 			<!-- container end-->
 		</section>
-
-        {# Section nos partenaire #}
-        <section class="block-wrapper" style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
+       {# Partenaire #}
+    	<section class="block-wrapper" style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -623,7 +653,7 @@
 							<div class="col-md-12">
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post">
-										<img class="img-fluid" src="images/partenaires/part8.png" alt="">
+										<img class="img-fluid" src="{{asset('images/part8.png')}}" alt="Bannière partenaire">
 									</div>
 								</div>
 								<!-- ts grid box-->
@@ -633,6 +663,7 @@
 					</div>
 				</div>
 				<!-- row end-->
-	</div>{# Fin du container #}	
-</section>{# Fin de la Grande Section #}
+			</div>
+			<!-- container end-->
+		</section>
 {% endblock %}

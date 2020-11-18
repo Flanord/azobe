@@ -43,139 +43,125 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-
+		<div class="body-inner-content">
         <!--SectionDegre-->
-       <section class="top-bar">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 align-self-center md-center-item">
-						<div class="ts-temperature">
-							<i class="icon-weather"></i>
-							<span>25.8
-								<b>c</b>
-							</span>
-							<span>Libreville</span>
+		<div class="header-area ">
+			<!-- top bar start -->
+			<section class="top-bar">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 align-self-center md-center-item">
+							<div class="ts-temperature">
+								<i class="icon-weather"></i>
+								<span>25.8
+									<b>c</b>
+								</span>
+								<span>Libreville</span>
+
+							</div>
+
+							<ul class="ts-top-nav">
+								<li>
+									<a href="#">Blog</a>
+								</li>
+								<li>
+									<a href="#">Forums</a>
+								</li>
+								<li>
+									<a href="us-contact.html">Contact</a>
+								</li>
+								<li>
+									<a href="#">FAQ</a>
+								</li>
+							</ul>
 
 						</div>
+						<!-- end col-->
 
-						<ul class="ts-top-nav">
-							<li>
-								<a href="#">Blog</a>
-							</li>
-							<li>
-								<a href="#">Forums</a>
-							</li>
-							<li>
-								<a href="us-contact.html">Contact</a>
-							</li>
-							<li>
-								<a href="#">FAQ</a>
-							</li>
-						</ul>
+						<div class="col-md-6 text-right align-self-center">
+							<!-- social-->
+							<ul class="top-social">
+								<li>
+									<a href="#">
+										<i class="fa fa-facebook-f"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-linkedin"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-youtube-square"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<!--end col -->
+
 
 					</div>
-					<!-- end col-->
-
-					<div class="col-md-6 text-right align-self-center">
-						<!-- social-->
-						<ul class="top-social">
-							<li>
-								<a href="#">
-									<i class="fa fa-facebook-f"></i>
-								</a>
-							</li>
-							<li> 
-								<a href="#">
-									<i class="fa fa-linkedin"></i> 
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-instagram"></i>  
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-youtube-square"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!--end col -->
-
-
+					<!-- end row -->
 				</div>
-				<!-- end row -->
-			</div>
-		</section>
- <!--End SectionDegre-->
-         <!--Actualité défillante-->
-        <section class="top-bar v4">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-7 align-self-center">
-						<div class="ts-breaking-news clearfix">
-							<h2 class="breaking-title float-left" style="margin-top:0px;">Actualités:</h2>{# Un petit margin pour ajuster l'actualité avec le text défilant #}
-							<div class="breaking-news-content float-left slick-initialized slick-slider" id="breaking_slider1">
-								<div aria-live="polite" class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" role="listbox" style="opacity: 1; width: 15000px; left: -1819.19px;"><div class="breaking-post-content slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
-									<p>
-										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
-									</p>
+			</section>
+			<!-- end top bar-->
+
+			<!-- top bar start -->
+			<section class="top-bar v4">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-7 align-self-center">
+							<div class="ts-breaking-news clearfix">
+								<h3 class="breaking-title float-left text-font" style="margin-top:0;">Actualités:</h3>
+								<div class="breaking-news-content float-left" id="breaking_slider1">
+									<div class="breaking-post-content">
+										<p>
+										 <a href="https://www.institutfrancais-gabon.com/">Dans le cadre de la lutte
+												contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à
+												nouvel ordre...</a>
+										</p>
+									</div>
+									<div class="breaking-post-content">
+										<p>
+											<a href="#">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont
+												connus...</a>
+										</p>
+									</div>
+									<div class="breaking-post-content">
+										<p>
+											<a href="#"> Les finalistes de l'Appel à projet Azobe sont : l'ONG
+												OGOOUE-LABS ,ONG ACTE, We-need et ONG NGOUDU...</a>
+										</p>
+									</div>
 								</div>
-								<div class="breaking-post-content slick-slide slick-cloned slick-center" data-slick-index="-1" aria-hidden="true" tabindex="-1">
-									<p>
-										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
-									</p>
-								</div>
-								<div class="breaking-post-content slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00">
-									<p>
-										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
-									</p>
-								</div>
-								<div class="breaking-post-content slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01">
-									<p>
-										<a href="#" tabindex="0">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
-									</p>
-								</div>
-								<div class="breaking-post-content slick-slide slick-current slick-active slick-center" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02">
-									<p>
-										<a href="#" tabindex="-1"> Les finalistes de l'Appel à projet Azobe sont : l'ONG OGOOUE-LABS ,ONG   ACTE, We-need et ONG NGOUDU...</a>
-									</p>
-								</div>
-								<div class="breaking-post-content slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1">
-									<p>
-										<a href="https://www.institutfrancais-gabon.com/" tabindex="-1">Dans le cadre de la lutte contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à nouvel ordre...</a>
-									</p>
-								</div>
-								<div class="breaking-post-content slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1">
-									<p>
-										<a href="#" tabindex="-1">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont connus...</a>
-									</p>
-								</div>
-								</div>
-								</div>
-								
-								
 							</div>
 						</div>
-					</div>
-					<!-- end col-->
+						<!-- end col-->
 
-					<div class="col-md-5 align-self-center">
-						<div class="text-right xs-left">
-							<div class="ts-date-item">
-								Lundi, 14 septembre 20</div>
+						<div class="col-md-5 align-self-center">
+							<div class="text-right xs-left">
+								<div class="ts-date-item">
+									Lundi, 14 septembre 20</div>
+							</div>
+
 						</div>
+						<!--end col -->
+
 
 					</div>
-					<!--end col -->
-
-
+					<!-- end row -->
 				</div>
-				<!-- end row -->
-			</div>
-		</section>
-
+			</section>
+			<!-- end top bar-->
+		</div>
+ 		<!--End SectionDegre-->
+         
         <!--Appel à projet-->
        <section class="header-middle" id="header" role="banner">
 				<div class="container">
@@ -286,56 +272,19 @@
 			</div>
 		</header>
         
-    {% block section %}{% endblock %}
+    	{% block section %}{% endblock %}
 
-	{% block registration %}
-		
-	{% endblock %}
+		{% block registration %}{% endblock %}
 
-    {% block footer %} {% endblock %}
-    <!--Section Newsletter-->
-		{# <section class="ts-newslatter">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="ts-newslatter-content">
-							<h3 class="h4">
-								Enregistrez-vous pour recevoir le bulletin d'informations
-							</h3>
-							<p>
-								Rejoignez notre newsletter et recevez des mises à jour dans votre boîte de réception. Nous
-								ne vous enverrons pas de spam et nous respectons votre vie privée.
-							</p>
-						</div>
-					</div>
-					<!-- col end-->
-
-					<div class="col-lg-6">
-						<div class="newsletter-form">
-							<form action="#" method="post" class="media align-items-end">
-								<div class="email-form-group media-body">
-									<i class="fa fa-paper-plane" aria-hidden="true"></i>
-									<input type="email" name="email" id="newsletter-form-email" class="form-control" placeholder="Entrez votre adresse email" autocomplete="off" required="">
-								</div>
-								<div class="d-flex ts-submit-btn">
-									<button class="btn btn-primary">Souscrire</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> #}
-		<!--End Section Newsletter-->
-
-		<!--Footer-->
+    	{% block footer %}
+		<!--Footer 2-->
 		<footer class="ts-footer ts-footer-4">
 			<div class="container">
 				<div class="row footer-top">
 					<div class="col-md-6">
 						<div class="footer-logo">
 							<a href="#">
-								<img src="{{asset('images/logo_txt_simple.png')}}" alt="" width="150">
+								<img src="{{asset('images/azobe.png')}}" alt="" width="150">
 							</a>
 						</div>
 					</div>
@@ -377,28 +326,6 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-widget">
-							<h4 class="widget-title">TERMES  &amp; CONFIDENTIALITÉ</h4>
-							<ul>
-								<li>
-									<a href="#">Données personnelles</a>
-								</li>
-								<li>
-									<a href="#">Mentions légales</a>
-								</li>
-								<li>
-									<a href="#">Politique de confidentialité</a>
-								</li>
-								<li>
-									<a href="#">Termes &amp;  Conditions</a>
-								</li>
-							</ul>
-
-						</div>
-						<!-- footer widget end-->
-					</div>
-					<!-- col end-->
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-widget">
 							<h4 class="widget-title">Nos services</h4>
 							<ul>
 								<li class="active">
@@ -416,30 +343,25 @@
 										<li>
 											<a href="#">Etudes</a>
 											<ul class="nav-dropdown nav-submenu">
-												<!-- <li>
-													<a href="category-1.html">Category layout 1</a>
-												</li> -->
+												<!-- <li><a href="category-1.html">Category layout 1</a></li> -->
 											</ul>
 										</li>
 										<li>
 											<a href="#">Acteurs</a>
 											<ul class="nav-dropdown nav-submenu">
-												<!-- <li>
-													<a href="">Single Post 1</a>
-												</li> -->
+												<!-- <li><a href="">Single Post 1</a></li> -->
 											</ul>
 										</li>
 										<li>
 											<a href="#">Fonds Documentaire</a>
 											<ul class="nav-dropdown nav-submenu">
-												<!-- <li>
-													<a href="">Single Post 1</a>
-												</li> -->
+												<!-- <li><a href="">Single Post 1</a></li> -->
 											</ul>
 										</li>
+									</ul>
+								</li>
 							</ul>
-
-						</li></ul></div>
+						</div>
 						<!-- footer widget end-->
 					</div>
 					<!-- col end-->
@@ -448,9 +370,12 @@
 							<h4 class="widget-title">Nos coordonnées</h4>
 							<div class="box">
 								<div class="box-text">
-									<p>409, Boulevard Triomphal - <br> BP 2125 - Libreville<br class="manualbr">Tél. (+241) 11 79 70 00 <br class="manualbr">
-										<a href="us-contact.html" class="spip_in">Nous contacter</a><br class="manualbr">
-										<a href="us-urgence.html" class="spip_in">En cas d’urgence</a>
+									<p>409, Boulevard Triomphal - <br> BP 2125 - Libreville<br class="manualbr">Tél.
+										(+241)
+										11
+										79 70 00 <br class="manualbr">
+										<a href="us-contact.html" class="spip_in text-primary">Nous contacter</a><br class="manualbr">
+										<a href="us-urgence.html" class="spip_in text-primary">En cas d’urgence</a>
 									</p>
 								</div>
 							</div>
@@ -458,7 +383,7 @@
 						<!-- footer widget end-->
 					</div>
 					<!-- col end-->
-					<div class="col-lg-3 col-md-6">
+					<div class="col-lg-6 col-md-6">
 						<div class="footer-widget">
 							<div class="ts-grid-box ts-grid-content">
 								<div class="ts-post-thumb">
@@ -473,64 +398,64 @@
 			</div>
 			<!-- container end-->
 		</footer>
+		<!--Footer 2 -->
 		<footer class="ts-footer ts-footer-2">
 			<div class="container">
-				<!-- end row-->
 				<div class="row">
-					<div class="col-md-6">
-						<div class="copyright-text">
-							<p>©
-								<a href="#">Azobe</a>.Tous droits réservés.
-							</p>
+					<div class="col-lg-12">
+						<div class="footer-menu text-center">
+							<ul>
+								<li>
+									<a href="#">Données personnelles</a>
+								</li>
+								<li>
+									<a href="#">Mentions légales</a>
+								</li>
+								<li>
+									<a href="#">Politique de confidentialité</a>
+								</li>
+								<li>
+									<a href="#">Termes &amp; Conditions</a>
+								</li>
+							</ul>
 						</div>
-					</div>
-					<!-- col end-->
-					<div class="col-md-6">
-						<ul class="footer-social-list text-right">
-							<li class="ts-facebook">
-								<a href="#">
-									<i class="fa fa-facebook"></i>
-								</a>
-							</li>
-							<li class="ts-instagram_in">
-								<a href="#">
-									<i class="fa fa-instagram"></i>
-								</a>
-							</li>
-							<li class="ts-twitter">
-								<a href="#">
-									<i class="fa fa-twitter"></i>
-								</a>
-							</li>
-							<li class="ts-youtube">
-								<a href="#">
-									<i class="fa fa-youtube-play"></i>
-								</a>
-							</li>
-							<li class="ts-linkedin">
-								<a href="#">
-									<i class="fa fa-linkedin"></i>
-								</a>
-
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div id="back-to-top" class="back-to-top">
+						<div class="border-top mb-2"></div>
+						<div class="copyright-text text-center">
+							<p class="text-white">©2019<span href="#" class="text-primary"> Azobe/Gabon</span>.Tous
+								droits
+								réservés.</p>
+						</div>
+					</div><!-- col end -->
+				</div><!-- row end -->
+				<div id="back-to-top" class="back-to-top" style="">
 					<button class="btn btn-primary" title="Back to Top">
 						<i class="fa fa-angle-up"></i>
 					</button>
 				</div><!-- Back to top end -->
-				<!-- Back to top end -->
-			</div>
+			</div><!-- Container end-->
 		</footer>
-		<!--End Footer-->
+		<div class="blog_cookies_div" style="display: block;">
+			<div class="container">
+				<div class="blog_cookies_data">
+					<h3>Notice cookies</h3>
+					<p>
+						Ce site utilise des cookies afin que nous puissions nous souvenir de vous et comprendre comment
+						vous utilisez notre site. Vous pouvez modifier ce message et les liens ci-dessous sur votre
+						site.
+					</p>
+					<p><strong>S'il vous plaît lire nos cookies &amp; Les politiques de confidentialité</strong></p>
+					<a class="blog_btn cookie_btn" style="background: #fecf3c;color:white; padding: 12px;">Accepter</a>
+				</div>
+			</div>
+		</div>
+		
+		</div>
+	{% endblock %}
     
-	<!--Section Newsletter-->
 	
+    
 	
-	
-    {% block javascripts %}
+	{% block javascripts %}
 	<!-- javaScript Files-->
 	<!-- initialize jQuery Library -->
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -542,8 +467,6 @@
 	<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 	<!-- Bootstrap jQuery -->
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-	
-	
 	<!--Bootstrap jquery-->
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<!-- Owl Carousel -->
@@ -552,12 +475,10 @@
 	<script src="{{asset('js/slick.min.js')}}"></script>
 	<!-- Index Js -->
 	<script src="{{asset('js/index.js')}}"></script>
-
 	<!-- smooth scroling -->
 	<script src="{{asset('js/smoothscroll.js')}}"></script> 
 	<!-- smooth scroling -->
 	<script src="{{asset('js/custum.js')}}"></script>
-
 	<script src="{{asset('js/main.js')}}"></script>
 	{% endblock %}
     </body>
