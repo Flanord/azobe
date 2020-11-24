@@ -49,7 +49,7 @@ class AlaUneController extends AbstractController
                  );
  
                  //On stocke l'image dans la base de données (son nom)
-                 $img = new ImageUne;
+                 $img = new ImageUne();
                  $img -> setName($fichier);
                  $alaUne->addImagesUne($img);
              }

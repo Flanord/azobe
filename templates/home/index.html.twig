@@ -17,10 +17,10 @@
 						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
 
 						{# Zone où j'insert la boucle twig #}
-						{% if ala_une is defined %}
-							{% for ala_une in ala_unes %}
+						
+							{# {% for ala_une in ala_unes %}
 								{% for image_une in ala_une.images_une %}
-							<div class="item" style="background-image:url({{asset("/uploads/" ~ image_une.name)}}; background-position: cover;">
+							<div class="item" style="background-image:url({{asset("/uploads/" ~ image_une.name)}}); background-position: cover;">
 								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
 								<div class="overlay-post-content">
 									<div class="post-content">
@@ -49,7 +49,7 @@
 							</div>
 								{% endfor %}
 						{% endfor %} 
-						{% endif %}
+						 #}
 							<!-- Item 1 end -->
 						</div>
 						<!-- Featured owl carousel end-->
@@ -133,6 +133,7 @@
 							<h3 class="ts-title text-uppercase">Les derniers Appel à projets</h3>
 						</div>
 						
+						{# La partie des derniers appels à projet que j'ai enlever #}
 						{% for appel_projet in appel_projets|slice(0,1) %} {# Début Boucle pour les appels à projet #}
 							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
 									<!--row start-->
@@ -207,7 +208,6 @@
 						</div>
 						 {% endfor %}
 					  {% endfor %}
-						
 						
 						<!-- row end-->
 					</div>

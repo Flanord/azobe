@@ -1,0 +1,74 @@
+{% for appel_projet in appel_projets|slice(0,1) %} {# Début Boucle pour les appels à projet #}
+							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+									<!--row start-->
+								<div class="row mb-10">
+									<div class="col-lg-7">
+										<div class="ts-post-thumb">
+											<a href="#">
+												<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
+											</a>
+										</div>
+									</div>
+									<!-- end col-->
+									<div class="col-lg-5 align-self-center">
+										<div class="post-content links">
+											<h3 class="post-title md">
+												<a href="#">{{appel_projet.title}}</a>
+											</h3>
+											<ul class="post-meta-info">
+												<li>
+													<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+														le 15 décembre 2018</strong>
+												</li>
+											</ul>
+											<p>
+													{{appel_projet.description}}
+											</p>
+											<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+										</div>
+									</div>
+									<!-- col end-->
+								</div>
+						<!-- row end-->
+							{% endfor %}
+					    {% endfor %}
+						<!--row start-->
+						{% for appel_projet in appel_projets|slice(1,2) %} {# Début Boucle pour les appels à projet #}
+							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+										<div class="row mb-10">
+							<div class="col-lg-5 align-self-center">
+								<div class="post-content links">
+									<h3 class="post-title md">
+										<a href="">Appel à projets Azobé</a>
+									</h3>
+									<ul class="post-meta-info">
+										<li>
+											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+												le 28 février 2020</strong>
+										</li>
+
+									</ul>
+									<p>
+										La délégation L’Union européenne et L’Ambassade de France lancent l’appel à
+										projets Azobé.
+										Cet appel permet le financement de projets portés par les acteurs non
+										gouvernementaux gabonais dans les domaines du développement durable,
+										du numérique et de l’artisanat.
+
+									</p>
+
+									<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+								</div>
+							</div>
+							<!-- col end-->
+							<div class="col-lg-7">
+								<div class="ts-post-thumb">
+									<a href="#">
+										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
+									</a>
+								</div>
+							</div>
+							<!-- end col-->
+						</div>
+						 {% endfor %}
+					  {% endfor %}

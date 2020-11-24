@@ -13,11 +13,23 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
+
+
+     /**
+     * @Route("/", name="home")
+     */
+    // public function index()
+    // {
+    //     return $this->render('home/index.html.twig', [
+    //         'controller_name' => 'HomeController',
+    //     ]);
+    // }
+
     /**
      * @Route("/", name="home")
      * Les appels à projets qui sont à la page index.
      */
-    public function index(AppelProjetRepository $appelProjetRepository):Response
+    public function indexAppelProjet(AppelProjetRepository $appelProjetRepository):Response
     {
         return $this->render('home/index.html.twig', [
             'appel_projets' => $appelProjetRepository->findAll(),
@@ -25,14 +37,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/alaune", name="alaune")
+     * @Route(name="alaune")
      */
-    public function alaune(AlaUneRepository $alaUneRepository):Response
-    {
-        return $this->render('home/index.html.twig', [
-            'ala_unes' => $alaUneRepository->findAll(),
-            ]);
-    }
+    // public function alaune(AlaUneRepository $alaUneRepository):Response
+    // {
+    //     return $this->render('home/index.html.twig', [
+    //         'ala_unes' => $alaUneRepository->findAll(),
+    //         ]);
+    // }
 
     /**
      * @Route("/quisommesnous", name="quisommesnous")
