@@ -15,7 +15,7 @@
                   <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-sunny-morning" tabindex="-1">
                     <div class="slide-img-bg bg-azobe">
                         <div class="app-logo">
-                            <img src="{{asset('images/azobe_logo.png')}}">
+                            <img src="{{asset('images/azologo.png')}}">
                         </div>
                     </div>
                   </div>
@@ -30,7 +30,7 @@
                 <span>Veillez vous connecter s'il vous plait.</span></h4>
               <div class="divider row"></div>
               <div>
-                <form method="post" class="">
+                <form method="post">
                 {% if error %}
                      <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
@@ -42,9 +42,6 @@
                   <div class="form-row">
                     <div class="col-md-6">
                       <div class="position-relative form-group">
-                        {# <label for="exampleEmail" class="">Email</label>
-                        <input name="email" id="exampleEmail" placeholder="Email..." type="email" class="form-control"> #}
-
                         <label for="inputEmail">Email</label>
                             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email..." required autofocus>
                       </div>

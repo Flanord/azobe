@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title 'Accueil  | ' ~ parent()%}
 
 {% block body %}
     {% for message in app.flashes('success') %}
@@ -9,34 +9,34 @@
     
 {% endblock %}
 {% block section %}
-	   {# A La Une #}
-	   <section class="block-wrapper mt-15">
+	 <!-- Section_à la une start -->
+		<section class="block-wrapper mt-15">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-12">
 						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
-
-						{# Zone où j'insert la boucle twig #}
-						
-							{# {% for ala_une in ala_unes %}
-								{% for image_une in ala_une.images_une %}
-							<div class="item" style="background-image:url({{asset("/uploads/" ~ image_une.name)}}); background-position: cover;">
+                            {# Boucle twig #}
+                        {% if ala_une is defined %}
+							{% for ala_une in ala_unes %}
+									{% for image_une in ala_une.images_une %}
+							    <div class="item" style="background-image:url("/uploads/" ~ image_une.name); background-position: cover;">
 								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
 								<div class="overlay-post-content">
 									<div class="post-content">
-										<h2 class="post-title lg">
+										<h3 class="post-title lg">
 											<a href="#">Azobe, lance une première enquête sur les artisans résidants au
 												Gabon</a>
-										</h2>
-										<ul class="post-meta-info">
+										</h3>
+										<ul class="post-meta-info font-weight-bold">
 											<li class="author" id="author">
 												<a href="#">
-													<img src="{{asset('images/author.jpg')}}" alt=""> Rick Moungou
+													<img src="images/author1.png" alt="">Crédits : Centre de
+													Ressources Azobe
 												</a>
 											</li>
 											<li>
 												<i class="fa fa-clock-o"></i>
-												10 décembre 2020
+												26 décembre 2020
 											</li>
 											<li class="active">
 												<i class="icon-fire"></i>
@@ -45,16 +45,14 @@
 										</ul>
 									</div>
 								</div>
-								<!--/ Featured post end -->
 							</div>
+                           			 {% endfor %}
 								{% endfor %}
-						{% endfor %} 
-						 #}
-							<!-- Item 1 end -->
+						{% endif %}
 						</div>
-						<!-- Featured owl carousel end-->
 					</div>
-				
+
+					<!--A la une -->
 					<div class="col-lg-4">
 						<div class="ts-grid-box ts-grid-content">
 							<a class="post-cat" href="#" id="post-cat">Edito du mois</a>
@@ -65,7 +63,7 @@
 							</div>
 							<div class="post-content">
 								<h3 class="post-title">
-									<a href="#">Artisanat un domaine très exercé, mais peut connu !</a>
+									<a href="#">Artisanat un domaine très exercé, mais peut connu!</a>
 								</h3>
 								<span class="post-date-info">
 									<i class="fa fa-clock-o"></i>
@@ -80,14 +78,16 @@
 			</div>
 			<!-- container end-->
 		</section>
-	   {# Le peroquet d'Azobe vous dit Bienvenue #}
-	   <section class="block-wrapper">
+		<!-- Section_à la une end -->
+
+		<!-- post wraper_welcome start-->
+		<section class="block-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 col-md-4">
 						<div class="posts-ad">
 							<a href="index.html#">
-								<img src="{{asset('images/Perroquet_Bienvenue.jpg')}}" alt="">
+								<img src="images/banner/vignette.jpg" alt="">
 							</a>
 						</div>
 					</div>
@@ -124,8 +124,10 @@
 			</div>
 			<!-- container end-->
 		</section>
-	   {# Les derniers Appels à projets et Evènement#}
-	   <section class="block-wrapper mb-20">
+		<!-- post wraper end-->
+
+		<!-- Section-Appel à projets start -->
+		<section class="block-wrapper mb-20">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9 category-post-style1">
@@ -133,45 +135,80 @@
 							<h3 class="ts-title text-uppercase">Les derniers Appel à projets</h3>
 						</div>
 						
-						{# La partie des derniers appels à projet que j'ai enlever #}
-						{% for appel_projet in appel_projets|slice(0,1) %} {# Début Boucle pour les appels à projet #}
+						{#Boucle for de twig #}
+						{% for appel_projet in appel_projets|slice(0, 2) %} {# Début Boucle pour les appels à projet #}
+							
 							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
-									<!--row start-->
-								<div class="row mb-10">
-									<div class="col-lg-7">
-										<div class="ts-post-thumb">
-											<a href="#">
-												<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
-											</a>
-										</div>
-									</div>
-									<!-- end col-->
-									<div class="col-lg-5 align-self-center">
-										<div class="post-content links">
-											<h3 class="post-title md">
-												<a href="#">{{appel_projet.title}}</a>
-											</h3>
-											<ul class="post-meta-info">
-												<li>
-													<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
-														le 15 décembre 2018</strong>
-												</li>
-											</ul>
-											<p>
-													{{appel_projet.description}}
-											</p>
-											<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
-										</div>
-									</div>
-									<!-- col end-->
+						<div class="row mb-10">
+							<div class="col-lg-7">
+								<div class="ts-post-thumb">
+									<a href="#">
+										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="">
+									</a>
 								</div>
-						<!-- row end-->
-							{% endfor %}
-					    {% endfor %}
-						<!--row start-->
-						{% for appel_projet in appel_projets|slice(1,2) %} {# Début Boucle pour les appels à projet #}
-							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
-										<div class="row mb-10">
+							</div>
+							<!-- end col-->
+							<div class="col-lg-5 align-self-center">
+								<div class="post-content links">
+									<h3 class="post-title md">
+										<a href="#">{{appel_projet.title}}</a>
+									</h3>
+									<ul class="post-meta-info">
+										<li>
+											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+												le 15 décembre 2018</strong>
+										</li>
+
+									</ul>
+									<p>
+										{{appel_projet.description}}
+									</p>
+									<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+								</div>
+							</div>
+							
+						</div>
+						
+						    {% endfor %}
+						{% endfor %}
+					</div>
+					
+
+						<!--<div class="row mb-30">
+							<div class="col-lg-7">
+								<div class="ts-post-thumb">
+									<a href="#">
+										<img class="img-fluid" src="images/appel16.jpg" alt="">
+									</a>
+								</div>
+							</div>
+							
+							<div class="col-lg-5 align-self-center">
+								<div class="post-content links">
+									<h3 class="post-title md">
+										<a href="">Concours de « la maison 100% gabonaise accessible à tous »</a>
+									</h3>
+									<ul class="post-meta-info">
+										<li>
+											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
+												le 15 décembre 2018</strong>
+										</li>
+
+									</ul>
+									<p>
+										Le concours de "la maison 100% gabonaise accessible à tous" est officiellement
+										lancé dans le cadre de la journée nationale de l’artisanat
+										co-organisée par le Ministère des Petites et Moyennes entreprises et de
+										l’Artisanat et l’Ambassade de France au Gabon.
+									</p>
+									<a class="btn btn-primary" href="index.html#"><i
+											class="fa fa-plus-circle mx-2"></i>Consulter</a>
+								</div>
+							</div>
+							
+						</div>-->
+						
+						<!--<div class="row mb-10">
 							<div class="col-lg-5 align-self-center">
 								<div class="post-content links">
 									<h3 class="post-title md">
@@ -193,101 +230,144 @@
 
 									</p>
 
-									<a class="btn btn-primary" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
+									<a class="btn btn-primary" href="index.html#"><i
+											class="fa fa-plus-circle mx-2"></i>Consulter</a>
 								</div>
 							</div>
-							<!-- col end-->
+							
 							<div class="col-lg-7">
 								<div class="ts-post-thumb">
 									<a href="#">
-										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image de l'appel à projet">
+										<img class="img-fluid" src="images/appel1.png" alt="">
 									</a>
 								</div>
 							</div>
-							<!-- end col-->
+							
 						</div>
-						 {% endfor %}
-					  {% endfor %}
 						
-						<!-- row end-->
-					</div>
-					<!-- col end-->
+					</div>-->
+					
 
 
 					<div class="col-lg-3">
 						<div class="left-sidebar bg-blue">
-							<div class="widgets post-list-item single-post">
+							<div class="modal_card">
 								<!-- Nav tabs -->
-								<h3 class="text-uppercase text-center blue-color h6" style="font-weight:700;"><i class="fa fa-calendar px-2"></i>Nos évènements</h3>
+								<h3 class="text-uppercase text-center blue-color h6" style="font-weight:700;">
+									<i class="fa fa-calendar px-2"></i>Nos évènements
+								</h3>
 								<hr>
-
 								<!-- Tab panes -->
-								<div class="tab-content pt-3">
+								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane active post-tab-list" id="home">
 										<div class="post-content media">
-											<img class="d-flex sidebar-img pt-2" src="{{asset('images/ev17.jpg')}}" alt="">
+											<img class="d-flex sidebar-img pt-2"
+												src="images/even4.JPG" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
 														EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
-													<a href="#" data-toggle="modal" data-target="#myModal">Formation Chambre des métiers</a>
+													<a href="#" data-toggle="modal" data-target="#myModal">Lancement de
+														la formation(Chambre des métiers de l'Artisanat)</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
 										<div class="post-content media ">
-											<img class="d-flex sidebar-img" src="{{asset('images/even2.jpg')}}" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even2.jpg')}}"
+												alt="">
 											<div class="media-body">
 												<span class="post-tag">
-													<a href="#" class="dark" data-toggle="modal" data-target="#myModal2"> EVENEMENTS</a>
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal2"
+														data-target="#myModal2"> EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
 													<a href="#" data-toggle="modal" data-target="#myModal2">Webinaire:
-													La cartographie digitale au Gabon</a>
+														les enjeux de la cartographie digitale au Gabon</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
+									</div>
+									<!--ts-grid-box end -->
+								</div>
+								<!-- tab content end-->
+							</div>
+							<!--widgets end-->
+						</div>
+						<!-- left sidebar end-->
+						<div class="left-sidebar bg-blue">
+							<div class="modal_card">
+								<!-- Nav tabs -->
+								<h3 class="text-uppercase text-center blue-color h6" style="font-weight:700;">
+									<i class="fa fa-calendar px-2"></i>Événements Partenaires
+								</h3>
+								<hr>
+								<!-- Tab panes -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active post-tab-list" id="home">
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="{{asset('images/even13.jpg')}}" alt="">
+											<img class="d-flex sidebar-img pt-2"
+												src="images/even12.png" alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
 														EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
-													<a href="#" data-toggle="modal" data-target="#myModal">Festival coup
-														de Théatre</a>
+													<a href="#" data-toggle="modal" data-target="#myModal">
+														FÊTE DE LA SCIENCE 2020
+													</a>
+												</h4>
+											</div>
+										</div>
+										<!--post-content end-->
+										<div class="post-content media ">
+											<img class="d-flex sidebar-img" src="{{asset('images/even13.jpg')}}"
+												alt="">
+											<div class="media-body">
+												<span class="post-tag">
+													<a href="#" class="dark" data-toggle="modal" data-target="#myModal2"
+														data-target="#myModal2"> EVENEMENTS</a>
+												</span>
+												<h4 class="post-title">
+													<a href="#" data-toggle="modal" data-target="#myModal2">
+														CINÉMA JEUNESSE : LE VOYAGE DU PRINCE</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="{{asset('images/even5.jpg')}}" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even14.png')}}"
+												alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
 														EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
-													<a href="#" data-toggle="modal" data-target="#myModal">Tremplin
-														jeunes talents Musicaux</a>
+													<a href="#" data-toggle="modal" data-target="#myModal">
+														Recycler et re-creer</a>
 												</h4>
 											</div>
 										</div>
 										<!--post-content end-->
+
+
 										<div class="post-content media">
-											<img class="d-flex sidebar-img" src="{{asset('images/even8.jpg')}}" alt="">
+											<img class="d-flex sidebar-img" src="{{asset('images/even15.jpg')}}"
+												alt="">
 											<div class="media-body">
 												<span class="post-tag">
 													<a href="#" class="dark" data-toggle="modal" data-target="#myModal">
 														EVENEMENTS</a>
 												</span>
 												<h4 class="post-title">
-													<a href="#" data-toggle="modal" data-target="#myModal">Les Sambas
-														Professionnels</a>
+													<a href="#" data-toggle="modal" data-target="#myModal">
+														Mois du film documentaire
+													</a>
 												</h4>
 											</div>
 										</div>
@@ -307,9 +387,95 @@
 			</div>
 			<!-- container end-->
 		</section>
+		<!-- Section-Appel à projets end -->
 
-	   {# Appel à l'action #}
-	   <section class="block-wrapper" style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
+
+		<!-- Modal nos évènements-->
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog modal-l9">
+				<div class="modal-content modal-lg">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-header bg-modal">
+						<div class="container">
+							<div class="row">
+								<div class="nav-header float-left">
+									<div class="nav-toggle"></div>
+								</div>
+								<!--nav brand end-->
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div id="grid-box">
+								<div class="col-12">
+									<h3>Le Lancement des missions de coaching du Programme "Actif Gabon" à Libreville et
+										Port-Gentil</h3>
+								</div>
+								<div class="col-12 d-flex">
+									<p class="text-danger mt-3">Le 20 Octobre 2020 à 12:00</p>
+									<p class="text-danger mt-3  mx-5">Lieu : L'Incubateur "SING"</p>
+								</div>
+
+								<div class="col-12">
+									<hr>
+									<p style="text-align: left;margin-top: 10px; padding: 10px;">
+										Le Lancement des missions de coaching du Programme "Actif Gabon"
+										tiendra une session de formation des artisanats et futurs chefs d'entreprises
+										ce mardi 20 octobre 2020 dans les locaux de la Société d'Incubation Numérique du
+										Gabon (SING)...
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container mx-2">
+						<div class="row">
+							<div class="col-3">
+								<a href="#" data-toggle="modal" data-target="#exampleModal">
+									<i class="fa fa-star"
+										style="color:#004e7c; padding-left: 6px; margin-left: 19px; padding-top: 5px; border-radius: 50%; width: 30px; height: 30px; "></i>
+									<p>Intéressé(e)</p>
+								</a>
+							</div>
+
+							<div class="col-3">
+								<a href="#" data-toggle="modal" data-target="#exampleModal">
+									<i class="fa fa-check"
+										style=" color:#004e7c; padding-left: 6px; margin-left: 19px; padding-top: 5px; border-radius: 50%; width: 30px; height: 30px; "></i>
+									<p>Participer</p>
+								</a>
+							</div>
+
+							<div class="col-3">
+								<a href="#">
+									<i class="fa fa-share-alt"
+										style=" color:#004e7c; padding-left: 5px; margin-left: 19px; padding-top: 6px; width: 30px; height: 30px;"></i>
+									<p>Partager</p>
+								</a>
+							</div>
+
+							<div class="col-3">
+								<a href="#" data-toggle="modal" data-target="#exampleModal">
+									<i class="fa fa-ellipsis-h"
+										style="color:#004e7c; margin-left: 9px; padding-top: 6px; width: 30px; height: 30px;"></i>
+									<p>plus</p>
+								</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section_call_to_action start -->
+		<section class="block-wrapper"
+			style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 call_action">
@@ -321,7 +487,8 @@
 										Organisation: Associations, Ong, Coopératives, Fondations...</p>
 								</div>
 								<div class="col-sm-4 pt-1 links">
-									<a href="call_action.html" target="_blank" class="items-center justify-center btn btn-primary">
+									<a href="call_action.html" target="_blank"
+										class="items-center justify-center btn btn-primary">
 										<span class="mb-4 font-bold text-capitalize span_size blue-color">Inscrivez
 											votre Organisation</span> <br>
 										<small class="font-light span blue-color">sur AZOBE</small>
@@ -335,8 +502,11 @@
 			</div>
 			<!-- container end-->
 		</section>
-	   {# La une des Actifs #}
-	   <section class="block-wrapper mt-15 xs-mb-30">
+		<!-- Section_call_to_action end-->
+
+
+		<!-- post wraper_Actis_du_moments start-->
+		<section class="block-wrapper mt-15 xs-mb-30">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-9">
@@ -344,16 +514,14 @@
 							<h3 class="ts-title float-left text-uppercase">
 								La une des actifs
 							</h3>
-							<div class="float-right">
-								<a href="#" class="view-all-link text-danger">Voir tous les actifs</a>
-							</div>
 						</div>
 						<div class="row post-col-list-item">
 							<div class="col-lg-6 mb-30">
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="{{asset('images/actif1.jpg')}}" alt="acteurs de la sociétés civiles actifs">
+											<img class="img-fluid" src="{{asset('images/actif1.jpg')}}"
+												alt="acteurs de la sociétés civiles actifs">
 										</a>
 									</div>
 									<div class="post-content">
@@ -399,7 +567,8 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author2.jpg')}}" alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
+													<img src="{{asset('images/author2.jpg')}}"
+														alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
 												</a>
 											</li>
 											<li>
@@ -472,7 +641,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author2.jp')}}" alt=""> jean-Mathy Ndong
+													<img src="{{asset('images/author2.jpg')}}" alt=""> jean-Mathy Ndong
 												</a>
 											</li>
 											<li>
@@ -495,6 +664,15 @@
 								</div>
 							</div>
 						</div>
+
+						<!-- Pagination start -->
+						<div class="links text-center p-3">
+							<a href="all_projets.html" class="btn btn-primary col-md-4"
+								title="Voir tous les appels à projet"><i class="fa fa-eye mx-2">
+								</i>Voir tous les actifs
+							</a>
+						</div>
+						<!-- Pagination end -->
 					</div>
 
 					<div class="col-lg-3">
@@ -542,18 +720,27 @@
 									<div class="ts-post-thumb">
 										<a class="post-cat" id="post-cat" href="#">Actualités</a>
 										<a href="#">
-											<img class="img-fluid" src="{{asset('images/actu6.jpg')}}" alt="">
+											<img class="img-fluid"
+												src="{{asset('images/publication3.jpg')}}">
 										</a>
 									</div>
 									<div class="post-content">
 										<h3 class="post-title">
-											<a href="index-8.html#">Lancement de la formation(Chambre des métiers de
-												l'Artisanat)</a>
+											<a href="index-8.html#">Lancement des travaux de la « maison 100%
+												gabonaise.</a>
 										</h3>
-										<span class="post-date-info">
-											<i class="fa fa-clock-o"></i>
-											12 octobre 2020
-										</span>
+										<ul class="post-meta-info d-flex">
+											<li>
+												<i class="fa fa-clock-o"></i>
+												20 mai 2020
+											</li>
+											<li>
+												<a href="category-1.html#" class="color-grey">
+													<i class="fa fa-comments"></i>
+													5
+												</a>
+											</li>
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -561,47 +748,102 @@
 							<!-- ts-overlay-style  end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="{{asset('images/publication2.jpg')}}" alt="">
 								<div class="media-body align-self-center">
-									<h4 class="post-title">
-										<a href="">l’approvisionnement en eau et l’assainissement en milieu rural au
-											Gabon</a>
-									</h4>
+									<h3 class="post-title">
+										<a href="#">Lancement de l'Appel à projet Azobe</a>
+									</h3>
+									<ul class="post-meta-info d-flex">
+										<li>
+											<i class="fa fa-clock-o"></i>
+											11 Décembre 2019
+										</li>
+										<li>
+											<a href="category-1.html#" class="color-grey">
+												<i class="fa fa-comments"></i>
+												15
+											</a>
+										</li>
+									</ul>
+
+									<!-- <span class="post-date-info">
+										<i class="fa fa-clock-o"></i>
+										11 Décembre 2019
+									</span> -->
+
 								</div>
 							</div>
 							<hr>
 							<!-- post content end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="{{asset('images/publication3.jpg')}}" alt="">
 								<div class="media-body align-self-center">
-									<h4 class="post-title">
-										<a href="">Introduction au Design Thinking - MasterClass by SING GA</a>
-									</h4>
+									<h3 class="post-title">
+										<a href="#">Lancement des missions de coaching Actifs Gabon</a>
+									</h3>
+									<ul class="post-meta-info d-flex">
+										<li>
+											<i class="fa fa-clock-o"></i>
+											21 octobre 2020
+										</li>
+										<li>
+											<a href="category-1.html#" class="color-grey">
+												<i class="fa fa-comments"></i>
+												10
+											</a>
+										</li>
+									</ul>
+
+									<!-- <span class="post-date-info">
+										<i class="fa fa-clock-o"></i>
+										11 Décembre 2019
+									</span> -->
+
 								</div>
 							</div>
 							<hr>
 							<!-- post content end-->
 
 							<div class="post-content media">
-								<img class="d-flex sidebar-img" src="{{asset('images/publication4.jpg')}}" alt="">
 								<div class="media-body align-self-center">
-									<h4 class="post-title">
-										<a href="">DigieWomen School: Les femmes dans le digital pour un impact
-											maximal</a>
-									</h4>
+									<h3 class="post-title">
+										<a href="#">Rencontre avec les lauréats de l’appel à projet du centre de
+											ressources AZOBE</a>
+									</h3>
+									<ul class="post-meta-info d-flex">
+										<li>
+											<i class="fa fa-clock-o"></i>
+											13 Novembre 2020
+										</li>
+										<li>
+											<a href="category-1.html#" class="color-grey">
+												<i class="fa fa-comments"></i>
+												10
+											</a>
+										</li>
+									</ul>
+
+									<!-- <span class="post-date-info">
+										<i class="fa fa-clock-o"></i>
+										11 Décembre 2019
+									</span> -->
+
 								</div>
 							</div>
 							<!-- post content end-->
 						</div>
+
+
 					</div>
 				</div>
 				<!-- row end-->
 			</div>
 			<!-- container end-->
 		</section>
-	   {# Azobe en chiffre #}
-	   <section class="block-wrapper mt-15 xs-mb-30" id="block-wrapper">
+		<!-- post wraper_Actis_du_moments end-->
+
+
+		<!-- post-wrapper_Compteur start-->
+		<section class="block-wrapper mt-15 xs-mb-30" id="block-wrapper">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -611,25 +853,29 @@
 						<div class="row">
 							<div class="col-sm-3 col-md-3 col-lg-3">
 								<div class="counter">
-									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">4</h3>
+									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">
+									</h3>
 									<p class="count-text ">Acteurs repertoriés</p>
 								</div>
 							</div>
 							<div class="col-sm-3 col-md-3 col-lg-3">
 								<div class="counter">
-									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">4</h3>
+									<h3 class="timer count-title count-number blue-color" data-to="4" data-speed="1500">
+									</h3>
 									<p class="count-text ">Actions concrétisées</p>
 								</div>
 							</div>
 							<div class="col-sm-3 col-md-3 col-lg-3">
 								<div class="counter">
-									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">2</h3>
+									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">
+									</h3>
 									<p class="count-text ">Événements organisés</p>
 								</div>
 							</div>
 							<div class="col-sm-3 col-md-3 col-lg-3">
 								<div class="counter">
-									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">2</h3>
+									<h3 class="timer count-title count-number blue-color" data-to="2" data-speed="1500">
+									</h3>
 									<p class="count-text ">Appel à projets</p>
 								</div>
 							</div>
@@ -640,30 +886,71 @@
 			</div>
 			<!-- container end-->
 		</section>
-       {# Partenaire #}
-    	<section class="block-wrapper" style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
+		<!-- post-wrapper_Compteur end-->
+
+
+		<!-- post wraper_Partenaires start-->
+		<section class="block-wrapper"
+			style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="ts-grid-box clearfix ts-category-title">
 							<h3 class="ts-title float-left">NOS PARTENAIRES</h3>
 						</div>
-						<div class="row">
-							<!-- col end-->
-							<div class="col-md-12">
-								<div class="ts-grid-box ts-grid-content">
-									<div class="ts-post">
-										<img class="img-fluid" src="{{asset('images/part8.png')}}" alt="Bannière partenaire">
-									</div>
-								</div>
-								<!-- ts grid box-->
-							</div>
-							<!-- col end-->
-						</div>
 					</div>
 				</div>
 				<!-- row end-->
+				<div class="row pt-2" id="ads">
+
+					<!-- Category Card -->
+					<div class="col-md-4">
+						<div class="cards h-auto d-inline-block">
+							<div class="card-image">
+								<a href="https://ga.ambafrance.org/" target="_blank"><img src="{{asset('images/logo_1.png')}}"  class="img-fluid" alt="https://ga.ambafrance.org"/></a>
+							</div>
+							<div class="p-2">
+								<a href="https://ga.ambafrance.org/" target="_blank" class="title_link"
+									title="https://ga.ambafrance.org/" target="_blank">
+									Consulter le site<i class="mx-2 fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Category Card -->
+					<div class="col-md-4 ">
+						<div class="cards">
+							<div class="card-image">
+								<a href="https://www.institutfrancais-gabon.com/" target="_blank"><img class="img-fluid" src="{{asset('images/logo_2.png')}}" alt="https://www.institutfrancais-gabon.com/" /></a>
+							</div>
+							<div class="p-5">
+								<a href="https://www.institutfrancais-gabon.com/" target="_blank" class="title_link"
+									title="https://www.institutfrancais-gabon.com/" target="_blank">
+									Consulter le site<i class=" mx-2 fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- Category Card -->
+					<div class="col-md-4 ">
+						<div class="cards">
+							<div class="card-image">
+								<a href="https://eeas.europa.eu/delegations/gabon_fr" target="_blank"><img class="img-fluid" src="{{('images/logo_3.jpg')}}" alt="https://eeas.europa.eu/delegations/gabon_fr"/></a>
+							</div>
+							<div class="p-4">
+								<a href="https://eeas.europa.eu/delegations/gabon_fr" target="_blank" class="title_link"
+									title="https://eeas.europa.eu/delegations/gabon_fr" target="_blank">
+									Consulter le site<i class=" mx-2 fa fa-arrow-right" target="_blank"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- container end-->
+
 		</section>
+		<!-- post wraper_Partenaires end-->
+        
 {% endblock %}

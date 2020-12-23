@@ -627,23 +627,15 @@ body {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header bg-primary">
-            <h5 class="modal-title" id="editorialLabel" style="font-size: 30px; font-weight:bold;
-        ">PUBLIER UN ARTICLE</h5>
+            <h5 class="modal-title" id="editorialLabel" style="font-size: 30px; font-weight:bold;">PUBLIER UN ARTICLE</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form class="">
-              <div class="position-relative form-group">
-                <input name="title" id="title" placeholder="Entrer le titre de l'article" type="text" class="form-control">
-              </div>
-            </form>
-            <div id="publier-article"></div>
-          </div>
-          <div class="modal-footer">
-            <button style="margin-top: 5px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="submit" class="mt-1 btn btn-primary">Publier</button>
+             {{ include('admin/ala_une/_form.html.twig') }}
+             {# <div id="publier-article">
+             </div> #}
           </div>
         </div>
       </div>
@@ -913,7 +905,7 @@ body {
       
   </body>
 </html>  <script type="text/javascript" src="{{asset('admin-scripts/main.cba69814a806ecc7945a.js')}}"></script>
-  <script type="text/javascript" src="{{asset('admin-scripts/modal-cdn.js')}}"></script>
+  {# <script type="text/javascript" src="{{asset('admin-scripts/modal-cdn.js')}}"></script> #}
 </body>
    
    {% endblock %}

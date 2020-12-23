@@ -5,10 +5,12 @@ namespace App\Controller;
 
 use App\Repository\AlaUneRepository;
 use App\Repository\AppelProjetRepository;
-
+use App\Entity\AlaUne;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\AlaUneType;
 
 
 class HomeController extends AbstractController
@@ -18,34 +20,15 @@ class HomeController extends AbstractController
      /**
      * @Route("/", name="home")
      */
-    // public function index()
-    // {
-    //     return $this->render('home/index.html.twig', [
-    //         'controller_name' => 'HomeController',
-    //     ]);
-    // }
-
-    /**
-     * @Route("/", name="home")
-     * Les appels à projets qui sont à la page index.
-     */
-    public function indexAppelProjet(AppelProjetRepository $appelProjetRepository):Response
+    public function index(AlaUneRepository $alaUneRepository, AppelProjetRepository $appelProjetRepository)
     {
         return $this->render('home/index.html.twig', [
-            'appel_projets' => $appelProjetRepository->findAll(),
-            ]);
+            'ala_unes' => $alaUneRepository->findAll(),
+            'appel_projets' => $appelProjetRepository->findAll()
+        ]);
     }
 
-    /**
-     * @Route(name="alaune")
-     */
-    // public function alaune(AlaUneRepository $alaUneRepository):Response
-    // {
-    //     return $this->render('home/index.html.twig', [
-    //         'ala_unes' => $alaUneRepository->findAll(),
-    //         ]);
-    // }
-
+    
     /**
      * @Route("/quisommesnous", name="quisommesnous")
      */
@@ -78,7 +61,7 @@ class HomeController extends AbstractController
      */
     public function acteurs()
     {
-        return $this->render('cnetrederechercheaction/acteurs.html.twig');
+        return $this->render('acteurs/index.html.twig');
     }
 
     /**
@@ -90,11 +73,18 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/sdsdsdsff", name="admin")
      */
-    public function admin()
+    public function admin(Request $request) : Response
     {
-        return $this->render('admin/index.html.twig');
+        /**Code qui permet d'afficher le pop-up de la création d'article */
+        $alaUne = new AlaUne();
+        $form = $this->createForm(AlaUneType::class, $alaUne);
+        $form->handleRequest($request);
+
+        return $this->render('admin/index.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
      

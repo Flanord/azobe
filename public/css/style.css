@@ -114,11 +114,11 @@ p {
   color: #100F10;
 }
 #h2{
-  margin-bottom:.5rem;
+    margin-bottom:.5rem;
   font-family:"Abel", sans-serif;
   font-size: 30px;
   font-weight: 700;
-  color: #ffc107;
+  color: #ffcf3c;
 }
 
 
@@ -160,7 +160,7 @@ a:hover {
   cursor: pointer;
   outline: none;
   border: none;
-  padding: 13px 37px;
+  padding: 13px 20px;
   border-radius: 0;
   font-weight: 600;
 }
@@ -1073,7 +1073,7 @@ blockquote cite:after {
 .top-social li a {
   color: #8a8a8a;
   font-size: 14px;
-  padding: 0 7px;
+  padding: 0 13px;
 }
 
 
@@ -1215,6 +1215,10 @@ blockquote cite:after {
 
 .top-bar.bg-blue-dark .ts-top-nav li a {
   color: #dde7ee;
+}
+
+.post-content   .color-grey{
+  color: #a9a9a9;
 }
 
 .top-bar.v4 {
@@ -1936,7 +1940,7 @@ blockquote cite:after {
   position: absolute;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 200%;
   z-index: 1;
   bottom: 0;
   left: 0;
@@ -1970,9 +1974,9 @@ blockquote cite:after {
   min-height: 573px;
   position: relative;
   background-position: 50% 50%;
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover; */
   background-size: cover;
- backface-visibility: hidden;
+ /* backface-visibility: hidden; */
 }
 
 .ts-overlay-style.ts-featured .item .post-content {
@@ -6119,7 +6123,7 @@ navbar-standerd
   height: 80px;
   line-height: 82px;
 }
-
+/* 
 .navbar-standerd .right-menu li a:before {
   position: absolute;
   right: 0;
@@ -6130,7 +6134,7 @@ navbar-standerd
   bottom: 0;
   margin: auto;
   background: #232323;
-}
+} */
 
 .navbar-standerd .right-menu li .nav-search .nav-search-button {
   background: transparent;
@@ -6172,8 +6176,13 @@ navbar-standerd
 }
 
 .navbar-standerd.nav-item .right-menu li a {
-  height: 60px;
   line-height: 61px;
+  width: 60px;
+  height: 60px;
+  font-size: 19px;
+  display: block;
+  text-align: center;
+  border-left: 1px solid #e9e9e9;
   color: #888888;
 }
 
@@ -6183,7 +6192,7 @@ navbar-standerd
 
 .navbar-standerd.nav-item .right-menu li .nav-search .nav-search-button {
   line-height: 62px;
-  color: #888888;
+  color: #ffffff;
 }
 
 .navbar-standerd.nav-bar-dark {
@@ -7288,24 +7297,36 @@ featured tab personal blog
   display: block;
 }
 
-/*Modal d'actualites*/
+/*------------------------------------Modal Events----------------------------------------------*/
 
-/*----------------------modal--------------------------------------------------------*/
+.modal_card {
+  position: relative;
+  background: #fff;
+  top: 10px;
+  margin-top: 44px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.26);
+  padding: 10px;
+  }
 
-.bg {
-
-  padding: 0px;
-}
 
 .bg-modal {
-  background: url(https://www.asso-gabon.org/articles/categorie/uploads/entites/articles/programme_mini_entreprise_phase_de_production.JPG)no-repeat;
+  min-height: 250px;
+  background: url(../images/publications/actualites/actu6.JPG)no-repeat;
   background-size: cover;
   background-position: center;
+  margin: 0 10px;
 }
 
-/* .ze-pad {
-  padding: 30%;
-} */
+.modal .modal-dialog #grid-box{
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 25px 0;
+  border-color: #cbcbcb;
+  -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,.08);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,.08);
+}
+
 
 
 /*------------------------------------Mes class----------------------------------------------*/
@@ -7339,8 +7360,7 @@ featured tab personal blog
 
 
 		/* custom css theme panel */
-		.sociaux .fa {
-			
+		.sociaux .fa {		
       margin: 0px 5px ; 
       padding: 12px 0px ; 
       font-size: 25px;
@@ -7390,8 +7410,14 @@ featured tab personal blog
       }
   
       /* Linkedin */
-      .widgets .sociaux .fa-linkedin {
+      /* .widgets .sociaux .fa-linkedin {
         background: #007bb5;
+        color: white;
+      } */
+      
+      /* Linkedin */
+      .widgets .sociaux .fa-twitter {
+        background: #00acee;
         color: white;
       }
 

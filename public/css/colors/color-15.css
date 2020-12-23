@@ -470,7 +470,7 @@ color: #fff;
 	padding-bottom: calc(100% - 100px);
 	margin-bottom: 6.6em;
   }
-  .material-card h2 {
+  .material-card h3 {
 	position: absolute;
 	top: calc(100% - 16px);
 	left: 0;
@@ -487,16 +487,16 @@ color: #fff;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
   }
-  .material-card h2 span {
+  .material-card h3 span {
 	display: block;
   }
-  .material-card h2 strong {
+  .material-card h3 strong {
 	font-weight: 400;
 	display: block;
 	font-size: .8em;
   }
-  .material-card h2:before,
-  .material-card h2:after {
+  .material-card h3:before,
+  .material-card h3:after {
 	content: ' ';
 	position: absolute;
 	left: 0;
@@ -509,7 +509,7 @@ color: #fff;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
   }
-  .material-card h2:after {
+  .material-card h3:after {
 	top: auto;
 	bottom: 0;
   }
@@ -519,14 +519,14 @@ color: #fff;
 	  height: auto;
 	}
   }
-  .material-card.mc-active h2 {
+  .material-card.mc-active h3{
 	top: 0;
 	padding: 10px 16px 10px 90px;
   }
-  .material-card.mc-active h2:before {
+  .material-card.mc-active h3:before {
 	top: 0;
   }
-  .material-card.mc-active h2:after {
+  .material-card.mc-active h3:after {
 	bottom: -16px;
   }
   .material-card .mc-content {
@@ -720,28 +720,28 @@ color: #fff;
   .material-card.mc-active .mc-footer h4 {
 	top: -32px;
   }
-  .material-card.Red h2 {
+  .material-card.Red h3 {
 	background-color: #004e7c;
   }
-  .material-card.Red h2:after {
+  .material-card.Red h3:after {
 	border-top-color: #004e7c;
 	border-right-color:#004e7c;
 	border-bottom-color: transparent;
 	border-left-color: transparent;
   }
-  .material-card.Red h2:before {
+  .material-card.Red h3:before {
 	border-top-color: transparent;
 	border-right-color:#004e7c;
 	border-bottom-color: #004e7c;
 	border-left-color: transparent;
   }
-  .material-card.Red.mc-active h2:before {
+  .material-card.Red.mc-active h3:before {
 	border-top-color: transparent;
 	border-right-color:#004e7c;
 	border-bottom-color: #004e7c;
 	border-left-color: transparent;
   }
-  .material-card.Red.mc-active h2:after {
+  .material-card.Red.mc-active h3:after {
 	border-top-color: #004e7c;
 	border-right-color:#004e7c;
 	border-bottom-color: transparent;

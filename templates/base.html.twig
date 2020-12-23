@@ -8,7 +8,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Site Title- -->
-        <title>{% block title %}AZOBE.CRA{% endblock %}</title>
+        <title>{% block title %}azobe-crsc{% endblock %}</title>
         
         <!-- CSS ====================================== -->
 	<!-- Bootstrap -->
@@ -45,6 +45,7 @@
         {% block body %}{% endblock %}
 		<div class="body-inner-content">
         <!--SectionDegre-->
+		<!-- Section_group top_bar start -->
 		<div class="header-area ">
 			<!-- top bar start -->
 			<section class="top-bar">
@@ -88,17 +89,12 @@
 								</li>
 								<li>
 									<a href="#">
-										<i class="fa fa-linkedin"></i>
+										<i class="fa fa-twitter"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#">
 										<i class="fa fa-instagram"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="fa fa-youtube-square"></i>
 									</a>
 								</li>
 							</ul>
@@ -120,23 +116,27 @@
 							<div class="ts-breaking-news clearfix">
 								<h3 class="breaking-title float-left text-font" style="margin-top:0;">Actualités:</h3>
 								<div class="breaking-news-content float-left" id="breaking_slider1">
-									<div class="breaking-post-content">
+									<div class="breaking-post-content mx-5">
 										<p>
-										 <a href="https://www.institutfrancais-gabon.com/">Dans le cadre de la lutte
-												contre la propagation du COVID-19 au Gabon, l’IFG est fermé jusqu’à
-												nouvel ordre...</a>
+											<a
+												href="https://ga.ambafrance.org/Signature-d-une-convention-de-partenariat-entre-l-Agence-francaise-de">
+												Signature d’une convention de partenariat entre l’Agence française de
+												Développement (AFD) et Ogooué Labs pour...</a>
 										</p>
 									</div>
-									<div class="breaking-post-content">
+									<div class="breaking-post-content  mx-5">
 										<p>
-											<a href="#">Les finalistes de l'appel à projet Azobe du 8 Décembre 2019 sont
-												connus...</a>
+											<a
+												href="https://ga.ambafrance.org/Rencontre-avec-les-laureats-de-l-appel-a-projet-du-centre-de-ressources-AZOBE">Rencontre
+												avec les lauréats de l’appel à projet du centre de ressources
+												AZOBE...</a>
 										</p>
 									</div>
-									<div class="breaking-post-content">
+									<div class="breaking-post-content  mx-5">
 										<p>
-											<a href="#"> Les finalistes de l'Appel à projet Azobe sont : l'ONG
-												OGOOUE-LABS ,ONG ACTE, We-need et ONG NGOUDU...</a>
+											<a href="https://www.institutfrancais-gabon.com/">
+												Les activités reprennents à l'Institut Français Gabonais dzns le strict
+												respect des méssures...</a>
 										</p>
 									</div>
 								</div>
@@ -147,7 +147,7 @@
 						<div class="col-md-5 align-self-center">
 							<div class="text-right xs-left">
 								<div class="ts-date-item">
-									Lundi, 14 septembre 20</div>
+									Jeudi, 26 novembre 2020</div>
 							</div>
 
 						</div>
@@ -159,34 +159,16 @@
 				</div>
 			</section>
 			<!-- end top bar-->
-		</div>
- 		<!--End SectionDegre-->
-         
-        <!--Appel à projet-->
-       <section class="header-middle" id="header" role="banner">
+
+			<!-- ad banner start -->
+			<section id="header" role="banner">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
-							<div class="core">
-								<style>
-									.logo-and-txt-inline{
-									 display: flex;
-									}
-									.espace{
-										margin-left:45px;
-									}
-								</style>
-								<div class="logo-and-txt-inline">
-										<div class="logo_header">
-											<a href="">
-												<img src="{{asset('images/azologo.png')}}" style="width:300px; height:300px;">
-											</a>
-										</div>
-									<div class="group-title espace">
-										<strong class="title  text-uppercase"><a href="" title="Accueil">Centre de Ressources <br> pour la société
-												civile</a>
-										</strong>
-									</div>
+							<div class="inner">
+								<a href="{{path('home')}}" class="logo">Centre de Ressources pour la société civile</a>
+								<div class="group-title"><strong class="title  text-uppercase"><a href="{{path('home')}}"
+											title="Accueil">Centre de Ressources<br>pour la société civile</a></strong>
 								</div>
 							</div>
 						</div>
@@ -194,9 +176,11 @@
 					<!-- row  end -->
 				</div>
 				<!-- container end -->
-		</section>
-        <!--Menu de navigation-->
-		<header class="navbar-standerd nav-item">
+			</section>
+			<!-- ad banner end-->
+
+			<!-- header nav start-->
+			<header class="navbar-standerd nav-item">
 				<div class="container">
 					<div class="row">
 
@@ -206,13 +190,13 @@
 							<nav class="navigation ts-main-menu ts-menu-sticky navigation-landscape">
 								<div class="nav-header">
 									<a class="nav-brand mobile-logo visible-xs" href="index-2.html">
-										<img src="images/logo/ne1.png" alt="" width="120" height="120">
+										<img src="images/logo_4.png" alt="" width="120" height="120">
 									</a>
 									<div class="nav-toggle"></div>
 								</div>
 								<!--nav brand end-->
 
-								<div class="nav-menus-wrapper clearfix" style="transition-property: none;"><span class="nav-menus-wrapper-close-button">✕</span>
+								<div class="nav-menus-wrapper clearfix">
 									<!--nav right menu start-->
 									<ul class="right-menu align-to-right">
 										<li>
@@ -225,10 +209,11 @@
 												<div class="nav-search-button">
 													<i class="icon icon-search"></i>
 												</div>
-												<form><span class="nav-search-close-button" tabindex="0">✕</span>
+												<form>
 													<span class="nav-search-close-button" tabindex="0">✕</span>
 													<div class="nav-search-inner">
-														<input type="search" name="search" placeholder="Texte de recherche">
+														<input type="search" name="search"
+															placeholder="Texte de recherche">
 													</div>
 												</form>
 											</div>
@@ -241,23 +226,35 @@
 										<li class="active">
 											<a href="{{path('home')}}">Accueil</a>
 										</li>
-										<li class="">
+										<li>
 											<a href="{{path('appelaprojet')}}">Appels à Projets</a>
 										</li>
 										<li class="">
-											<a href="#">Centre de Ressources<span class="submenu-indicator"></span><span class="submenu-indicator"></span></a>
+											<a href="#">Centre de Ressources<span class="submenu-indicator"></span></a>
 											<ul class="nav-dropdown nav-submenu" style="right: auto; display: none;">
 												<li>
-													<a href="{{path('etude')}}">Etudes<span class="submenu-indicator"><span class="submenu-indicator-chevron"></span></span></a>
-													
+													<a href="{{path('etude')}}">Etudes</a>
+													<ul class="nav-dropdown nav-submenu">
+														<!-- <li>
+															<a href="category-1.html">Category layout 1</a>
+														</li> -->
+													</ul>
 												</li>
 												<li>
-													<a href="{{path('acteurs')}}">Acteurs<span class="submenu-indicator"><span class="submenu-indicator-chevron"></span></span></a>
-													
+													<a href="#">Acteurs</a>
+													<ul class="nav-dropdown nav-submenu">
+														<!-- <li>
+															<a href="">Single Post 1</a>
+														</li> -->
+													</ul>
 												</li>
 												<li>
-													<a href="{{path('fonddocumentaire')}}">Fonds Documentaires<span class="submenu-indicator"><span class="submenu-indicator-chevron"></span></span></a>
-													
+													<a href="{{path('fonddocumentaire')}}">Fonds Documentaires</a>
+													<ul class="nav-dropdown nav-submenu">
+														<!-- <li>
+															<a href="">Single Post 1</a>
+														</li> -->
+													</ul>
 												</li>
 											</ul>
 										</li>
@@ -267,16 +264,21 @@
 										</li>
 									</ul>
 								</div>
-							<div class="nav-overlay-panel"></div></nav>
+							</nav>
 							<!-- nav end-->
 						</div>
 					</div>
 				</div>
 			</header>
-        
-    	{% block section %}{% endblock %}
+			<!-- header nav end-->
+		</div> 
+    	{% block section %}
+		{% endblock %}
 
 		{% block registration %}{% endblock %}
+		
+
+		{% block login %}{% endblock %}
 
     	{% block footer %}
 		<!--Footer 2-->
@@ -423,9 +425,12 @@
 						</div>
 						<div class="border-top mb-2"></div>
 						<div class="copyright-text text-center">
-							<p class="text-white">©2019<span href="#" class="text-primary"> Azobe/Gabon</span>.Tous
+							<p class="text-white">©2019
+								<a href="#" class="text-primary"> Azobe/Gabon</a>
+								.Tous
 								droits
-								réservés.</p>
+								réservés.
+							</p>
 						</div>
 					</div><!-- col end -->
 				</div><!-- row end -->

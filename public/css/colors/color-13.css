@@ -2,6 +2,7 @@
 /* primary color set */
 /* .post-title a:hover, */
 /* .ts-overlay-style .overlay-post-content .post-meta-info li.active, */
+.header-search, 
 .navbar-standerd .nav-menu > li > a:hover {
     background: #FFCF3C;
     color: white;

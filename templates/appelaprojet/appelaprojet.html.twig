@@ -1,33 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Appel à Projet{% endblock %}
+{% block title 'Appel à projet  | ' ~ parent()%}
 
 {% block section %}{#Section de bienvenue#}
-    <section class="single-post-wrapper post-layout-6">
+    
+		{# Section Bienvenue #}
+		<section class="single-post-wrapper post-layout-6">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="mb-25" id="single-big-img" style="background-image: url(images/appel_projet/appel19.png); background-size: contain;"></div>
+						<div class="mb-25 jumbotron text-center ts-blue-light-bg" id="single-big-img">
+							<h3 class="text-uppercase text-white mt-50 h2">Bienvenue sur votre Espace Appel à projet
+							</h3>
+							<hr class="divider" id="hr">
+						</div>
 					</div>
 				</div>
 				<div class="row ">
 					<div class="col-lg-9 ">
 						<div class="ts-grid-box content-wrapper single-post">
-							
-							<div class="post-content-area ">
-								<h3 id="ts-title" class=" text-center">Bienvenue sur votre Espace Appel à projet!</h3>
-								<div class="entry-content">
-									
-								<p>Cette espace de recherche a été créé dans le but de recenser tous les appels à projets, concours ou encore d'autres dispositifs qui concernent le térritoire Gabonais mais aussi les projets internationaux.</p>
-								<p>L’idée est <span style="background: #fff9b5;padding: 5px 6px;"> d’aider exceptionnellement les acteurs de la société civile</span> à trouver des financements et des nouveaux partenaires pour développer leurs projets.</p>
-								<p>Merci et bnne visite !</p>
 
-								<div class="links text-center">
-									<a href="all_projets.html" class="btn btn-danger" title="Consulter des Appels à Projets"><i class="fa fa-eye mx-2"></i>Consulter des Appels à Projets</a>
+							<div class="post-content-area ">
+								<div class="entry-content pt-3">
+									<p>Cette espace de recherche a été créé dans le but de recenser tous les appels à
+										projets, concours ou encore d'autres dispositifs qui concernent le térritoire
+										Gabonais mais aussi les projets internationaux.</p>
+									<p>L’idée est d’aider exceptionnellement les acteurs de la société civile à
+										trouver des financements et des nouveaux partenaires pour développer leurs
+										projets.
+									</p>
+
+									<div class="links text-center">
+										<a href="all_projets.html" class="btn btn-primary" title="Consulter des Appels à Projets"><i class="fa fa-eye mx-2"></i>Consulter des Appels à Projets</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 					</div>
 
 					<div class="col-lg-3">
@@ -40,16 +48,16 @@
 								<a href="https://www.votre_url.com" class="fa fa-linkedin"></a>
 								<a href="https://www.votre_url.com" class="fa fa-instagram"></a>
 							</ul>
-							
+
 							<img class="img-fluid float-right" src="images/actu/homme-devis.png" alt="">
 						</div>
-						</div>
-						<!-- widgets end-->
 					</div>
+					<!-- widgets end-->
+				</div>
 				<!-- row end-->
 			</div>
 			<!-- container-->
-		</section>{#End section de bienvenue#}
+		</section>
 
         <section class="post-layout">{#Section Sélection des projets #}
 			<div class="container">
@@ -89,58 +97,160 @@
 			<!-- container end-->
 		</section>{# End section sélection des projets#}
         
-        <section class="block-wrapper mt-15 section-bg">{# Section Dernier appel à projet #}
+       {# Début Section Dernier appel à projet #}
+	   <section class="block-wrapper mt-15" style="background-image:url('images/banner-bg.png'); background-attachment: fixed;">
 			<div class="container">
-				
+				<div class="row">
 					<div class="col-lg-12">
 						<div class="ts-grid-box clearfix ts-category-title">
 							<h3 class="ts-title float-left"> LES DERNIERS PROJETS PROPOSÉS</h3>
 						</div>
-							<div class="row">
-								{% for appel_projet in appel_projets %} {# Début Boucle pour les appels à projet #}
-							
-									{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
-								
-									<div class="col-md-4">
-										<div class="ts-grid-box ts-grid-content mb-30">
-											<div class="ts-post-thumb">
-												<a href="concours_two.html">
-													<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image liée à l'appel à projet">
-												</a>
-											</div>
-											<div class="post-content">
-												<h3 class="post-title md">
-													<a href="#">{{appel_projet.title}}</a>
-												</h3>
-												<div class="type"><em>Type d'offre :&nbsp;</em><span>Appel à candidatures</span></div>
-												<strong class="date">Expire le 31/10/2020</strong>
-												<p class="pt-2">
-													<em>{{appel_projet.description}}</em>	
-												</p>
-												
-												<div class="text-right">
-													<a href="concours_two.html" class="btn btn-danger" title="Prix Jeunesse pour l’égalité 2021 : « Quand on veut, on peut ? » "><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
-												</div>
-											</div>
-										</div>
-										<!-- ts grid box-->
+						<div class="row">
+							{% for appel_projet in appel_projets %} {# Début Boucle pour les appels à projet #}
+								{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+							<!-- col end-->
+							<div class="col-md-4">
+								<div class="ts-grid-box ts-grid-content mb-30">
+									<div class="ts-post-thumb">
+										<a href="concours_one.html">
+											<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="Image liée à l'appel à projet">
+										</a>
 									</div>
-								
-									{% endfor %}{# Fin boucle pour image #}
-								{% endfor %}{# Fin boucle pour appel_projet #}
-								
-									
+									<div class="post-content">
+										<h3 class="post-title md">
+											<a href="#">{{appel_projet.title}}</a>
+										</h3>
+										<div class="type"><em>Type d'offre :&nbsp;</em><span>Concours</span>
+										</div>
+										<strong class="date text-danger"><i class="fa fa-clock-o  px-2"></i>Expire le 31/10/2020</strong>
+										<p class="pt-2">
+											<em>{{appel_projet.description}}</em>	
+										</p>
+										<div class="text-right links">
+											<a href="projet_1.html" class="btn btn-danger" title="Concours de « la maison 100% gabonaise accessible à tous»"><i class="fa fa-plus-circle mx-2"></i>Consulter
+											</a>
+										</div>
+									</div>
+								</div>
+								<!-- ts grid box-->
 							</div>
-							
+							 {% endfor %}{# Fin boucle pour image #}
+						  {% endfor %}{# Fin boucle pour appel_projet #}
+						</div>
+						<div class="links text-center pt-3">
+							<a href="all_projets.html" class="btn btn-primary col-md-4" title="Voir tous les appels à projet"><i class="fa fa-eye mx-2">
+								</i>VOIR TOUS LES APPELS A PROJETS
+							</a>
 						</div>
 					</div>
-				
+				</div>
 				<!-- row end-->
 			</div>
 			<!-- container end-->
-		</section>{# End Section Dernier appel à projet #}
-       
-        
+		</section>
+
+        <section class="block-wrapper mt-15">{# Document à télécharger #}
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="ts-grid-box clearfix ts-category-title">
+							<h3 class="ts-title float-left">LES DOCUMENTS À TÉLÉCHARGER</h3>
+							<a href="all_articles.html" class="active float-right h6" style="color: #d72924;">Voir +</a>
+						</div>
+						<div class="row mbr-justify-content-center pt-2">
+							<div class="col-lg-6 mbr-col-md-10" title="Télécharger le guide d'Appel à projet 2019">
+								<div class="wrap">
+									<div class="text-wrap vcenter">
+										<p class="mbr-fonts-style text1 mbr-text display-6">
+											Le Guide d'Appel à projet 2019
+										</p>
+									</div>
+
+									<div class="ico-wrap">
+										<span class="mbr-iconfont fa-download fa"></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 mbr-col-md-10" title="Télécharger la fiche projet Azobe 2020">
+								<div class="wrap">
+									<div class="text-wrap vcenter">
+										<p class="mbr-fonts-style text1 mbr-text display-6">
+											<span>Fiche projet Azobe 2020</span>
+										</p>
+									</div>
+									<div class="ico-wrap">
+										<span class="mbr-iconfont fa-download fa"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mbr-justify-content-center pt-2">
+							<div class="col-lg-6 mbr-col-md-10" title="Télécharger la brochure Programmes 2020">
+								<a href="doc/guide.pdf" class="link_down" style="text-decoration: none;" title="Vous ne le regretterez pas !" target="_blank">
+									<div class="wrap">
+										<div class="text-wrap vcenter">
+											<p class="mbr-fonts-style text1 mbr-text display-6">
+												<span>Brochure Programmes 2020</span>
+											</p>
+										</div>
+										<div class="ico-wrap">
+											<span class="mbr-iconfont fa-download fa"></span>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="col-lg-6 mbr-col-md-10" title="Télécharger la fiche de Budget projet Azobe 2020">
+								<a href="doc/guide.pdf" class="link_down" style="text-decoration: none;" title="Vous ne le regretterez pas !" target="_blank">
+									<div class="wrap">
+										<div class="text-wrap vcenter">
+											<p class="mbr-fonts-style text1 mbr-text display-6">
+												<span>Fiche de Budget projet Azobe 2020</span>
+											</p>
+										</div>
+										<div class="ico-wrap">
+											<span class="mbr-iconfont fa-download fa"></span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="right-sidebar">
+							<div class="ts-grid-box widgets category-list-item">
+								<h2 class="widget-title">Rubriques</h2>
+								<ul class="category-list">
+									<li>
+										<a href="#">Concours
+											<span class="ts-gradien-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Prix
+											<span class="ts-gradien-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Appel à candidatures
+											<span class="ts-gradien-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Appel à projets
+											<span class="ts-gradien-bg">20</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<!-- widget end-->
+						</div>
+					</div>
+				</div>
+				<!-- row end-->
+			</div>
+			<!-- container end-->
+		</section>
 {% endblock %}
 
 {% block body %}{% endblock %}

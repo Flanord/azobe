@@ -3,10 +3,10 @@
 namespace App\Form;
 
 use App\Entity\AlaUne;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AlaUneType extends AbstractType
 {
@@ -14,14 +14,15 @@ class AlaUneType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('Description',CKEditorType::class)
             ->add('auteur')
             ->add('createdAt')
-            ->add('images_une', FileType::class, [
-                'label'=>false, 
-                'multiple'=>true,
-                'mapped'=>false,
-                'required'=>true]
-              );
+            // ->add('images_une', FileType::class, [
+            //     'label'=>false, 
+            //     'multiple'=>true,
+            //     'mapped'=>false,
+            //     'required'=>true]
+            //   );
         ;
     }
 
