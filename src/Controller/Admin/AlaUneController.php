@@ -21,6 +21,8 @@ class AlaUneController extends AbstractController
      */
     public function index(AlaUneRepository $alaUneRepository): Response
     {
+       
+        
         return $this->render('admin/ala_une/index.html.twig', [
             'ala_unes' => $alaUneRepository->findAll(),
         ]);

@@ -1,8 +1,8 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    
-    <div class="modal-footer">
-        <button style="margin-top: 5px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+    <button style="margin-top: 5px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         <button type="submit" class="mt-1 btn btn-primary">{{ button_label|default('Publier') }}</button>
-    </div>
+    {# <div class="modal-footer">
+        
+    </div> #}
 {{ form_end(form) }}

@@ -22,6 +22,8 @@ class HomeController extends AbstractController
      */
     public function index(AlaUneRepository $alaUneRepository, AppelProjetRepository $appelProjetRepository)
     {
+        // dump($alaUneRepository->findAll());
+        // die();
         return $this->render('home/index.html.twig', [
             'ala_unes' => $alaUneRepository->findAll(),
             'appel_projets' => $appelProjetRepository->findAll()

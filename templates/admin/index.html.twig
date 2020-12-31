@@ -433,7 +433,7 @@ body {
                               </a>
                             </li>
                             <li class="nav-item">
-                              <a href="#" class="nav-link" data-toggle="modal" data-target="#article">
+                              <a href="{{ path('ala_une_new') }}" class="nav-link">
                                 <i class="nav-link-icon pe-7s-file font-weight-bold"></i>
                                 <span>
                                   Article
@@ -633,7 +633,7 @@ body {
             </button>
           </div>
           <div class="modal-body">
-             {{ include('admin/ala_une/_form.html.twig') }}
+             {# {{ include('admin/ala_une/_form.html.twig') }} #}
              {# <div id="publier-article">
              </div> #}
           </div>

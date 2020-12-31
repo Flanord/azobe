@@ -16,32 +16,31 @@
 					<div class="col-lg-8 col-md-12">
 						<div id="featured-slider" class="owl-carousel ts-overlay-style ts-featured">
                             {# Boucle twig #}
-                        {% if ala_une is defined %}
+                        {% if ala_unes is defined %}
 							{% for ala_une in ala_unes %}
 									{% for image_une in ala_une.images_une %}
-							    <div class="item" style="background-image:url("/uploads/" ~ image_une.name); background-position: cover;">
+							    <div class="item" style="background-image:url('/uploads/{{image_une.name}}'); background-position: cover;">
 								<a class="post-cat ts-orange-bg" href="#" id="post-cat">A LA UNE</a>
 								<div class="overlay-post-content">
 									<div class="post-content">
 										<h3 class="post-title lg">
-											<a href="#">Azobe, lance une première enquête sur les artisans résidants au
-												Gabon</a>
+											<a href="#">{{ala_une.description}}</a>
 										</h3>
 										<ul class="post-meta-info font-weight-bold">
 											<li class="author" id="author">
 												<a href="#">
-													<img src="images/author1.png" alt="">Crédits : Centre de
-													Ressources Azobe
+													Auteur :{# <img src="images/author1.png" alt="">#}
+													{{ala_une.auteur}}
 												</a>
 											</li>
 											<li>
 												<i class="fa fa-clock-o"></i>
-												26 décembre 2020
+												{{ala_une.createdAt |date('Y-m-d')}}
 											</li>
-											<li class="active">
+											{# <li class="active">
 												<i class="icon-fire"></i>
 												40
-											</li>
+											</li> #}
 										</ul>
 									</div>
 								</div>
