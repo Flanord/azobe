@@ -142,7 +142,10 @@
     right: 0;
     top: -27px;
   }
-  .logo {
+  #myModal #grid-box .dispaly-none {
+    display: none;
+  }
+  .logo { 
     display: none;
   }
   .mobile-logo {
@@ -510,6 +513,7 @@
     border-right: none;
     display: block;
     padding-right: 0;
+    padding-top: 25px;
   }
   .top-bar .ts-temperature:before {
     display: none;
@@ -1170,4 +1174,13 @@
   #featured-slider-4 .item {
     min-height: 365px;
   }
+}
+
+/* cookis-div */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .blog_cookies_div {
+    width: 100%;
+  }
+  
 }

@@ -86,7 +86,7 @@
 					<div class="col-lg-3 col-md-4">
 						<div class="posts-ad">
 							<a href="index.html#">
-								<img src="images/banner/vignette.jpg" alt="">
+								<img src="{{asset('images/vignette.jpg')}}" alt="">
 							</a>
 						</div>
 					</div>
@@ -135,14 +135,14 @@
 						</div>
 						
 						{#Boucle for de twig #}
-						{% for appel_projet in appel_projets|slice(0, 2) %} {# Début Boucle pour les appels à projet #}
+						{% for appel_projet in appel_projets|slice(0, 1) %} {# Début Boucle pour les appels à projet #}
 							
 							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
-						<div class="row mb-10">
+						<div class="row mb-30 featurette">
 							<div class="col-lg-7">
 								<div class="ts-post-thumb">
 									<a href="#">
-										<img class="img-fluid" src="{{ asset('/uploads/' ~ image.name )}}" alt="">
+										<img class="img-fluid" src="{{ asset('/uploads/'~image.name )}}" alt="Image de l'appel à projet">
 									</a>
 								</div>
 							</div>
@@ -167,51 +167,19 @@
 							</div>
 							
 						</div>
-						
 						    {% endfor %}
 						{% endfor %}
-					</div>
-					
-
-						<!--<div class="row mb-30">
-							<div class="col-lg-7">
-								<div class="ts-post-thumb">
-									<a href="#">
-										<img class="img-fluid" src="images/appel16.jpg" alt="">
-									</a>
-								</div>
-							</div>
+						<hr class="featurette-divider">
+						<!-- L'autre appel à projet-->
+						{% for appel_projet in appel_projets|slice(1, 2) %} {# Début Boucle pour les appels à projet #}
 							
-							<div class="col-lg-5 align-self-center">
+							{% for image in appel_projet.images %}{# Début Boucle pour les images associées aux appels à projet #}
+						<div class="row mb-10 featurette">
+							
+							<div class="col-lg-5 align-self-center order-md-1">
 								<div class="post-content links">
 									<h3 class="post-title md">
-										<a href="">Concours de « la maison 100% gabonaise accessible à tous »</a>
-									</h3>
-									<ul class="post-meta-info">
-										<li>
-											<strong class="date  text-danger"><i class="fa fa-clock-o  px-2"></i>Expire
-												le 15 décembre 2018</strong>
-										</li>
-
-									</ul>
-									<p>
-										Le concours de "la maison 100% gabonaise accessible à tous" est officiellement
-										lancé dans le cadre de la journée nationale de l’artisanat
-										co-organisée par le Ministère des Petites et Moyennes entreprises et de
-										l’Artisanat et l’Ambassade de France au Gabon.
-									</p>
-									<a class="btn btn-primary" href="index.html#"><i
-											class="fa fa-plus-circle mx-2"></i>Consulter</a>
-								</div>
-							</div>
-							
-						</div>-->
-						
-						<!--<div class="row mb-10">
-							<div class="col-lg-5 align-self-center">
-								<div class="post-content links">
-									<h3 class="post-title md">
-										<a href="">Appel à projets Azobé</a>
+										<a href="">{{appel_projet.title}}</a>
 									</h3>
 									<ul class="post-meta-info">
 										<li>
@@ -221,33 +189,24 @@
 
 									</ul>
 									<p>
-										La délégation L’Union européenne et L’Ambassade de France lancent l’appel à
-										projets Azobé.
-										Cet appel permet le financement de projets portés par les acteurs non
-										gouvernementaux gabonais dans les domaines du développement durable,
-										du numérique et de l’artisanat.
+										{{appel_projet.description}}
 
 									</p>
 
-									<a class="btn btn-primary" href="index.html#"><i
-											class="fa fa-plus-circle mx-2"></i>Consulter</a>
+									<a class="btn btn-primary mb-2" href="index.html#"><i class="fa fa-plus-circle mx-2"></i>Consulter</a>
 								</div>
 							</div>
-							
-							<div class="col-lg-7">
-								<div class="ts-post-thumb">
-									<a href="#">
-										<img class="img-fluid" src="images/appel1.png" alt="">
-									</a>
-								</div>
-							</div>
-							
-						</div>
+							<!-- col end-->
+								<div class="col-lg-7 order-md-2">
+									<img class="img-fluid" src="{{ asset('/uploads/'~image.name )}}" alt="Image de l'appel à projet">
 						
-					</div>-->
+								</div>
+						  </div>
+					   </div>
+					      {% endfor %}
+					{% endfor %}
+
 					
-
-
 					<div class="col-lg-3">
 						<div class="left-sidebar bg-blue">
 							<div class="modal_card">
@@ -474,7 +433,7 @@
 
 		<!-- Section_call_to_action start -->
 		<section class="block-wrapper"
-			style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
+			style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 call_action">
@@ -504,7 +463,7 @@
 		<!-- Section_call_to_action end-->
 
 
-		<!-- post wraper_Actis_du_moments start-->
+		<!-- post wraper_Une des Actif start-->
 		<section class="block-wrapper mt-15 xs-mb-30">
 			<div class="container">
 				<div class="row">
@@ -519,8 +478,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="{{asset('images/actif1.jpg')}}"
-												alt="acteurs de la sociétés civiles actifs">
+											<img class="img-fluid" src="images/actifs/actif1.jpg" alt="acteurs de la sociétés civiles actifs">
 										</a>
 									</div>
 									<div class="post-content">
@@ -530,7 +488,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author.jpg')}}" alt=""> Fleur Pendie
+													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt=""> Fleur Pendie
 												</a>
 											</li>
 											<li>
@@ -556,7 +514,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="{{asset('images/actif2.jpg')}}" alt="">
+											<img class="img-fluid" src="images/actifs/actif2.jpg" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -566,8 +524,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author2.jpg')}}"
-														alt="acteurs de la sociétés civiles actifs"> Emite Ndombi
+													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt="">  Emite Ndombi
 												</a>
 											</li>
 											<li>
@@ -593,7 +550,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="{{asset('images/actif3.jpg')}}" alt="">
+											<img class="img-fluid" src="images/actifs/actif3.jpg" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -603,7 +560,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author.jpg')}}" alt=""> Cassandra Elat
+													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt="">  Cassandra Elat
 												</a>
 											</li>
 											<li>
@@ -630,7 +587,7 @@
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="{{asset('images/actif4.jpg')}}" alt="">
+											<img class="img-fluid" src="images/actifs/actif4.jpg" alt="">
 										</a>
 									</div>
 									<div class="post-content">
@@ -640,7 +597,7 @@
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="{{asset('images/author2.jpg')}}" alt=""> jean-Mathy Ndong
+													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt="">  jean-Mathy Ndong
 												</a>
 											</li>
 											<li>
@@ -663,20 +620,12 @@
 								</div>
 							</div>
 						</div>
-
-						<!-- Pagination start -->
-						<div class="links text-center p-3">
-							<a href="all_projets.html" class="btn btn-primary col-md-4"
-								title="Voir tous les appels à projet"><i class="fa fa-eye mx-2">
-								</i>Voir tous les actifs
-							</a>
-						</div>
 						<!-- Pagination end -->
 					</div>
 
 					<div class="col-lg-3">
 						<div class="ts-grid-box widgets category-widget">
-							<h2 class="widget-title">Rubriques</h2>
+							<h2 class="widget-title">Parcourir :</h2>
 							<ul class="category-list">
 								<li>
 									<a href="#">Concours
@@ -719,8 +668,7 @@
 									<div class="ts-post-thumb">
 										<a class="post-cat" id="post-cat" href="#">Actualités</a>
 										<a href="#">
-											<img class="img-fluid"
-												src="{{asset('images/publication3.jpg')}}">
+											<img class="img-fluid" src="images/publication3.jpg">
 										</a>
 									</div>
 									<div class="post-content">
@@ -792,10 +740,7 @@
 										</li>
 									</ul>
 
-									<!-- <span class="post-date-info">
-										<i class="fa fa-clock-o"></i>
-										11 Décembre 2019
-									</span> -->
+									
 
 								</div>
 							</div>
@@ -838,7 +783,7 @@
 			</div>
 			<!-- container end-->
 		</section>
-		<!-- post wraper_Actis_du_moments end-->
+		<!-- post wraper une des Actif end-->
 
 
 		<!-- post-wrapper_Compteur start-->
@@ -889,8 +834,7 @@
 
 
 		<!-- post wraper_Partenaires start-->
-		<section class="block-wrapper"
-			style="background-image:url(images/banner-bg.png); background-attachment: fixed;">
+		<section class="block-wrapper" style="background-image:url(images/banner/banner-bg.png); background-attachment: fixed;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -900,55 +844,59 @@
 					</div>
 				</div>
 				<!-- row end-->
-				<div class="row pt-2" id="ads">
-
-					<!-- Category Card -->
-					<div class="col-md-4">
-						<div class="cards h-auto d-inline-block">
-							<div class="card-image">
-								<a href="https://ga.ambafrance.org/" target="_blank"><img src="{{asset('images/logo_1.png')}}"  class="img-fluid" alt="https://ga.ambafrance.org"/></a>
-							</div>
-							<div class="p-2">
-								<a href="https://ga.ambafrance.org/" target="_blank" class="title_link"
-									title="https://ga.ambafrance.org/" target="_blank">
-									Consulter le site<i class="mx-2 fa fa-arrow-right"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Category Card -->
-					<div class="col-md-4 ">
-						<div class="cards">
-							<div class="card-image">
-								<a href="https://www.institutfrancais-gabon.com/" target="_blank"><img class="img-fluid" src="{{asset('images/logo_2.png')}}" alt="https://www.institutfrancais-gabon.com/" /></a>
-							</div>
-							<div class="p-5">
-								<a href="https://www.institutfrancais-gabon.com/" target="_blank" class="title_link"
-									title="https://www.institutfrancais-gabon.com/" target="_blank">
-									Consulter le site<i class=" mx-2 fa fa-arrow-right"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Category Card -->
-					<div class="col-md-4 ">
-						<div class="cards">
-							<div class="card-image">
-								<a href="https://eeas.europa.eu/delegations/gabon_fr" target="_blank"><img class="img-fluid" src="{{('images/logo_3.jpg')}}" alt="https://eeas.europa.eu/delegations/gabon_fr"/></a>
-							</div>
-							<div class="p-4">
-								<a href="https://eeas.europa.eu/delegations/gabon_fr" target="_blank" class="title_link"
-									title="https://eeas.europa.eu/delegations/gabon_fr" target="_blank">
-									Consulter le site<i class=" mx-2 fa fa-arrow-right" target="_blank"></i>
-								</a>
+				
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="ts-grid-box clearfix ts-category-title mt-2" id="partenaires">
+							<div class="row">
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+									<div class="our-services-wrapper mb-30">
+										<a href="https://ga.ambafrance.org/" class="title_link" title="https://ga.ambafrance.org/">
+											<div class="services-inner">
+												<div class="our-services-img">
+													<img class="img-fluid " src="images/logo_1.png" width="150px" alt="Alternate Text">
+												</div>
+												<div class="our-services-text">
+													<h4>Ambassade de France</h4>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+									<div class="our-services-wrapper mb-30">
+										<a href="https://www.institutfrancais-gabon.com/" class="title_link" title="https://www.institutfrancais-gabon.com/">
+											<div class="services-inner">
+												<div class="our-services-img">
+													<img class="img-fluid" src="images/logo_2.png" width="180px" alt="Alternate Text">
+												</div>
+												<div class="our-services-text">
+													<h4>Institut Français du Gabon</h4>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+									<div class="our-services-wrapper mb-30">
+										<a href="https://eeas.europa.eu/delegations/gabon_fr" class="title_link" title="https://eeas.europa.eu/delegations/gabon_fr">
+											<div class="services-inner">
+												<div class="our-services-img">
+													<img class="img-fluid" src="images/logo_3.jpg" width="180px" alt="">
+												</div>
+												<div class="our-services-text">
+													<h4>Union Européenne</h4>
+												</div>
+											</div>
+									</a></div><a href="https://eeas.europa.eu/delegations/gabon_fr" class="title_link" title="https://eeas.europa.eu/delegations/gabon_fr">
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- row end-->
 			</div>
-
 		</section>
 		<!-- post wraper_Partenaires end-->
         

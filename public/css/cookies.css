@@ -208,9 +208,10 @@
 
 		.blog_btn {
 		    display: inline-block;
-		    padding: 13px 35px;
-		    color: #fff;
-		    border-radius: 25px 0;
+		    padding: 12px;
+			color: #fff;
+			background: #FECF3C;
+		    border-radius: 25px;
 		    text-transform: capitalize;
 		    border: none;
 		    min-width: 170px;
@@ -224,6 +225,10 @@
 		}
 
 		.blog_btn:hover {
-		    border-radius: 0 25px;
-		    color: #fff;
+			background: #FECF3C;
+			box-shadow: 0 6px 6px 0 rgba(0,70,110, 0.4), 0 9px 8px 0 rgba(0, 0, 0, 0.05);
+			border-radius: 25px;
+			color: #fff;
 		}
+
+		

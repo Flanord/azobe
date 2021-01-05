@@ -11,34 +11,45 @@
         <title>{% block title %}azobe-crsc{% endblock %}</title>
         
         <!-- CSS ====================================== -->
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="{{ asset('css/uikit.css')}}">
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-	<!-- IcoFonts -->
-	<link rel="stylesheet" href="{{ asset('css/icofonts.css') }}">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="{{ asset('css/owlcarousel.min.css') }}">
+
 	<!-- slick -->
-	<link rel="stylesheet" href="{{ asset('css/slick.css') }}">
-	<!-- AZ -->
-	<link rel="stylesheet" href="{{ asset('css/az-style.css') }}">
+	<link rel="stylesheet" href="{{asset('css/slick.css')}}">
+
+	<!-- uikit -->
+	<link rel="stylesheet" href="{{asset('css/uikit.min.css')}}">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
+
+	<!-- IcoFonts -->
+	<link rel="stylesheet" href="{{asset('css/icofonts.css')}}">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{{asset('css/owlcarousel.min.css')}}">
+
 	<!-- navigation -->
-	<link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
+	<link rel="stylesheet" href="{{asset('css/navigation.css')}}">
+
 	<!-- magnific popup -->
-	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+	<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+
 	<!-- Style -->
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
 	<!-- Style -->
-	<link rel="stylesheet" href="{{ asset('css/colors/color-13.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/colors/color-15.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/colors/color-16.css') }}">
+	<link rel="stylesheet" href="{{asset('css/colors/color-1.css')}}">
+	<link rel="stylesheet" href="{{asset('css/colors/color-2.css')}}">
+	<link rel="stylesheet" href="{{asset('css/colors/color-3.css')}}">
+	<link rel="stylesheet" href="{{asset('css/colors/color-4.css')}}">
 	<!-- Responsive -->
-	<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/cookies.css') }}">
+	<link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+
+	<link rel="stylesheet" type="text/css" href="{{asset('css/cookies.css')}}">
+
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -108,13 +119,14 @@
 			</section>
 			<!-- end top bar-->
 
+			
 			<!-- top bar start -->
 			<section class="top-bar v4">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-7 align-self-center">
 							<div class="ts-breaking-news clearfix">
-								<h3 class="breaking-title float-left text-font" style="margin-top:0;">Actualités:</h3>
+								<h3 class="breaking-title float-left text-font">Actualités:</h3>
 								<div class="breaking-news-content float-left" id="breaking_slider1">
 									<div class="breaking-post-content mx-5">
 										<p>
@@ -135,7 +147,7 @@
 									<div class="breaking-post-content  mx-5">
 										<p>
 											<a href="https://www.institutfrancais-gabon.com/">
-												Les activités reprennents à l'Institut Français Gabonais dzns le strict
+												Les activités reprennents à l'Institut Français Gabonais dans le strict
 												respect des méssures...</a>
 										</p>
 									</div>
@@ -147,7 +159,7 @@
 						<div class="col-md-5 align-self-center">
 							<div class="text-right xs-left">
 								<div class="ts-date-item">
-									Jeudi, 26 novembre 2020</div>
+									Lundi, 04 janvier 2021</div>
 							</div>
 
 						</div>
@@ -463,18 +475,16 @@
     
 	
 	{% block javascripts %}
-	<!-- javaScript Files-->
-	<!-- initialize jQuery Library -->
-	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<script src="{{asset('js/jquery.min.js')}}"></script>
 	<!-- navigation JS -->
-	<script src="{{ asset('js/navigation.js') }}"></script>
+	<script src="{{asset('js/navigation.js')}}"></script>
 	<!-- Popper JS -->
-	<script src="{{ asset('js/popper.min.js') }}"></script>
+	<script src="{{asset('js/popper.min.js')}}"></script>
+
 	<!-- magnific popup JS -->
-	<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+	<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+
 	<!-- Bootstrap jQuery -->
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-	<!--Bootstrap jquery-->
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<!-- Owl Carousel -->
 	<script src="{{asset('js/owl-carousel.2.3.0.min.js')}}"></script>
@@ -482,10 +492,12 @@
 	<script src="{{asset('js/slick.min.js')}}"></script>
 	<!-- Index Js -->
 	<script src="{{asset('js/index.js')}}"></script>
+
 	<!-- smooth scroling -->
-	<script src="{{asset('js/smoothscroll.js')}}"></script> 
+	<script src="{{asset('js/smoothscroll.js')}}"></script>
 	<!-- smooth scroling -->
 	<script src="{{asset('js/custum.js')}}"></script>
+
 	<script src="{{asset('js/main.js')}}"></script>
 	{% endblock %}
     </body>
