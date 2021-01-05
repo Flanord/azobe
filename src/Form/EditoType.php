@@ -15,6 +15,12 @@ class EditoType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('createdAt')
+            ->add('imageEditos',FileType::class,[
+                'label'=>false, 
+                'multiple'=>true,
+                'mapped'=>false,
+                'required'=>true] 
+              )
         ;
     }
 

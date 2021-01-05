@@ -1,0 +1,34 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Actif{% endblock %}
+
+{% block body %}
+    <h1>Actif</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actif.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ actif.nom }}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ actif.auteur }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ actif.createdAt ? actif.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('actif_index') }}">back to list</a>
+
+    <a href="{{ path('actif_edit', {'id': actif.id}) }}">edit</a>
+
+    {{ include('admin/actif/_delete_form.html.twig') }}
+{% endblock %}

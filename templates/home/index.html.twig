@@ -55,11 +55,16 @@
 					<div class="col-lg-4">
 						<div class="ts-grid-box ts-grid-content">
 							<a class="post-cat" href="#" id="post-cat">Edito du mois</a>
+							{% for edito in editos %}
+									{% for imageEdito in edito.imageEdito %}
 							<div class="ts-post-thumb">
 								<a href="#">
-									<img class="img-fluid" src="images/edito4.jpg" alt="">
+									<img class="img-fluid" src="{{ asset('/uploads/'~imageEdito.name )}}" alt="">
 								</a>
 							</div>
+									{% endfor %}
+							{% endfor %}
+
 							<div class="post-content">
 								<h3 class="post-title">
 									<a href="#">Artisanat un domaine très exercé, mais peut connu!</a>
@@ -474,26 +479,29 @@
 							</h3>
 						</div>
 						<div class="row post-col-list-item">
+							{% for actif in actifs|slice(0, 4) %} {# Début Boucle pour les appels à projet #}
+							
+								{% for image_actif in actif.imageActifs %}{# Début Boucle pour les images associées aux appels à projet #}
 							<div class="col-lg-6 mb-30">
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
-											<img class="img-fluid" src="images/actifs/actif1.jpg" alt="acteurs de la sociétés civiles actifs">
+											<img class="img-fluid" src="{{ asset('/uploads/'~image_actif.name )}}" alt="acteurs de la sociétés civiles actifs">
 										</a>
 									</div>
 									<div class="post-content">
 										<h3 class="post-title md">
-											<a href="index-8.html#">ONG ACTE</a>
+											<a href="index-8.html#">{{actif.nom}}</a>
 										</h3>
 										<ul class="post-meta-info">
 											<li class="author">
 												<a href="category-1.html#">
-													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt=""> Fleur Pendie
+													<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm" alt=""> {{actif.auteur}}
 												</a>
 											</li>
 											<li>
 												<i class="fa fa-clock-o"></i>
-												Jun 21, 2019
+												{{actif.createdAt |date('Y-m-d')}}
 											</li>
 											<li>
 												<a href="category-1.html#">
@@ -510,7 +518,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 mb-30">
+								{% endfor %}
+							{% endfor %}
+							{# <div class="col-lg-6 mb-30">
 								<div class="ts-grid-box ts-grid-content">
 									<div class="ts-post-thumb">
 										<a href="index-8.html#">
@@ -618,7 +628,7 @@
 											jeunes filles.</p>
 									</div>
 								</div>
-							</div>
+							</div> #}
 						</div>
 						<!-- Pagination end -->
 					</div>

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Actif;
 use App\Repository\AlaUneRepository;
 use App\Repository\AppelProjetRepository;
 use App\Entity\AlaUne;
@@ -11,7 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\AlaUneType;
-
+use App\Repository\ActifRepository;
+use App\Repository\EditoRepository;
 
 class HomeController extends AbstractController
 {
@@ -20,13 +21,15 @@ class HomeController extends AbstractController
      /**
      * @Route("/", name="home")
      */
-    public function index(AlaUneRepository $alaUneRepository, AppelProjetRepository $appelProjetRepository)
+    public function index(AlaUneRepository $alaUneRepository, AppelProjetRepository $appelProjetRepository, ActifRepository $actifRepository,EditoRepository $editoRepository)
     {
         // dump($alaUneRepository->findAll());
         // die();
         return $this->render('home/index.html.twig', [
-            'ala_unes' => $alaUneRepository->findAll(),
-            'appel_projets' => $appelProjetRepository->findAll()
+            'ala_unes'      => $alaUneRepository->findAll(),
+            'appel_projets' => $appelProjetRepository->findAll(),
+            'actifs'        => $actifRepository->findAll(),
+            'editos'        => $editoRepository->findAll()
         ]);
     }
 

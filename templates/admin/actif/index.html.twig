@@ -1,0 +1,39 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Actif index{% endblock %}
+
+{% block body %}
+    <h1>Actif index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Auteur</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actif in actifs %}
+            <tr>
+                <td>{{ actif.id }}</td>
+                <td>{{ actif.nom }}</td>
+                <td>{{ actif.auteur }}</td>
+                <td>{{ actif.createdAt ? actif.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('actif_show', {'id': actif.id}) }}">show</a>
+                    <a href="{{ path('actif_edit', {'id': actif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('actif_new') }}">Create new</a>
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EditoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Edito
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ImageEdito::class, mappedBy="edito", orphanRemoval=true, cascade={"persist"})
+     */
+    private $imageEditos;
+
+    public function __construct()
+    {
+        $this->imageEditos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,36 @@ class Edito
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ImageEdito[]
+     */
+    public function getImageEditos(): Collection
+    {
+        return $this->imageEditos;
+    }
+
+    public function addImageEdito(ImageEdito $imageEdito): self
+    {
+        if (!$this->imageEditos->contains($imageEdito)) {
+            $this->imageEditos[] = $imageEdito;
+            $imageEdito->setEdito($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImageEdito(ImageEdito $imageEdito): self
+    {
+        if ($this->imageEditos->removeElement($imageEdito)) {
+            // set the owning side to null (unless already changed)
+            if ($imageEdito->getEdito() === $this) {
+                $imageEdito->setEdito(null);
+            }
+        }
 
         return $this;
     }

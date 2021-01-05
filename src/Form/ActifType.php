@@ -2,35 +2,32 @@
 
 namespace App\Form;
 
-use App\Entity\AlaUne;
+use App\Entity\Actif;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-class AlaUneType extends AbstractType
+class ActifType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('Description')
+            ->add('nom')
             ->add('auteur')
             ->add('createdAt')
-            ->add('images_une',FileType::class,[
-                'label'=>false, 
+            ->add('imageActifs',FileType::class, [
+                'label'=>false,
                 'multiple'=>true,
                 'mapped'=>false,
-                'required'=>true] 
-              );
-        
+                'required'=>true])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AlaUne::class,
+            'data_class' => Actif::class,
         ]);
     }
 }
