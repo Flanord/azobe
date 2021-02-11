@@ -1,0 +1,38 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}AzobeChiffre{% endblock %}
+
+{% block body %}
+    <h1>AzobeChiffre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ azobe_chiffre.id }}</td>
+            </tr>
+            <tr>
+                <th>Acteur_repertories</th>
+                <td>{{ azobe_chiffre.acteurRepertories }}</td>
+            </tr>
+            <tr>
+                <th>Action_concretises</th>
+                <td>{{ azobe_chiffre.actionConcretises }}</td>
+            </tr>
+            <tr>
+                <th>Evenement_organises</th>
+                <td>{{ azobe_chiffre.evenementOrganises }}</td>
+            </tr>
+            <tr>
+                <th>Appele_projets</th>
+                <td>{{ azobe_chiffre.appeleProjets }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('azobe_chiffre_index') }}">back to list</a>
+
+    <a href="{{ path('azobe_chiffre_edit', {'id': azobe_chiffre.id}) }}">edit</a>
+
+    {{ include('admin/azobe_chiffre/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}New AzobeChiffre{% endblock %}
+
+{% block body %}
+    <h1>Create new AzobeChiffre</h1>
+
+    {{ include('admin/azobe_chiffre/_form.html.twig') }}
+
+    <a href="{{ path('azobe_chiffre_index') }}">back to list</a>
+{% endblock %}

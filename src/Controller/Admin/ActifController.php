@@ -45,7 +45,7 @@ class ActifController extends AbstractController
                  //On génère un nouveau nom de fichier.
                  $fichier = md5(uniqid()).'.'.$imageActif->guessExtension();
  
-                 //On copier le fichier dans le dossier upload
+                 //On copie le fichier dans le dossier upload
                  $imageActif->move( 
                      $this->getParameter('images_directory'), $fichier
                  );

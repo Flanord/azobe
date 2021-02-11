@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/edito", name="edito")
+ * @Route("admin/edito")
  */
 class EditoController extends AbstractController
 {
@@ -37,19 +37,19 @@ class EditoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //On récupère les images transmises
+            //On récupère les images transmises.
             $imageEditos = $form->get('imageEditos')->getData();
             //On boucle sur les images.
             foreach($imageEditos as $imageEdito){
-                //On génère un nouveau nom de fichier.
+                //On génère un nouveau nom de fichier
                 $fichier = md5(uniqid()).'.'.$imageEdito->guessExtension();
 
-                //On copier le fichier dans le dossier upload
-                $imageEdito->move( 
-                    $this->getParameter('images_directory'), $fichier
+                //On copie le fichier dans le dossier upload
+                $imageEdito->move(
+                    $this->getParameter('images_directory'),$fichier
                 );
 
-                //On stocke l'image dans la base de données (son nom)
+                //On stocke le nom de l'image dans la base donnée.
                 $img = new ImageEdito();
                 $img -> setName($fichier);
                 $edito->addImageEdito($img);
@@ -88,24 +88,23 @@ class EditoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //On récupère les images transmises
+            //On récupère les images transmises.
             $imageEditos = $form->get('imageEditos')->getData();
             //On boucle sur les images.
             foreach($imageEditos as $imageEdito){
-                //On génère un nouveau nom de fichier.
+                //On génère un nouveau nom de fichier
                 $fichier = md5(uniqid()).'.'.$imageEdito->guessExtension();
 
-                //On copier le fichier dans le dossier upload
-                $imageEdito->move( 
-                    $this->getParameter('images_directory'), $fichier
+                //On copie le fichier dans le dossier upload
+                $imageEdito->move(
+                    $this->getParameter('images_directory'),$fichier
                 );
 
-                //On stocke l'image dans la base de données (son nom)
+                //On stocke le nom de l'image dans la base donnée.
                 $img = new ImageEdito();
                 $img -> setName($fichier);
                 $edito->addImageEdito($img);
             }
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('edito_index');

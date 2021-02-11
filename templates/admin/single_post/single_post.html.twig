@@ -1,0 +1,360 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'A la une  | ' ~ parent()%}
+
+{% block single_post %}
+
+		<!-- single post_publication start -->
+		<section class="single-post-wrapper post-layout-6 p-3">
+			<div class="container">
+               {% if ala_unes is defined %}
+							{% for ala_une in ala_unes%}
+									{% for image_une in ala_une.images_une %} 
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="single-big-img mb-30" style="background-image:url('/uploads/{{image_une.name}}')">
+						</div>
+					</div>
+				</div>
+                           
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="ts-grid-box content-wrapper single-post">
+							<ol class="ts-breadcrumb pt-3">
+								<li>
+									<a href="#">
+										<i class="fa fa-home"></i>
+										Accueil
+									</a>
+								</li>
+								<li>
+									<a href="#">À la une</a>
+								</li>
+								<li>
+									<a href="#" style="color: #004e7c;">Publication</a>
+								</li>
+		
+							</ol>
+							<!-- single post header end-->
+		
+		
+							<div class="post-content-area pt-3">
+		
+								<div class="entry-content">
+									<div class="entry-header">
+										<h3 class="post-title pb-2"> {{ala_une.description}}</h3>
+										<ul class="post-meta-info">
+											<li class="author">
+												<a href="#">
+													<img src="{{asset('images/avatar_1.JPG')}}" alt=""> {{ala_une.auteur}}
+												</a>
+											</li>
+											<li>
+												<i class="fa fa-clock-o"></i>
+												{{ala_une.createdAt |date('Y-m-d')}}
+											</li>
+											{# <li class="active">
+												<i class="icon-fire"></i>
+											
+											</li> #}
+											{# <li class="share-post">
+												<a href="#">
+													<i class="fa fa-share"></i>
+												</a>
+											</li> #}
+											<li class="share-post">
+												<a href="#">
+													<i class="fa fa-facebook"></i>
+												</a>
+											</li>
+											<li class="share-post">
+												<a href="#">
+													<i class="fa fa-twitter"></i>
+												</a>
+											</li>
+											<li class="share-post">
+												<a href="#">
+													<i class="fa fa-instagram"></i>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<!-- ts grid item end-->
+		
+									<blockquote id="blockquote">
+										Le jeudi 19 novembre 2020, l’AFD au Gabon et l’association Ogooué Labs ont signé une
+										convention de partenariat pour la mise en place de l’incubateur STARTX 241.
+									</blockquote>
+									<p>
+										STARTX 241 n’est pas le premier projet lancé par l’association Ogooué Labs pour
+										développer l’écosystème numérique et entrepreneurial au Gabon. En 2018,
+										l’association a en effet créé, avec l’appui de l’entreprise française Simplon,
+										l’Ecole 241 qui offre gratuitement
+										à de jeunes apprenants une formation en mode accéléré et intensif aux métiers du
+										numérique (développeur web/mobile et réfèrent digital).
+									</p>
+		
+									<p>
+										STARTX 241 vient renforcer cette initiative avec l’ambition d’attirer au Gabon
+										les start-ups de toute l’Afrique francophone en les aidant à s’installer grâce à
+										une formation de 8 mois (sous le patronage de
+										l’accélérateur français Héméra) et à la mise à disposition de ressources
+										humaines formées (élèves issus de l’Ecole 241).
+									</p>
+		
+									<div class="post-video">
+										<img class="img-fluid" src="{{asset('images/une7.jpg')}}" alt="">
+										<p class="text-bg">Séance de travail entre la direction de l’AFD Gabon et
+											l’association Ogooué Labs pour échanger sur le projet STARTX 241 qui a pour
+											ambition de développer l’écosystème numérique et entrepreneurial au Gabon.
+											<br>Crédits : Ambassade de France
+										</p>
+									</div>
+		
+									<p>
+										Ce projet, dans lequel l’AFD apporte une subvention de 60 000 euros, est la
+										deuxième collaboration entre l’agence et Ogooué Labs : dans le cadre de la
+										riposte sanitaire à la covid-19 au Gabon, l’AFD – au travers du projet PASS2 – a
+										en effet chargé Ogooué Labs et l’Ecole 241 de développer
+										un chatbot (agent conversationnel) destiné à offrir au grand public gabonais des
+										informations officielles sur l’épidémie et les moyens de s’en protéger.
+									</p>
+									<p> Ce projet enfin répond aux missions de l’AFD de promouvoir le secteur numérique
+										au bénéfice de l’éducation et de l’emploi, au Gabon et dans le monde. Pour
+										mémoire, l’AFD accompagne le gouvernement gabonais dans le secteur de
+										l’éducation au travers du PISE (projet d’investissement dans le secteur de
+										l’éducation) dont l’objectif principal
+										est l’augmentation des capacités d’accueil dans les établissements scolaires
+										primaires et secondaires à Libreville et Port-Gentil.
+									</p>
+								</div>
+								<!-- entry content end-->
+							</div>
+		
+							<div class="source pb-4">
+		
+								<p class="timestamp">
+									Dernière modification : 19/05/2020
+								</p>
+							</div>
+						</div>
+						<div class="comments-form ts-grid-box">
+							<h4 class="title title-small">2 Commentaires</h4>
+							<form role="form" class="ts-form">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<input class="form-control" name="name" id="name" placeholder="Votre nom"
+												type="text" required="">
+										</div>
+										<!-- form group end-->
+										<div class="form-group">
+											<input class="form-control" name="email" id="email" placeholder="Votre e-mail"
+												type="email" required="">
+										</div>
+										<!-- form group end-->
+		
+										<p class="comment-form-cookies-consent">
+											<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
+												type="checkbox" value="yes">
+											<label for="wp-comment-cookies-consent">Je ne suis pas un robot.</label>
+										</p>
+										<!-- Form row end -->
+										<div class="clearfix links">
+											<button class="comments-btn btn btn-primary" type="submit">Commenter</button>
+										</div>
+									</div>
+									<!-- Col end -->
+									<div class="col-md-6">
+										<div class="form-group">
+											<textarea class="form-control msg-box" id="message" placeholder="Votre commentaire"
+												rows="10" required=""></textarea>
+										</div>
+									</div>
+									<!-- Col end -->
+								</div>
+							</form>
+							<!-- Form end -->
+							<ul class="comments-list">
+								<li>
+									<div class="comment-one">
+										<img src="https://1.gravatar.com/avatar/f6911915850ee4388ee343b9909a959f?s=200&amp;r=pg&amp;d=mm"
+											class="comment-avatar float-left">
+										<div class="comment-body">
+											<div class="meta-data"><span class="float-right"><a class="comment-reply"
+														href="#"><i class="fa fa-mail-reply-all"></i>Reponse</a></span>
+												<span class="comment-author">Flo Pendy</span><span class="comment-date">18 mai
+													2020</span>
+											</div>
+											<div class="comment-content">
+												<p>There’s such a thing as “too much information”, especially for the companies
+													scaling out their sales operations. That’s why Attentive was help sales
+													teams </p>
+											</div>
+										</div>
+									</div>
+									<!-- Comments end-->
+								</li>
+								<!-- Comments-list li end-->
+							</ul>
+							<!-- comments-list end -->
+						</div>
+					</div>
+					<!-- col end -->
+					<div class="col-lg-3">
+						<div class="right-sidebar">
+							<div class="ts-grid-box widgets ts-social-list-item">
+								<div class="widgets widget-banner">
+									<h3 class="widget-title">
+										Rejoignez-nous
+									</h3>
+									<ul class="sociaux">
+										<a href="https://www.votre_url.com" class="fa fa-facebook"></a>
+										<a href="https://www.votre_url.com" class="fa fa-twitter"></a>
+										<a href="https://www.votre_url.com" class="fa fa-instagram"></a>
+									</ul>
+								</div>
+							</div>
+							<!-- widgets end-->
+		
+							<div class="widgets widget-banner">
+								<a href="#">
+									<img class="img-fluid" src="{{asset('images/vignette.jpg')}}" alt="">
+								</a>
+							</div>
+							<!-- widgets end-->
+		
+							<div class="ts-grid-box widgets category-widget">
+								<h2 class="widget-title">Categories</h2>
+								<ul class="category-list">
+									<li>
+										<a href="#">ONG
+											<span class="ts-orange-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Développement durable
+											<span class="ts-blue-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Artisanat
+											<span class="ts-pink-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Coopérative
+											<span class="ts-green-bg">10</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Numérique
+											<span class="ts-blue-bg">10</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<!-- widgets end-->
+							<div class="widgets ts-grid-box  widgets-populer-post">
+								<h3 class="widget-title">Publications populaires</h3>
+								<div class="ts-overlay">
+									<div class="item">
+										<div class="ts-post-thumb">
+											<a class="post-cat" id="post-cat" href="#">Actualités</a>
+											<a href="#">
+												<img class="img-fluid" src="images/publications/populaires/publication3.jpg">
+											</a>
+										</div>
+										<div class="post-content">
+											<h3 class="post-title">
+												<a href="index-8.html#">Lancement des travaux de la « maison 100%
+													gabonaise.</a>
+											</h3>
+											<ul class="post-meta-info d-flex">
+												<li>
+													<i class="fa fa-clock-o"></i>
+													20 mai 2020
+												</li>
+												<li>
+													<a href="category-1.html#" class="color-grey">
+														<i class="fa fa-comments"></i>
+														5
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<!-- ts-overlay-style  end-->
+		
+								<div class="post-content media">
+									<div class="media-body align-self-center">
+										<h3 class="post-title">
+											<a href="#">Lancement de l'Appel à projet Azobe</a>
+										</h3>
+										<ul class="post-meta-info d-flex">
+											<li>
+												<i class="fa fa-clock-o"></i>
+												11 Décembre 2019
+											</li>
+											<li>
+												<a href="category-1.html#" class="color-grey">
+													<i class="fa fa-comments"></i>
+													15
+												</a>
+											</li>
+										</ul>
+		
+										<!-- <span class="post-date-info">
+													<i class="fa fa-clock-o"></i>
+													11 Décembre 2019
+												</span> -->
+		
+									</div>
+								</div>
+								<hr>
+								<!-- post content end-->
+		
+								<div class="post-content media">
+									<div class="media-body align-self-center">
+										<h3 class="post-title">
+											<a href="#">Lancement des missions de coaching Actifs Gabon</a>
+										</h3>
+										<ul class="post-meta-info d-flex">
+											<li>
+												<i class="fa fa-clock-o"></i>
+												21 octobre 2020
+											</li>
+											<li>
+												<a href="category-1.html#" class="color-grey">
+													<i class="fa fa-comments"></i>
+													10
+												</a>
+											</li>
+										</ul>
+		
+										<!-- <span class="post-date-info">
+													<i class="fa fa-clock-o"></i>
+													11 Décembre 2019
+												</span> -->
+		
+									</div>
+								</div>
+								<!-- post content end-->
+							</div>
+							<!-- widgets end-->
+						</div>
+					</div>
+					<!-- right sidebar end-->
+					<!-- col end-->
+				</div>
+                       {% endfor %}
+                    {% endfor %}
+            {% endif %}
+				<!-- row end-->
+			</div>
+			<!-- container-->
+		</section>
+		<!-- single post_publication end-->
+{% endblock %}

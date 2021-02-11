@@ -1,0 +1,13 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Edit AzobeChiffre{% endblock %}
+
+{% block body %}
+    <h1>Edit AzobeChiffre</h1>
+
+    {{ include('admin/azobe_chiffre/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('azobe_chiffre_index') }}">back to list</a>
+
+    {{ include('admin/azobe_chiffre/_delete_form.html.twig') }}
+{% endblock %}

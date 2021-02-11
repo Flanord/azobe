@@ -1,0 +1,41 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}AzobeChiffre index{% endblock %}
+
+{% block body %}
+    <h1>AzobeChiffre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Acteur_repertories</th>
+                <th>Action_concretises</th>
+                <th>Evenement_organises</th>
+                <th>Appele_projets</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for azobe_chiffre in azobe_chiffres %}
+            <tr>
+                <td>{{ azobe_chiffre.id }}</td>
+                <td>{{ azobe_chiffre.acteurRepertories }}</td>
+                <td>{{ azobe_chiffre.actionConcretises }}</td>
+                <td>{{ azobe_chiffre.evenementOrganises }}</td>
+                <td>{{ azobe_chiffre.appeleProjets }}</td>
+                <td>
+                    <a href="{{ path('azobe_chiffre_show', {'id': azobe_chiffre.id}) }}">show</a>
+                    <a href="{{ path('azobe_chiffre_edit', {'id': azobe_chiffre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('azobe_chiffre_new') }}">Create new</a>
+{% endblock %}
